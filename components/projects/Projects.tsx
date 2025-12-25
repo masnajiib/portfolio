@@ -1,23 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Folder, ExternalLink } from 'lucide-react';
 import { PROJECTS } from '../../constants';
 import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
-  const [showIframe, setShowIframe] = useState(true);
-  const [iframeError, setIframeError] = useState(false);
-
-  // Detect if browser might block LinkedIn embed
-  useEffect(() => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isBrave = (navigator as any).brave !== undefined;
-    const isEdge = userAgent.includes('edg/');
-    
-    // If Brave or Edge detected, show fallback immediately
-    if (isBrave || isEdge) {
-      setShowIframe(false);
-    }
-  }, []);
+  const [showFallback, setShowFallback] = useState(false);
 
   const container = {
     hidden: { opacity: 0 },
@@ -51,10 +38,10 @@ const Projects: React.FC = () => {
             A selection of AI, Computer Vision, and Data Analysis projects I've developed for enterprise and research.
           </p>
 
-          {/* Featured Video Section - Hybrid Approach */}
+          {/* Featured Video Section - Universal Fallback */}
           <div className="w-full max-w-3xl mx-auto mb-16">
-            {showIframe && !iframeError ? (
-              /* LinkedIn Iframe Embed - for Chrome and compatible browsers */
+            {!showFallback ? (
+              /* LinkedIn Iframe Embed - Try first for all browsers */
               <div className="rounded-xl overflow-hidden border border-gray-800 shadow-2xl bg-black relative">
                 <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
                   <iframe 
@@ -64,25 +51,23 @@ const Projects: React.FC = () => {
                     allowFullScreen={true}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     title="Featured Project Video"
-                    onError={() => setIframeError(true)}
+                    onError={() => setShowFallback(true)}
                   ></iframe>
                 </div>
                 
-                {/* Fallback Link below iframe */}
-                <div className="text-center py-3 bg-card/50">
-                  <a 
-                    href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7289203499630829568" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                {/* Manual Fallback Button */}
+                <div className="text-center py-3 bg-card/50 border-t border-gray-800">
+                  <button 
+                    onClick={() => setShowFallback(true)}
                     className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-primary transition-colors"
                   >
                     <ExternalLink size={12} />
-                    <span>Open in LinkedIn</span>
-                  </a>
+                    <span>Can't see the video? Click here to watch on LinkedIn</span>
+                  </button>
                 </div>
               </div>
             ) : (
-              /* Clickable Preview - for Brave, Edge, and browsers that block iframe */
+              /* Clickable Preview - Fallback for all browsers that block iframe */
               <a 
                 href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7289203499630829568" 
                 target="_blank" 
