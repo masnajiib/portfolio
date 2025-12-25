@@ -1,7 +1,7 @@
 import { Experience, Project, Publication, SkillCategory, Education, Certification } from './types';
 import { Linkedin, Mail, FileText, Phone, Instagram, Github } from 'lucide-react';
 
-export const RESUME_URL = "./assets/resume/CV-Almas Najiib Imam Muttaqin.pdf"; // Replace with actual file path if hosting
+export const RESUME_URL = "assets/resume/CV-Almas Najiib Imam Muttaqin.pdf"; // Replace with actual file path if hosting
 
 export const PERSONAL_INFO = {
   name: "Almas Najiib Imam Muttaqin",
@@ -12,7 +12,7 @@ export const PERSONAL_INFO = {
   typingRoles: ["AI Developer", "Computer Vision Engineer", "Data Scientist","Data Analyst"], // Roles for the typing animation
   email: "almasnajiib27@gmail.com",
   linkedin: "https://linkedin.com/in/masnajiib27",
-  profileImage: "./assets/profile/profile.jpg", // Replace with your actual photo URL
+  profileImage: "assets/profile/profile.jpg", // Replace with your actual photo URL
   about: "AI Developer, Data Scientist, and Informatics Engineering graduate (GPA 3.83/4.00) specializing in Computer Vision, AI Agents, and Data Analytics. Proven track record in developing scalable AI-driven solutions for the telecommunications industry, focusing on object detection models and LLM-based integration. Combines technical expertise with strong research capabilities, evidenced by 5 published scientific journals (1 as First Author, Sinta 2)."
 };
 
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
       "Developed an AI-powered CV analysis system using local Ollama models and OpenRouter to automatically evaluate candidate suitability for applied positions.",
     ],
     tags: ["Ollama", "OpenRouter", "Python", "MySQL", "AI Agents", "Local LLM"],
-    image: "./assets/project/cv_ats_analyzer.jpg"
+    image: "assets/project/cv_ats_analyzer.jpg"
   },
   {
     id: 'p2',
@@ -113,7 +113,7 @@ export const PROJECTS: Project[] = [
       "Developed an object detection model to detect promotional materials for the specific 'IM3 SATSPAM' and 'Tri AI - Anti Spam/Scam' Campaign.",
     ],
     tags: ["Computer Vision", "Object Detection", "Python", "Elang AI"],
-    image: "./assets/project/elang_satspam.jpg",
+    image: "assets/project/elang_satspam.jpg",
   },
   {
     id: 'p3',
@@ -124,7 +124,7 @@ export const PROJECTS: Project[] = [
       "Developed an computer vision model to detect and count products and promotional materials for all telecommunications operators (IM3, 3, Telkomsel, XL, Smartfren, Axis, by.U).",
     ],
     tags: ["Computer Vision", "YOLO", "Data Analytics"],
-    image: "./assets/project/elang_all_operator.jpg"
+    image: "assets/project/elang_all_operator.jpg"
   },
   {
     id: 'p4',
@@ -135,7 +135,7 @@ export const PROJECTS: Project[] = [
       "Built an AI Agent Chatbot using LLMs and an Agent Framework for data analysis and database interaction.",
     ],
     tags: ["LLM", "Agent Framework", "NLP", "Chatbot"],
-    image: "./assets/project/elang_llm.jpg"
+    image: "assets/project/elang_llm.jpg"
   },
   {
     id: 'p5',
@@ -146,7 +146,7 @@ export const PROJECTS: Project[] = [
       "Built an object detection model to identify and count products and promotional materials specific to the IM3 and 3 brands.",
     ],
     tags: ["Computer Vision", "Object Detection", "Brand Detection"],
-    image: "./assets/project/elang_ai.jpg",
+    image: "assets/project/elang_ai.jpg",
     link: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7289203499630829568"
   },
   {
@@ -158,7 +158,7 @@ export const PROJECTS: Project[] = [
       "Developed and benchmarked various face recognition models (FaceNet512, GhostFaceNet, ArcFace, etc.).",
     ],
     tags: ["FaceNet512", "ArcFace", "Research", "Python"],
-    image: "./assets/project/face_recognition.jpg"
+    image: "assets/project/face_recognition.jpg"
   },
   {
     id: 'p7',
@@ -169,7 +169,7 @@ export const PROJECTS: Project[] = [
       "Developed a diabetes prediction application using 3 Machine Learning algorithms as the Final Capstone Project for MSIB Batch 6.",
     ],
     tags: ["Machine Learning", "Health AI", "Python"],
-    image: "./assets/project/diab_pred.jpg"
+    image: "assets/project/diab_pred.jpg"
   },
   {
     id: 'p8',
@@ -180,7 +180,7 @@ export const PROJECTS: Project[] = [
       "Built a web application to predict heart disease using 3 Machine Learning algorithms.",
     ],
     tags: ["Machine Learning", "Web App", "Health AI"],
-    image: "./assets/project/heart_disease.jpg"
+    image: "assets/project/heart_disease.jpg"
   }
 ];
 
@@ -289,7 +289,7 @@ export const EDUCATION: Education[] = [
       "Completed the degree program with AI research contributions resulting in 5 published scientific journals (Sinta 2 & 3) in Computer Vision and Health AI.",
       "Served as a Data Science Supervisor and Mentor for the Bengkel Koding Program."
     ],
-    image: "./assets/education/logo_udinus.png"
+    image: "assets/education/logo_udinus.png"
   },
   {
     institution: "BISA AI Academy (MSIB Batch 6)",
@@ -301,7 +301,7 @@ export const EDUCATION: Education[] = [
       "Developed a Capstone Project, creating a diabetes prediction application using 3 machine learning algorithms.",
       "Conducted 2 webinars related to Data Science during the program."
     ],
-    image: "./assets/education/logo_bisaai.png"
+    image: "assets/education/logo_bisaai.png"
   }
 ];
 
@@ -311,7 +311,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "CertNexus AIBIZ™ Credential",
     issuer: "CertNexus",
     date: "Oct 2024",
-    image: "./assets/certificates/certnexus_aibiz.png",
+    image: "assets/certificates/certnexus_aibiz.png",
     hoverText: "CertNexus AIBIZ™ Credential awarded for demonstrating expertise in AI business applications.",
     link: "https://www.credential.net/9d4fa8cb-3ce0-4279-a196-32db2faf8bfc#acc.QrN072iL"
   },
@@ -320,7 +320,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Certification Scheme of Associate Data Scientist",
     issuer: "BNSP",
     date: "Sep 2024",
-    image: "./assets/certificates/bnsp_data_science.jpg",
+    image: "assets/certificates/bnsp_data_science.jpg",
     hoverText: "BNSP Certification Scheme of Associate Data Scientist awarded for demonstrating competence in Data Science.",
   },
   {
@@ -328,7 +328,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "CertNexus DSBIZ™ Credential",
     issuer: "CertNexus",
     date: "Jul 2024",
-    image: "./assets/certificates/certnexus_dsbiz.png",
+    image: "assets/certificates/certnexus_dsbiz.png",
     hoverText: "CertNexus DSBIZ™ Credential awarded for demonstrating expertise in Data Science business applications.",
     link: "https://www.credential.net/705f3b12-17b8-4453-8cf5-7351727d0aab#acc.XAdp4E1i"
   },
@@ -337,7 +337,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "MSIB 6 - Data Science Participation Certificate",
     issuer: "BISA AI Academy x Kampus Merdeka",
     date: "Jun 2024",
-    image: "./assets/certificates/msib_6_data_science_certificates.jpg",
+    image: "assets/certificates/msib_6_data_science_certificates.jpg",
     hoverText: "Participation certificate for completing the MSIB Batch 6 Data Science independent study program organized by BISA AI Academy in collaboration with Kampus Merdeka.",
   },
   {
@@ -345,7 +345,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Generative AI with Stable Diffusion - Speaker Certificate",
     issuer: "BISA AI Academy x Kampus Merdeka",
     date: "May 2024",
-    image: "./assets/certificates/gen_ai_stable_diffusion.jpg",
+    image: "assets/certificates/gen_ai_stable_diffusion.jpg",
     hoverText: "Speaker in the Generative AI with Stable Diffusion webinar organized by BISA AI Academy in collaboration with Kampus Merdeka.",
   },
   {
@@ -353,7 +353,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Fundamentals of SQL - Speaker Certificate",
     issuer: "BISA AI Academy x Kampus Merdeka",
     date: "Apr 2024",
-    image: "./assets/certificates/fundamental_sql.jpg",
+    image: "assets/certificates/fundamental_sql.jpg",
     hoverText: "Speaker in the Fundamentals of SQL webinar organized by BISA AI Academy in collaboration with Kampus Merdeka.",
   },
   {
@@ -361,7 +361,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Certificate of Competency - Kimia Farma Big Data Analytics Project Based Internship Program",
     issuer: "Kimia Farma x Rakamin Academy",
     date: "Mar 2024",
-    image: "./assets/certificates/kimia_farma_rakamin.png",
+    image: "assets/certificates/kimia_farma_rakamin.png",
     hoverText: "Big Data Analytics Project Based Internship Program certificate awarded by Kimia Farma in collaboration with Rakamin Academy.",
   },
   {
@@ -369,7 +369,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Memulai Pemrograman dengan Python",
     issuer: "Dicoding",
     date: "Feb 2024",
-    image: "./assets/certificates/dicoding_memulai_python.png",
+    image: "assets/certificates/dicoding_memulai_python.png",
     hoverText: "Certificate awarded by Dicoding for completing the course on Pemrograman dengan Python.",
   },
   {
@@ -377,7 +377,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Mentor Data Science - Bengkel Koding",
     issuer: "Bengkel Koding",
     date: "Jan 2024",
-    image: "./assets/certificates/bengkod.jpg",
+    image: "assets/certificates/bengkod.jpg",
     hoverText: "Mentor Data Science certificate awarded by Bengkel Koding for mentoring Data Science students.",
   },
   {
@@ -385,7 +385,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Data Analysis with Python",
     issuer: "IBM X Coursera",
     date: "Dec 2023",
-    image: "./assets/certificates/coursera_ibm_data_analysis_with_python.png",
+    image: "assets/certificates/coursera_ibm_data_analysis_with_python.png",
     hoverText: "Data Analysis with Python certificate awarded by IBM via Coursera.",
     link: "https://www.coursera.org/account/accomplishments/verify/LAADXBGGX33X"
   },
@@ -394,7 +394,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Databases and SQL for Data Science with Python (with Honors)",
     issuer: "IBM X Coursera",
     date: "Dec 2023",
-    image: "./assets/certificates/coursera_databases_and_sql.png",
+    image: "assets/certificates/coursera_databases_and_sql.png",
     hoverText: "Databases and SQL for Data Science with Python certificate (with Honors) awarded by IBM via Coursera.",
     link: "https://www.coursera.org/account/accomplishments/certificate/6A3L9YH5T5XZ"
   },
@@ -403,7 +403,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Python Project for Data Science",
     issuer: "IBM X Coursera",
     date: "Nov 2023",
-    image: "./assets/certificates/coursera_python_for_data_science.png",
+    image: "assets/certificates/coursera_python_for_data_science.png",
     hoverText: "Python Project for Data Science certificate awarded by IBM via Coursera.",
     link: "https://www.coursera.org/account/accomplishments/certificate/3RER66R2YDZ6"
   },
@@ -412,7 +412,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Python for Data Science, AI & Development",
     issuer: "IBM X Coursera",
     date: "Nov 2023",
-    image: "./assets/certificates/coursera_python_ai_development.png",
+    image: "assets/certificates/coursera_python_ai_development.png",
     hoverText: "Python for Data Science, AI & Development certificate awarded by IBM via Coursera.",
     link: "https://www.coursera.org/account/accomplishments/certificate/AKWZQACDBTHB"
   },
@@ -421,7 +421,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Belajar Dasar Data Science",
     issuer: "Dicoding",
     date: "Sep 2023",
-    image: "./assets/certificates/dicoding_dasar_data_science.png",
+    image: "assets/certificates/dicoding_dasar_data_science.png",
     hoverText: "Belajar Dasar Data Science certificate awarded by Dicoding.",
     link: "https://www.dicoding.com/certificates/JMZV1G3NJXN9"
   },
@@ -430,7 +430,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Get Started with Deep Learning",
     issuer: "NVIDIA",
     date: "Jan 2023",
-    image: "./assets/certificates/nvidia_deep_learning.png",
+    image: "assets/certificates/nvidia_deep_learning.png",
     hoverText: "Get Started with Deep Learning certificate awarded by NVIDIA.",
     link: "https://learn.nvidia.com/certificates?id=4FuhfitKQd-9BZ7MD6vKug"
   },
