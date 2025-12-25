@@ -37,7 +37,7 @@ function App() {
                     <Certifications />
                     <Skills />
                     <Contact />
-                    <footer className="bg-gray-50 dark:bg-dark py-8 text-center text-gray-500 dark:text-gray-400 text-sm transition-colors duration-500">
+                    <footer className="bg-gray-100 dark:bg-black py-8 text-center text-gray-500 dark:text-gray-400 text-sm transition-colors duration-500 border-t border-gray-200 dark:border-gray-800">
                       <p>© {new Date().getFullYear()} Almas Najiib Imam Muttaqin. All rights reserved.</p>
                     </footer>
                   </Suspense>
