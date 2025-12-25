@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Folder, ExternalLink } from 'lucide-react';
 import { PROJECTS } from '../../constants';
 import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
+  const [showIframe, setShowIframe] = useState(true);
+  const [iframeError, setIframeError] = useState(false);
+
+  // Detect if browser might block LinkedIn embed
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isBrave = (navigator as any).brave !== undefined;
+    const isEdge = userAgent.includes('edg/');
+    
+    // If Brave or Edge detected, show fallback immediately
+    if (isBrave || isEdge) {
+      setShowIframe(false);
+    }
+  }, []);
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -36,53 +51,85 @@ const Projects: React.FC = () => {
             A selection of AI, Computer Vision, and Data Analysis projects I've developed for enterprise and research.
           </p>
 
-          {/* Featured Project Preview - Click to watch on LinkedIn */}
-          <a 
-            href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7289203499630829568" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="block w-full max-w-3xl mx-auto mb-16 group"
-          >
-            <div className="relative rounded-xl overflow-hidden border border-gray-800 shadow-2xl bg-gray-900 hover:border-primary/50 transition-all duration-300">
-              <div className="relative w-full aspect-video">
-                {/* Preview Image - Gunakan thumbnail dari project Elang AI */}
-                <motion.img 
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                  src="/assets/project/elang_ai.jpg" 
-                  alt="Featured Project - Elang AI"
-                  className="w-full h-full object-cover"
-                />
+          {/* Featured Video Section - Hybrid Approach */}
+          <div className="w-full max-w-3xl mx-auto mb-16">
+            {showIframe && !iframeError ? (
+              /* LinkedIn Iframe Embed - for Chrome and compatible browsers */
+              <div className="rounded-xl overflow-hidden border border-gray-800 shadow-2xl bg-black relative">
+                <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+                  <iframe 
+                    src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7289203499630829568?compact=1" 
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0" 
+                    allowFullScreen={true}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    title="Featured Project Video"
+                    onError={() => setIframeError(true)}
+                  ></iframe>
+                </div>
                 
-                {/* Overlay with Play Button */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-center">
-                  <div className="bg-primary/90 group-hover:bg-primary rounded-full p-6 transition-all duration-300 transform group-hover:scale-110">
-                    <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
+                {/* Fallback Link below iframe */}
+                <div className="text-center py-3 bg-card/50">
+                  <a 
+                    href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7289203499630829568" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-primary transition-colors"
+                  >
+                    <ExternalLink size={12} />
+                    <span>Open in LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            ) : (
+              /* Clickable Preview - for Brave, Edge, and browsers that block iframe */
+              <a 
+                href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7289203499630829568" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="relative rounded-xl overflow-hidden border border-gray-800 shadow-2xl bg-gray-900 hover:border-primary/50 transition-all duration-300">
+                  <div className="relative w-full aspect-video">
+                    <motion.img 
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.4 }}
+                      src="/assets/project/elang_ai.jpg" 
+                      alt="Featured Project - Elang AI"
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Overlay with Play Button */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-center">
+                      <div className="bg-primary/90 group-hover:bg-primary rounded-full p-6 transition-all duration-300 transform group-hover:scale-110">
+                        <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Badge */}
+                    <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-gray-700">
+                      <span className="text-sm font-semibold text-white flex items-center gap-2">
+                        <ExternalLink size={16} className="text-primary" />
+                        Watch on LinkedIn
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Description */}
+                  <div className="p-6 bg-card/50 backdrop-blur-sm">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                      Featured: Elang AI Launch Event
+                    </h3>
+                    <p className="text-gray-400 text-sm">
+                      Official AI model launch at the Circle Java Kick-Off Meeting in Surabaya with executives and 400+ participants from Indosat Ooredoo Hutchison.
+                    </p>
                   </div>
                 </div>
-                
-                {/* Badge */}
-                <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-gray-700">
-                  <span className="text-sm font-semibold text-white flex items-center gap-2">
-                    <ExternalLink size={16} className="text-primary" />
-                    Watch on LinkedIn
-                  </span>
-                </div>
-              </div>
-              
-              {/* Description */}
-              <div className="p-6 bg-card/50 backdrop-blur-sm">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                  Featured: Elang AI Launch Event
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  Official AI model launch at the Circle Java Kick-Off Meeting in Surabaya with executives and 400+ participants from Indosat Ooredoo Hutchison.
-                </p>
-              </div>
-            </div>
-          </a>
+              </a>
+            )}
+          </div>
         </motion.div>
 
         <motion.div 
