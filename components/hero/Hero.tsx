@@ -141,7 +141,7 @@ const Hero: React.FC = () => {
             <span className="text-secondary font-medium tracking-wider text-sm uppercase">Welcome to my portfolio</span>
             <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
               Hi, I'm <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
                 {PERSONAL_INFO.firstName} <br className="hidden md:block" /> {PERSONAL_INFO.lastName}
               </span>
             </h1>
@@ -266,7 +266,7 @@ const Hero: React.FC = () => {
               </motion.div>
               
               {/* Inner Profile Image - Remains Static */}
-              <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden shadow-2xl z-10 bg-white dark:bg-gray-900 pointer-events-none select-none">
+              <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden shadow-[0_0_30px_rgba(6,182,212,0.3)] dark:shadow-[0_0_30px_rgba(6,182,212,0.5)] z-10 bg-white dark:bg-gray-900 pointer-events-none select-none">
                  <img 
                    src={PERSONAL_INFO.profileImage}
                    alt={`${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName}`}
