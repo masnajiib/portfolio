@@ -1,10 +1,31 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
+// Simple in-memory rate limiting (per container instance)
+const rateLimit = new Map<string, number[]>();
+const WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const MAX_REQUESTS = 3; // 3 emails per hour
+
 export default async function handler(
   request: VercelRequest,
   response: VercelResponse
 ) {
+  // Rate Limiting Check
+  const ip = (request.headers['x-forwarded-for'] as string) || request.socket.remoteAddress || 'unknown';
+  const now = Date.now();
+  const requestTimestamps = rateLimit.get(ip) || [];
+  
+  // Filter out timestamps older than the window
+  const recentRequests = requestTimestamps.filter(time => now - time < WINDOW_MS);
+  
+  if (recentRequests.length >= MAX_REQUESTS) {
+    return response.status(429).json({ error: 'Terlalu banyak percobaan pengiriman email. Silakan coba lagi dalam 1 jam.' });
+  }
+  
+  // Update rate limit record
+  recentRequests.push(now);
+  rateLimit.set(ip, recentRequests);
+
   if (request.method !== 'POST') {
     return response.status(405).json({ error: 'Method not allowed' });
   }
