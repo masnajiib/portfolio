@@ -69,19 +69,19 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-24 bg-dark relative overflow-hidden">
+    <section id="skills" className="py-24 bg-gray-50 dark:bg-dark relative overflow-hidden transition-colors duration-500">
        {/* Texture Pattern: Small Isometric-style Rectangular Grid (Millimeter paper) */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] z-0"></div>
       
       {/* Radial Gradient for depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/50 via-dark to-dark z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-200/50 via-gray-50 to-gray-50 dark:from-slate-900/50 dark:via-dark dark:to-dark z-0 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
+          className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center"
         >
           Technical Skills
         </motion.h2>
@@ -94,9 +94,9 @@ const Skills: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.2 }}
-              className="bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800 hover:border-gray-700 transition-all shadow-lg"
+              className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-700 transition-all shadow-lg shadow-gray-200/50 dark:shadow-none"
             >
-              <h3 className="text-xl font-bold text-secondary mb-6 border-b border-gray-800 pb-3 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-secondary mb-6 border-b border-gray-200 dark:border-gray-800 pb-3 flex items-center gap-2">
                 {skillGroup.category.includes("AI") && <Brain className="w-5 h-5" />}
                 {skillGroup.category.includes("Programming") && <Database className="w-5 h-5" />}
                 {skillGroup.category.includes("Tools") && <Cloud className="w-5 h-5" />}
@@ -111,9 +111,9 @@ const Skills: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 + (i * 0.05) }}
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 px-3 py-2 bg-gray-800/80 text-gray-300 text-sm rounded-lg border border-gray-700 hover:border-primary hover:text-white transition-all cursor-default group"
+                    className="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 text-sm rounded-lg border border-gray-300 dark:border-gray-700 hover:border-primary hover:text-gray-900 dark:hover:text-white transition-all cursor-default group"
                   >
-                    <span className="text-gray-400 group-hover:text-primary transition-colors">
+                    <span className="text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">
                       {getSkillIcon(skill)}
                     </span>
                     <span>{skill}</span>

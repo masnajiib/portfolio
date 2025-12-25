@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +10,7 @@
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -26,23 +27,35 @@
       }
     </script>
     <style>
-      body {
-        background-color: #0f172a;
-        color: #e2e8f0;
-      }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a; 
+        background: transparent; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155; 
+        background: #94a3b8; 
         border-radius: 4px;
       }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #334155; 
+      }
       ::-webkit-scrollbar-thumb:hover {
+        background: #64748b; 
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
         background: #475569; 
+      }
+
+      /* Global Smooth Theme Transition */
+      body, div, section, nav, footer, header, main, article, aside,
+      h1, h2, h3, h4, h5, h6, p, span, a, button, 
+      input, textarea, select, label,
+      svg, path, circle, rect, line, polyline, polygon {
+        transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 500ms;
       }
     </style>
   <script type="importmap">

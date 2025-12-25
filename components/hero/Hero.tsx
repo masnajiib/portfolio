@@ -91,9 +91,9 @@ const Hero: React.FC = () => {
   }, [displayRole, isDeleting, roleIndex]);
 
   return (
-    <section id="about" className="min-h-screen flex items-center pt-20 relative overflow-hidden bg-dark">
+    <section id="about" className="min-h-screen flex items-center pt-20 relative overflow-hidden bg-gray-50 dark:bg-dark transition-colors duration-500">
       {/* Texture Pattern: Dot Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.1] z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(#00000033_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.1] z-0"></div>
 
       {/* Background Glows */}
       <div className="absolute top-20 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
@@ -107,13 +107,13 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-secondary font-medium tracking-wider text-sm uppercase">Welcome to my portfolio</span>
-            <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
               Hi, I'm <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                 {PERSONAL_INFO.firstName} <br className="hidden md:block" /> {PERSONAL_INFO.lastName}
               </span>
             </h1>
-            <h2 className="mt-4 text-xl md:text-2xl text-gray-400 font-light flex items-center h-8">
+            <h2 className="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light flex items-center h-8">
               <span>{displayRole}</span>
               <span className="animate-pulse ml-1 text-primary">|</span>
             </h2>
@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-gray-400 text-lg max-w-lg leading-relaxed"
+            className="text-gray-600 dark:text-gray-400 text-lg max-w-lg leading-relaxed"
           >
             {PERSONAL_INFO.about}
           </motion.p>
@@ -160,7 +160,7 @@ const Hero: React.FC = () => {
               href={RESUME_URL}
               target="_blank"
               download
-              className="px-8 py-3 border border-gray-600 hover:border-white text-gray-300 hover:text-white font-medium rounded-full flex items-center justify-center transition-all group"
+              className="px-8 py-3 border border-gray-300 dark:border-gray-600 hover:border-gray-900 dark:hover:border-white text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium rounded-full flex items-center justify-center transition-all group"
             >
               <Download className="mr-2 w-4 h-4 group-hover:animate-bounce" />
               Download CV
@@ -181,7 +181,7 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, color: '#3b82f6' }}
                 whileTap={{ scale: 0.9 }}
-                className="text-gray-400 transition-colors"
+                className="text-gray-500 dark:text-gray-400 transition-colors"
                 title={link.name}
               >
                 {link.icon}
@@ -230,7 +230,7 @@ const Hero: React.FC = () => {
               </motion.div>
               
               {/* Inner Profile Image - Remains Static */}
-              <div className="relative w-[85%] h-[85%] rounded-full border border-gray-800 overflow-hidden shadow-2xl z-10 bg-gray-900 pointer-events-none select-none">
+              <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden shadow-2xl z-10 bg-white dark:bg-gray-900 pointer-events-none select-none">
                  <img 
                    src={PERSONAL_INFO.profileImage}
                    alt={`${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName}`}

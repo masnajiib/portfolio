@@ -12,13 +12,13 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-black text-center relative">
+    <section id="contact" className="py-24 bg-white dark:bg-black text-center relative transition-colors duration-500">
       <div className="max-w-4xl mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-3xl font-bold text-white mb-6"
+          className="text-3xl font-bold text-gray-900 dark:text-white mb-6"
         >
           Let's Work Together
         </motion.h2>
@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-gray-400 mb-12 max-w-lg mx-auto"
+          className="text-gray-600 dark:text-gray-400 mb-12 max-w-lg mx-auto"
         >
           I'm currently available for freelance projects and full-time opportunities in AI Development and Data Science.
         </motion.p>
@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
               whileHover={{ scale: 1.1, rotate: 5 }}
-              className="p-4 bg-gray-900 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-colors"
+              className="p-4 bg-gray-100 dark:bg-gray-900 rounded-full text-gray-600 dark:text-gray-400 hover:text-white hover:bg-primary transition-colors shadow-sm dark:shadow-none"
               aria-label={link.name}
             >
               {link.icon}
@@ -63,23 +63,11 @@ const Contact: React.FC = () => {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -5 }}
             whileTap={{ scale: 0.9 }}
-            className="p-3 bg-gray-800 hover:bg-secondary text-white rounded-full transition-all shadow-lg border border-gray-700 hover:border-secondary group"
+            className="p-3 bg-gray-200 dark:bg-gray-800 hover:bg-secondary text-gray-900 dark:text-white rounded-full transition-all shadow-lg border border-gray-300 dark:border-gray-700 hover:border-secondary group"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-6 h-6 group-hover:animate-bounce" />
           </motion.button>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="border-t border-gray-900 pt-8"
-        >
-          <p className="text-sm text-gray-600">
-            © {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.
-          </p>
         </motion.div>
       </div>
     </section>
