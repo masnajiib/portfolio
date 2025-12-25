@@ -141,7 +141,7 @@ const Hero: React.FC = () => {
             <span className="text-secondary font-medium tracking-wider text-sm uppercase">Welcome to my portfolio</span>
             <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
               Hi, I'm <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 dark:drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
                 {PERSONAL_INFO.firstName} <br className="hidden md:block" /> {PERSONAL_INFO.lastName}
               </span>
             </h1>
@@ -242,7 +242,7 @@ const Hero: React.FC = () => {
            >
               {/* Rotating Segmented Border */}
               <motion.div 
-                className="absolute inset-0 z-0"
+                className="absolute inset-0 z-0 hidden dark:block"
                 style={{ rotate: rotation }}
               >
                  <svg className="w-full h-full drop-shadow-[0_0_15px_rgba(6,182,212,0.3)] pointer-events-none" viewBox="0 0 100 100">
