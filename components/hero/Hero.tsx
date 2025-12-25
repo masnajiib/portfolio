@@ -242,10 +242,10 @@ const Hero: React.FC = () => {
            >
               {/* Rotating Segmented Border */}
               <motion.div 
-                className="absolute inset-0 z-0 dark:drop-shadow-[0_0_30px_rgba(6,182,212,0.5)]"
+                className="absolute inset-0 z-0"
                 style={{ rotate: rotation }}
               >
-                 <svg className="w-full h-full pointer-events-none" viewBox="0 0 100 100">
+                 <svg className="w-full h-full overflow-visible dark:drop-shadow-[0_0_20px_rgba(6,182,212,0.8)] pointer-events-none" viewBox="0 0 100 100">
                     <defs>
                       <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" stopColor="#3b82f6" />
