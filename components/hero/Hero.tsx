@@ -132,7 +132,7 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-20 left-0 w-72 h-72 bg-secondary/20 rounded-full blur-3xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-        <div className="order-2 lg:order-1 space-y-8 text-center lg:text-left">
+        <div className="order-2 lg:order-1 space-y-8 text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -145,7 +145,7 @@ const Hero: React.FC = () => {
                 {PERSONAL_INFO.firstName} <br className="hidden md:block" /> {PERSONAL_INFO.lastName}
               </span>
             </h1>
-            <h2 className="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light flex items-center justify-center lg:justify-start h-8">
+            <h2 className="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light flex items-center justify-center md:justify-start h-8">
               <span>{displayRole}</span>
               <span className="animate-pulse ml-1 text-primary">|</span>
             </h2>
@@ -155,7 +155,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-gray-600 dark:text-gray-400 text-lg max-w-lg leading-relaxed mx-auto lg:mx-0"
+            className="text-gray-600 dark:text-gray-400 text-lg max-w-lg leading-relaxed mx-auto md:mx-0"
           >
             {PERSONAL_INFO.about}
           </motion.p>
@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="flex flex-wrap gap-4 justify-center lg:justify-start"
+            className="flex flex-wrap gap-4 justify-center md:justify-start"
           >
             <motion.a 
               whileHover={{ scale: 1.05 }}
@@ -207,7 +207,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex items-center gap-6 pt-2 justify-center lg:justify-start"
+            className="flex items-center gap-6 pt-2 justify-center md:justify-start"
           >
             {SOCIAL_LINKS.map((link) => (
               <motion.a
