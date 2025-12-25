@@ -266,7 +266,7 @@ const Hero: React.FC = () => {
               </motion.div>
               
               {/* Inner Profile Image - Remains Static */}
-              <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden shadow-[0_0_30px_rgba(6,182,212,0.3)] dark:shadow-[0_0_30px_rgba(6,182,212,0.5)] z-10 bg-white dark:bg-gray-900 pointer-events-none select-none">
+              <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden dark:shadow-[0_0_30px_rgba(6,182,212,0.5)] z-10 bg-white dark:bg-gray-900 pointer-events-none select-none">
                  <img 
                    src={PERSONAL_INFO.profileImage}
                    alt={`${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName}`}
