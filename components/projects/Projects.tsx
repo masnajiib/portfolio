@@ -1,10 +1,32 @@
-import React, { useState } from 'react';
-import { Folder, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Folder, ExternalLink, Star, GitFork } from 'lucide-react';
 import { PROJECTS } from '../../constants';
 import { motion } from 'framer-motion';
 
+interface Repo {
+  id: number;
+  name: string;
+  description: string;
+  html_url: string;
+  stargazers_count: number;
+  forks_count: number;
+  language: string;
+}
+
 const Projects: React.FC = () => {
   const [showFallback, setShowFallback] = useState(false);
+  const [repos, setRepos] = useState<Repo[]>([]);
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/masnajiib/repos?sort=updated&per_page=6')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          setRepos(data);
+        }
+      })
+      .catch(err => console.error("Failed to fetch repos", err));
+  }, []);
 
   const container = {
     hidden: { opacity: 0 },
@@ -215,6 +237,56 @@ const Projects: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Open Source Contributions */}
+        {repos.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="mt-24"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Latest Open Source Contributions</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {repos.map((repo) => (
+                <a 
+                  key={repo.id}
+                  href={repo.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-6 bg-white dark:bg-card rounded-xl border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all hover:-translate-y-1 shadow-sm dark:shadow-none group"
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <Folder className="text-primary w-6 h-6" />
+                    <ExternalLink className="text-gray-400 group-hover:text-primary w-5 h-5 transition-colors" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                    {repo.name}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 h-10">
+                    {repo.description || "No description available."}
+                  </p>
+                  <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                    {repo.language && (
+                      <span className="flex items-center gap-1">
+                        <span className="w-2 h-2 rounded-full bg-secondary"></span>
+                        {repo.language}
+                      </span>
+                    )}
+                    <span className="flex items-center gap-1">
+                      <Star className="w-3 h-3" />
+                      {repo.stargazers_count}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <GitFork className="w-3 h-3" />
+                      {repo.forks_count}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
