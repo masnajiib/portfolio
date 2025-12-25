@@ -88,7 +88,7 @@ ${message}
       </div>
 
       <div style="text-align: center;">
-        <a href="mailto:${email}?subject=${encodeURIComponent("Pesan dari Almas Najiib Imam Muttaqin")}&body=${encodeURIComponent(`Halo ${name},\n\nTerima kasih telah menghubungi saya.`)}" class="button">Balas via Email</a>
+        <a href="mailto:${email}?subject=${encodeURIComponent("Pesan dari Almas Najiib Imam Muttaqin")}&body=${encodeURIComponent(`Halo ${name},\n\nTerima kasih telah menghubungi saya.\n`)}" class="button">Balas via Email</a>
       </div>
     </div>
     <div class="footer">
