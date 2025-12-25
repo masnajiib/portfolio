@@ -23,7 +23,7 @@ export const SOCIAL_LINKS = [
   { 
     name: 'Email', 
     icon: <Mail className="w-5 h-5" />, 
-    href: `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent("Halo Almas, Saya ingin berdiskusi")}&body=${encodeURIComponent("Halo Almas,\n\nSaya tertarik dengan profil Anda dan ingin mendiskusikan potensi kerjasama.\n\nTerima kasih.")}` 
+    href: `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent("Diskusi Kerjasama")}&body=${encodeURIComponent("Halo Almas,\n\nSaya tertarik dengan profil Anda dan ingin mendiskusikan potensi kerjasama.\n\nTerima kasih.")}` 
   },
   { 
     name: 'WhatsApp', 
