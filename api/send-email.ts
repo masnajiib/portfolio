@@ -6,10 +6,32 @@ const rateLimit = new Map<string, number[]>();
 const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 const MAX_REQUESTS = 5; // 5 emails per 15 minutes
 
+// Security: Allowed Origins
+const ALLOWED_ORIGINS = [
+  'https://www.almasnajiib27.my.id',
+  'https://portfolio-masnajiib.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:3000'
+];
+
 export default async function handler(
   request: VercelRequest,
   response: VercelResponse
 ) {
+  // Security: Origin/Referer Check
+  const origin = request.headers.origin;
+  const referer = request.headers.referer;
+  
+  const isAllowed = ALLOWED_ORIGINS.some(allowed => 
+    (origin && origin === allowed) || 
+    (referer && referer.startsWith(allowed))
+  );
+
+  // Block requests from unauthorized sources in production
+  if (!isAllowed && process.env.NODE_ENV === 'production') {
+    return response.status(403).json({ error: 'Forbidden: Access denied from this origin.' });
+  }
+
   // Rate Limiting Check
   const ip = (request.headers['x-forwarded-for'] as string) || request.socket.remoteAddress || 'unknown';
   const now = Date.now();
