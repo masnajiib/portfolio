@@ -12,9 +12,12 @@ export const PERSONAL_INFO = {
   typingRoles: ["AI Developer", "Computer Vision Engineer", "Data Scientist","Data Analyst"], // Roles for the typing animation
   email: "almasnajiib27@gmail.com",
   linkedin: "https://linkedin.com/in/masnajiib27",
-  profileImage: "/assets/profile/profile.jpg", // Replace with your actual photo URL
+  profileImage: "/assets/profile/profile.png", // Replace with your actual photo URL
   about: "AI Developer, Data Scientist, and Informatics Engineering graduate (GPA 3.83/4.00) specializing in Computer Vision, AI Agents, and Data Analytics. Proven track record in developing scalable AI-driven solutions for the telecommunications industry, focusing on object detection models and LLM-based integration. Combines technical expertise with strong research capabilities, evidenced by 5 published scientific journals (1 as First Author, Sinta 2)."
 };
+
+// Options: 'gradient-blob', 'geometric-circle', 'tech-dots', 'solid-accent', 'tech-ring', 'ai-network', 'none'
+export const PROFILE_BACKGROUND_STYLE: 'gradient-blob' | 'geometric-circle' | 'tech-dots' | 'solid-accent' | 'tech-ring' | 'ai-network' | 'none' = 'ai-network';
 
 export const SECTION_CONTENT = {
   projects: {

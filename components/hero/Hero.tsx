@@ -1,12 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Download, ChevronRight, MessageCircle } from 'lucide-react';
-import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS } from '../../constants';
+import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE } from '../../constants';
 import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
 
 const Hero: React.FC = () => {
   const [displayRole, setDisplayRole] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+
+  // Generate random dots for ai-network style once
+  const networkDots = useMemo(() => {
+    return [...Array(15)].map((_, i) => ({
+      id: i,
+      top: `${Math.floor(Math.random() * 90) + 5}%`,
+      left: `${Math.floor(Math.random() * 90) + 5}%`,
+      delay: `${Math.random() * 3}s`,
+      duration: `${2 + Math.random() * 3}s`
+    }));
+  }, []);
 
   // Physics based rotation state
   const rotation = useMotionValue(0);
@@ -91,6 +102,76 @@ const Hero: React.FC = () => {
 
   // Find WhatsApp link
   const whatsappLink = SOCIAL_LINKS.find(link => link.name === 'WhatsApp')?.href || "#";
+
+  // Helper to render background behind profile image
+  const renderProfileBackground = () => {
+    switch (PROFILE_BACKGROUND_STYLE) {
+      case 'gradient-blob':
+        return (
+          <div className="absolute inset-0 bg-white dark:bg-gray-900">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-purple-500/40 to-secondary/40 blur-2xl scale-110 animate-pulse" />
+          </div>
+        );
+      case 'geometric-circle':
+        return (
+          <div className="absolute inset-0 bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+             <div className="absolute w-[90%] h-[90%] border border-gray-300 dark:border-gray-700 rounded-full" />
+             <div className="absolute w-[70%] h-[70%] border border-dashed border-secondary/30 rounded-full animate-[spin_10s_linear_infinite]" />
+          </div>
+        );
+      case 'tech-dots':
+        return (
+          <div className="absolute inset-0 bg-white dark:bg-gray-900">
+            <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1.5px,transparent_1.5px)] [background-size:20px_20px] opacity-20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent dark:from-gray-900" />
+          </div>
+        );
+      case 'solid-accent':
+        return (
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900" />
+        );
+      case 'tech-ring':
+        return (
+          <div className="absolute inset-0 bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+             {/* Outer Ring */}
+             <div className="absolute w-[95%] h-[95%] border-2 border-dashed border-primary/40 rounded-full animate-[spin_20s_linear_infinite]" />
+             {/* Middle Ring */}
+             <div className="absolute w-[85%] h-[85%] border border-secondary/30 rounded-full" />
+             {/* Inner Rotating Ring */}
+             <div className="absolute w-[75%] h-[75%] border-t-2 border-r-2 border-primary/60 rounded-full animate-[spin_3s_linear_infinite]" />
+             {/* Center Glow */}
+             <div className="absolute w-[60%] h-[60%] bg-primary/10 blur-xl rounded-full" />
+          </div>
+        );
+      case 'ai-network':
+        return (
+          <div className="absolute inset-0 bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden">
+             {/* Grid Background - Adaptive Colors */}
+             <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(6,182,212,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
+             
+             {/* Random Glowing Nodes */}
+             {networkDots.map((dot) => (
+               <div 
+                 key={dot.id}
+                 className="absolute w-1.5 h-1.5 bg-secondary/60 dark:bg-secondary rounded-full animate-ping"
+                 style={{
+                   top: dot.top,
+                   left: dot.left,
+                   animationDelay: dot.delay,
+                   animationDuration: dot.duration,
+                 }}
+               />
+             ))}
+             
+             {/* Connecting Lines (Simulated with gradient) */}
+             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#ffffff_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_30%,#0f172a_100%)]" />
+          </div>
+        );
+      case 'none':
+      default:
+        return <div className="absolute inset-0 bg-white dark:bg-gray-900" />;
+    }
+  };
 
   useEffect(() => {
     const roles = PERSONAL_INFO.typingRoles;
@@ -266,11 +347,12 @@ const Hero: React.FC = () => {
               </motion.div>
               
               {/* Inner Profile Image - Remains Static */}
-              <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden z-10 bg-white dark:bg-gray-900 pointer-events-none select-none">
+              <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden z-10 pointer-events-none select-none">
+                 {renderProfileBackground()}
                  <img 
                    src={PERSONAL_INFO.profileImage}
                    alt={`${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName}`}
-                   className="w-full h-full rounded-full object-cover"
+                   className="relative w-full h-full rounded-full object-cover z-10"
                    draggable="false"
                  />
               </div>
