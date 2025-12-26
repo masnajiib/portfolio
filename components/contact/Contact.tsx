@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowUp, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [formState, setFormState] = useState({ name: '', email: '', message: '', honeypot: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
       }
 
       setSubmitStatus('success');
-      setFormState({ name: '', email: '', message: '' });
+      setFormState({ name: '', email: '', message: '', honeypot: '' });
     } catch (error: any) {
       console.error("Error:", error);
       setSubmitStatus('error');
@@ -81,6 +81,20 @@ const Contact: React.FC = () => {
           className="max-w-md mx-auto mb-16 bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800"
         >
           <form onSubmit={handleSubmit} className="space-y-4 text-left">
+            {/* Honeypot Field - Invisible to users, visible to bots */}
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="honeypot">Do not fill this out if you are human</label>
+              <input
+                type="text"
+                id="honeypot"
+                name="honeypot"
+                value={formState.honeypot}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
               <input

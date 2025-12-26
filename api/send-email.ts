@@ -33,7 +33,18 @@ export default async function handler(
   }
 
   // Rate Limiting Check
-  const ip = (request.headers['x-forwarded-for'] as string) || request.socket.remoteAddress || 'unknown';
+  // Handle x-forwarded-for which can be an array or comma-separated string
+  const forwardedFor = request.headers['x-forwarded-for'];
+  let ip = 'unknown';
+  
+  if (Array.isArray(forwardedFor)) {
+    ip = forwardedFor[0];
+  } else if (typeof forwardedFor === 'string') {
+    ip = forwardedFor.split(',')[0].trim();
+  } else {
+    ip = request.socket.remoteAddress || 'unknown';
+  }
+
   const now = Date.now();
   const requestTimestamps = rateLimit.get(ip) || [];
   
@@ -52,7 +63,14 @@ export default async function handler(
     return response.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, message } = request.body;
+  const { name, email, message, honeypot } = request.body;
+
+  // Honeypot Check (Anti-Spam)
+  if (honeypot) {
+    // If honeypot is filled, it's likely a bot. 
+    // Return success to fool the bot, but don't send email.
+    return response.status(200).json({ message: 'Email sent successfully' });
+  }
 
   if (!name || !email || !message) {
     return response.status(400).json({ error: 'Missing required fields' });
