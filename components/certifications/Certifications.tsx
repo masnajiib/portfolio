@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Award, ExternalLink, Calendar, X, ZoomIn } from 'lucide-react';
-import { CERTIFICATIONS } from '../../constants';
+import { CERTIFICATIONS, SECTION_DESCRIPTIONS } from '../../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Certifications: React.FC = () => {
@@ -24,7 +24,7 @@ const Certifications: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Certifications</h2>
           <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
-            Professional certifications validating expertise in AI, Machine Learning, and Data Science.
+            {SECTION_DESCRIPTIONS.certifications}
           </p>
         </motion.div>
 

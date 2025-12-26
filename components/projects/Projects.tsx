@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Folder, ExternalLink } from 'lucide-react';
-import { PROJECTS } from '../../constants';
+import { PROJECTS, SECTION_DESCRIPTIONS } from '../../constants';
 import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mb-8">
-            A selection of AI, Computer Vision, and Data Analysis projects I've developed for enterprise and research.
+            {SECTION_DESCRIPTIONS.projects}
           </p>
 
           {/* Featured Video Section - Universal Fallback */}

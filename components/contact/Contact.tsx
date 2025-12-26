@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SOCIAL_LINKS } from '../../constants';
+import { SOCIAL_LINKS, SECTION_DESCRIPTIONS } from '../../constants';
 import { motion } from 'framer-motion';
 import { ArrowUp, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-3xl font-bold text-gray-900 dark:text-white mb-6"
         >
-          Let's Work Together
+          {SECTION_DESCRIPTIONS.contactTitle}
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0 }}
@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
           transition={{ delay: 0.2 }}
           className="text-gray-600 dark:text-gray-400 mb-12 max-w-lg mx-auto"
         >
-          I'm currently available for freelance projects and full-time opportunities in AI Development and Data Science.
+          {SECTION_DESCRIPTIONS.contact}
         </motion.p>
 
         <motion.div
