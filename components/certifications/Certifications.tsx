@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Award, ExternalLink, Calendar, X, ZoomIn } from 'lucide-react';
-import { CERTIFICATIONS, SECTION_DESCRIPTIONS } from '../../constants';
+import { CERTIFICATIONS, SECTION_CONTENT } from '../../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Certifications: React.FC = () => {
@@ -21,11 +21,13 @@ const Certifications: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="mb-16 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Certifications</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">{SECTION_CONTENT.certifications.title}</h2>
           <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
-            {SECTION_DESCRIPTIONS.certifications}
-          </p>
+          {SECTION_CONTENT.certifications.description && (
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
+              {SECTION_CONTENT.certifications.description}
+            </p>
+          )}
         </motion.div>
 
         {/* Flex container with justify-center ensures items are centered if less than max columns */}

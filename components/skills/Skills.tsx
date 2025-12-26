@@ -1,5 +1,5 @@
 import React from 'react';
-import { SKILLS } from '../../constants';
+import { SKILLS, SECTION_CONTENT } from '../../constants';
 import { Box, Brain, Database, Cloud, Terminal, Code2, Tag, Cpu, Globe, Rocket, Monitor } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -81,10 +81,21 @@ const Skills: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center"
+          className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center"
         >
-          Technical Skills
+          {SECTION_CONTENT.skills.title}
         </motion.h2>
+        {SECTION_CONTENT.skills.description && (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 text-center"
+          >
+            {SECTION_CONTENT.skills.description}
+          </motion.p>
+        )}
+        {!SECTION_CONTENT.skills.description && <div className="mb-12"></div>}
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {SKILLS.map((skillGroup, index) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase } from 'lucide-react';
-import { EXPERIENCES, EDUCATION } from '../../constants';
+import { EXPERIENCES, EDUCATION, SECTION_CONTENT } from '../../constants';
 import { motion } from 'framer-motion';
 
 const Experience: React.FC = () => {
@@ -21,8 +21,13 @@ const Experience: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Professional Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">{SECTION_CONTENT.experience.title}</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+          {SECTION_CONTENT.experience.description && (
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
+              {SECTION_CONTENT.experience.description}
+            </p>
+          )}
         </motion.div>
 
         {/* Updated vertical line: border-l-2 and border-gray-700 for better visibility */}

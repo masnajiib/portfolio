@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookOpen, ExternalLink } from 'lucide-react';
-import { PUBLICATIONS } from '../../constants';
+import { PUBLICATIONS, SECTION_CONTENT } from '../../constants';
 import { motion } from 'framer-motion';
 
 const Publications: React.FC = () => {
@@ -17,10 +17,17 @@ const Publications: React.FC = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex items-center mb-10"
+          className="flex flex-col mb-10"
         >
-          <BookOpen className="text-secondary mr-3 w-8 h-8" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Scientific Publications</h2>
+          <div className="flex items-center">
+            <BookOpen className="text-secondary mr-3 w-8 h-8" />
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{SECTION_CONTENT.publications.title}</h2>
+          </div>
+          {SECTION_CONTENT.publications.description && (
+            <p className="text-gray-600 dark:text-gray-400 mt-4">
+              {SECTION_CONTENT.publications.description}
+            </p>
+          )}
         </motion.div>
 
         <div className="grid gap-6">

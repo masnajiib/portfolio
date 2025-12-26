@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SOCIAL_LINKS, SECTION_DESCRIPTIONS } from '../../constants';
+import { SOCIAL_LINKS, SECTION_CONTENT } from '../../constants';
 import { motion } from 'framer-motion';
 import { ArrowUp, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -62,17 +62,19 @@ const Contact: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-3xl font-bold text-gray-900 dark:text-white mb-6"
         >
-          {SECTION_DESCRIPTIONS.contactTitle}
+          {SECTION_CONTENT.contact.title}
         </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-600 dark:text-gray-400 mb-12 max-w-lg mx-auto"
-        >
-          {SECTION_DESCRIPTIONS.contact}
-        </motion.p>
+        {SECTION_CONTENT.contact.description && (
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-600 dark:text-gray-400 mb-12 max-w-lg mx-auto"
+          >
+            {SECTION_CONTENT.contact.description}
+          </motion.p>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

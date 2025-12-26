@@ -16,11 +16,31 @@ export const PERSONAL_INFO = {
   about: "AI Developer, Data Scientist, and Informatics Engineering graduate (GPA 3.83/4.00) specializing in Computer Vision, AI Agents, and Data Analytics. Proven track record in developing scalable AI-driven solutions for the telecommunications industry, focusing on object detection models and LLM-based integration. Combines technical expertise with strong research capabilities, evidenced by 5 published scientific journals (1 as First Author, Sinta 2)."
 };
 
-export const SECTION_DESCRIPTIONS = {
-  projects: "A selection of AI, Computer Vision, and Data Analysis projects I've developed for enterprise and research.",
-  certifications: "Professional certifications validating expertise in AI, Machine Learning, and Data Science.",
-  contact: "I'm currently available for freelance projects and full-time opportunities in AI Development and Data Science.",
-  contactTitle: "Contact Me"
+export const SECTION_CONTENT = {
+  projects: {
+    title: "Featured Projects",
+    description: "A selection of AI, Computer Vision, and Data Analysis projects I've developed for enterprise and research."
+  },
+  certifications: {
+    title: "Certifications",
+    description: "Professional certifications validating expertise in AI, Machine Learning, and Data Science."
+  },
+  contact: {
+    title: "Contact Me",
+    description: "I'm currently available for freelance projects and full-time opportunities in AI Development and Data Science."
+  },
+  experience: {
+    title: "Professional Experience",
+    description: null
+  },
+  publications: {
+    title: "Scientific Publications",
+    description: null
+  },
+  skills: {
+    title: "Technical Skills",
+    description: null
+  }
 };
 
 export const SOCIAL_LINKS = [

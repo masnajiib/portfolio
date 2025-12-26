@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Folder, ExternalLink } from 'lucide-react';
-import { PROJECTS, SECTION_DESCRIPTIONS } from '../../constants';
+import { PROJECTS, SECTION_CONTENT } from '../../constants';
 import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
@@ -33,10 +33,12 @@ const Projects: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mb-8">
-            {SECTION_DESCRIPTIONS.projects}
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">{SECTION_CONTENT.projects.title}</h2>
+          {SECTION_CONTENT.projects.description && (
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mb-8">
+              {SECTION_CONTENT.projects.description}
+            </p>
+          )}
 
           {/* Featured Video Section - Universal Fallback */}
           <div className="w-full max-w-3xl mx-auto mb-16">
