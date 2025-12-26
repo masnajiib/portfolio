@@ -346,7 +346,7 @@ export const EDUCATION: Education[] = [
 export const CERTIFICATIONS: Certification[] = [
   // --- Professional & National Certifications ---
   {
-    id: 'webinar-1',
+    id: 'webinar-bisaai-1',
     title: "Generative AI with Stable Diffusion - Speaker Certificate",
     issuer: "BISA AI Academy x Kampus Merdeka",
     date: "May 2024",
@@ -354,7 +354,7 @@ export const CERTIFICATIONS: Certification[] = [
     hoverText: "Speaker in the Generative AI with Stable Diffusion webinar organized by BISA AI Academy in collaboration with Kampus Merdeka.",
   },
   {
-    id: 'webinar-2',
+    id: 'webinar-bisaai-2',
     title: "Fundamentals of SQL - Speaker Certificate",
     issuer: "BISA AI Academy x Kampus Merdeka",
     date: "Apr 2024",
