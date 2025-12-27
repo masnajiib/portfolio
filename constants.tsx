@@ -1,7 +1,7 @@
 import { Experience, Project, Publication, SkillCategory, Education, Certification } from './types';
 import { Linkedin, Mail, FileText, Phone, Instagram, Github } from 'lucide-react';
 
-export const RESUME_URL = `https://drive.google.com/uc?export=download&id=${import.meta.env.RESUME_FILE_ID}`;
+export const RESUME_URL = `https://drive.google.com/uc?export=download&id=${import.meta.env.VITE_RESUME_FILE_ID}`;
 
 export const METADATA = {
   title: "Almas Najiib Imam Muttaqin",
@@ -19,8 +19,8 @@ export const PERSONAL_INFO = {
   logo: "Almas", // Logo text in Navbar
   role: "AI Developer & Computer Vision Engineer", // Static role for SEO/Metadata
   typingRoles: ["AI Developer", "Computer Vision Engineer", "Data Scientist","Data Analyst"], // Roles for the typing animation
-  email: import.meta.env.EMAIL,
-  linkedin: import.meta.env.LINKEDIN_URL,
+  email: import.meta.env.VITE_EMAIL,
+  linkedin: import.meta.env.VITE_LINKEDIN_URL,
   profileImage: "/assets/profile/profile.png", // Replace with your actual photo URL
   about: "AI Developer, Data Scientist, and Informatics Engineering graduate (GPA 3.83/4.00) specializing in Computer Vision, AI Agents, and Data Analytics. Proven track record in developing scalable AI-driven solutions for the telecommunications industry, focusing on object detection models and LLM-based integration. Combines technical expertise with strong research capabilities, evidenced by 5 published scientific journals (1 as First Author, Sinta 2)."
 };
@@ -67,7 +67,7 @@ export const SOCIAL_LINKS = [
   { 
     name: 'WhatsApp', 
     icon: <Phone className="w-5 h-5" />, 
-    href: `https://wa.me/${import.meta.env.WHATSAPP_NUMBER}?text=${encodeURIComponent("Halo Almas, saya melihat portofolio Anda dan ingin berdiskusi lebih lanjut.")}` 
+    href: `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}?text=${encodeURIComponent("Halo Almas, saya melihat portofolio Anda dan ingin berdiskusi lebih lanjut.")}` 
   },
 ];
 
