@@ -149,7 +149,12 @@ ${message}
       </div>
 
       <div style="text-align: center;">
-        <a href="mailto:${email}?subject=${encodeURIComponent("Pesan dari Almas Najiib Imam Muttaqin")}&body=${encodeURIComponent(`Halo ${name},\n\nTerima kasih telah menghubungi saya.\n`)}" class="button">Balas via Email</a>
+        <!-- Button with nested span for better dark mode support -->
+        <a href="mailto:${email}?subject=${encodeURIComponent("Pesan dari Almas Najiib Imam Muttaqin")}&body=${encodeURIComponent(`Halo ${name},\n\nTerima kasih telah menghubungi saya.\n`)}" 
+           class="button" 
+           style="display: inline-block; background-color: #3b82f6; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #2563eb;">
+           <span style="color: #ffffff !important; font-family: sans-serif;">Balas via Email</span>
+        </a>
       </div>
     </div>
     <div class="footer">
