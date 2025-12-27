@@ -3,6 +3,15 @@ import { Linkedin, Mail, FileText, Phone, Instagram, Github } from 'lucide-react
 
 export const RESUME_URL = "/assets/resume/CV-Almas Najiib Imam Muttaqin.pdf"; // Replace with actual file path if hosting
 
+export const METADATA = {
+  title: "Almas Najiib Imam Muttaqin",
+  description: "Portfolio of Almas Najiib, an AI Developer specializing in Computer Vision and Data Science.",
+  url: "https://www.almasnajiib27.my.id",
+  image: "/assets/profile/profile.png",
+  type: "website",
+  twitterCard: "summary_large_image"
+};
+
 export const PERSONAL_INFO = {
   name: "Almas Najiib Imam Muttaqin",
   firstName: "Almas Najiib", // First line of name in Hero

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import { ThemeProvider } from './contexts/ThemeContext';
 import NotFound from './components/NotFound';
+import SEO from './components/SEO';
 
 // Lazy load components
 const Hero = lazy(() => import('./components/hero/Hero'));
@@ -22,6 +23,7 @@ const LoadingFallback = () => (
 function App() {
   return (
     <ThemeProvider>
+      <SEO />
       <Router>
         <div className="bg-gray-50 dark:bg-dark min-h-screen text-gray-900 dark:text-gray-200 font-sans selection:bg-primary selection:text-white transition-colors duration-500">
           <Routes>
