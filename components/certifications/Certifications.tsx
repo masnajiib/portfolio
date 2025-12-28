@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, ExternalLink, Calendar, X, ZoomIn, ChevronDown, ChevronUp } from 'lucide-react';
+import { Award, ExternalLink, Calendar, X, ZoomIn, ChevronDown, ChevronUp, Download } from 'lucide-react';
 import { CERTIFICATIONS, SECTION_CONTENT } from '../../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
@@ -91,8 +91,8 @@ const Certifications: React.FC = () => {
                      {cert.title}
                    </h3>
                    
-                   {cert.link && (
-                     <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-800">
+                   <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between gap-2">
+                     {cert.link && (
                         <a 
                           href={cert.link}
                           target="_blank"
@@ -100,10 +100,20 @@ const Certifications: React.FC = () => {
                           className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors"
                         >
                           <ExternalLink size={14} />
-                          <span>View Credential</span>
+                          <span>Credential</span>
                         </a>
-                     </div>
-                   )}
+                     )}
+
+                      <a 
+                        href={cert.image}
+                        download={`${cert.title.replace(/\s+/g, '_')}_Certificate`}
+                        className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors ml-auto"
+                        title="Download Certificate"
+                      >
+                        <Download size={14} />
+                        <span>Download</span>
+                      </a>
+                   </div>
                 </div>
              </motion.div>
           ))}
