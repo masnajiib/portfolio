@@ -8,7 +8,7 @@ const Certifications: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  const displayedCertifications = showAll ? CERTIFICATIONS : CERTIFICATIONS.slice(0, 6);
+  const displayedCertifications = showAll ? CERTIFICATIONS : CERTIFICATIONS.slice(0, 3);
 
   return (
     <section id="certifications" className="py-24 bg-gray-50 dark:bg-dark relative overflow-hidden transition-colors duration-500">
@@ -110,7 +110,7 @@ const Certifications: React.FC = () => {
         </div>
 
         {/* Show More / Show Less Button */}
-        {CERTIFICATIONS.length > 6 && (
+        {CERTIFICATIONS.length > 3 && (
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
   const [showFallback, setShowFallback] = useState(false);
   const [showAll, setShowAll] = useState(false);
 
-  const displayedProjects = showAll ? PROJECTS : PROJECTS.slice(0, 6);
+  const displayedProjects = showAll ? PROJECTS : PROJECTS.slice(0, 3);
 
   const container = {
     hidden: { opacity: 0 },
@@ -235,7 +235,7 @@ const Projects: React.FC = () => {
         </motion.div>
 
         {/* Show More Button */}
-        {PROJECTS.length > 6 && (
+        {PROJECTS.length > 3 && (
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

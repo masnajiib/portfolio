@@ -1,9 +1,12 @@
-import React from 'react';
-import { BookOpen, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { BookOpen, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { PUBLICATIONS, SECTION_CONTENT } from '../../constants';
 import { motion } from 'framer-motion';
 
 const Publications: React.FC = () => {
+  const [showAll, setShowAll] = useState(false);
+  const displayedPublications = showAll ? PUBLICATIONS : PUBLICATIONS.slice(0, 3);
+
   return (
     <section id="publications" className="py-16 relative bg-gray-50 dark:bg-dark overflow-hidden transition-colors duration-500">
        {/* Texture Pattern: Diagonal Lines */}
@@ -31,7 +34,7 @@ const Publications: React.FC = () => {
         </motion.div>
 
         <div className="grid gap-6">
-          {PUBLICATIONS.map((pub, index) => (
+          {displayedPublications.map((pub, index) => (
             <motion.a 
               key={pub.id}
               href={pub.link}
@@ -66,6 +69,30 @@ const Publications: React.FC = () => {
             </motion.a>
           ))}
         </div>
+
+        {/* Show More Button */}
+        {PUBLICATIONS.length > 3 && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex justify-center mt-10"
+          >
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="group flex items-center gap-2 px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <span className="font-medium">
+                {showAll ? "Show Less Publications" : "Show More Publications"}
+              </span>
+              {showAll ? (
+                <ChevronUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+              ) : (
+                <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+              )}
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
