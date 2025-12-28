@@ -10,21 +10,6 @@ const Projects: React.FC = () => {
 
   const displayedProjects = showAll ? PROJECTS : PROJECTS.slice(0, 3);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0 }
-  };
-
   return (
     <section id="projects" className="py-24 bg-gray-50 dark:bg-dark relative transition-colors duration-500">
         {/* Subtle grid pattern bg */}
@@ -133,17 +118,14 @@ const Projects: React.FC = () => {
           </div>
         </motion.div>
 
-        <motion.div 
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          className="flex flex-wrap justify-center gap-8"
-        >
-          {displayedProjects.map((project) => (
+        <div className="flex flex-wrap justify-center gap-8">
+          {displayedProjects.map((project, index) => (
             <motion.div 
               key={project.id} 
-              variants={item}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
               className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.4rem)] bg-white dark:bg-card rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-colors group flex flex-col shadow-sm dark:shadow-none"
             >
@@ -232,7 +214,7 @@ const Projects: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Show More Button */}
         {PROJECTS.length > 3 && (
