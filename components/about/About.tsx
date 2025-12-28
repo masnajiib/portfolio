@@ -4,6 +4,14 @@ import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 
 const About: React.FC = () => {
+  // Helper to parse bold text using ** syntax
+  const parseBoldText = (text: string | React.ReactNode) => {
+    if (typeof text !== 'string') return text;
+    return text.split('*').map((part, index) => 
+      index % 2 === 1 ? <span key={index} className="font-bold text-gray-900 dark:text-white">{part}</span> : part
+    );
+  };
+
   const scrollToSection = (href: string) => {
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
@@ -67,7 +75,7 @@ const About: React.FC = () => {
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{ABOUT_DETAILS.subtitle}</h3>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-              {ABOUT_DETAILS.introduction}
+              {parseBoldText(ABOUT_DETAILS.introduction)}
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

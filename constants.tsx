@@ -22,12 +22,12 @@ export const PERSONAL_INFO = {
   email: import.meta.env.VITE_EMAIL,
   linkedin: import.meta.env.VITE_LINKEDIN_URL,
   profileImage: "/assets/profile/profile.png", // Replace with your actual photo URL
-  about: "AI Developer, Data Scientist, and Informatics Engineering graduate (GPA 3.83/4.00) specializing in Computer Vision, AI Agents, and Data Analytics. Proven track record in developing scalable AI-driven solutions for the telecommunications industry, focusing on object detection models and LLM-based integration. Combines technical expertise with strong research capabilities, evidenced by 5 published scientific journals (1 as First Author, Sinta 2)."
+  about: "I'm an AI Developer and Data Scientist with a passion for building intelligent systems that solve real-world problems. With a strong background in Computer Vision and Machine Learning, I have successfully delivered projects for major telecommunications companies and contributed to scientific research."
 };
 
 export const ABOUT_DETAILS = {
   subtitle: "AI Developer & Data Scientist",
-  introduction: "I am an AI Developer and Data Scientist with a passion for building intelligent systems that solve real-world problems. With a strong background in Computer Vision and Machine Learning, I have successfully delivered projects for major telecommunications companies and contributed to scientific research.",
+  introduction: "I am an AI Developer and Data Scientist, an Informatics Engineering graduate (3.83 GPA) selected for the exclusive *Excellent Class* program, dedicated to merging academic precision with high-impact technical solutions. My professional experience at *Indosat Ooredoo Hutchison* focused on engineering a robust AI analytics ecosystem that fuses Computer Vision and Large Language Models for seamless competitor monitoring and database interaction. *This solution was successfully deployed across six provinces in Indonesia, empowering over 3,000 internal users.* With a strong command of Python, SQL, and local model deployment , my work is further validated by a research portfolio of *5 scientific journals* in face recognition and health AI.",
   highlights: [
     "Specializing in Computer Vision & AI Agents",
     "Experience with Large Language Models (LLMs)",
