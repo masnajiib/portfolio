@@ -25,10 +25,31 @@ export const PERSONAL_INFO = {
   about: "AI Developer, Data Scientist, and Informatics Engineering graduate (GPA 3.83/4.00) specializing in Computer Vision, AI Agents, and Data Analytics. Proven track record in developing scalable AI-driven solutions for the telecommunications industry, focusing on object detection models and LLM-based integration. Combines technical expertise with strong research capabilities, evidenced by 5 published scientific journals (1 as First Author, Sinta 2)."
 };
 
+export const ABOUT_DETAILS = {
+  subtitle: "AI Developer & Data Scientist",
+  introduction: "I am an AI Developer and Data Scientist with a passion for building intelligent systems that solve real-world problems. With a strong background in Computer Vision and Machine Learning, I have successfully delivered projects for major telecommunications companies and contributed to scientific research.",
+  highlights: [
+    "Specializing in Computer Vision & AI Agents",
+    "Experience with Large Language Models (LLMs)",
+    "Published Researcher (Sinta 2 & 3)",
+    "First Class Honors Graduate (GPA 3.83)"
+  ],
+  quickStats: [
+    { label: "Years Experience", value: "2+" },
+    { label: "Projects Completed", value: "10+" },
+    { label: "Publications", value: "5" },
+    { label: "GPA", value: "3.83" }
+  ],
+};
+
 // Options: 'gradient-blob', 'geometric-circle', 'tech-dots', 'solid-accent', 'tech-ring', 'ai-network', 'none'
 export const PROFILE_BACKGROUND_STYLE: 'gradient-blob' | 'geometric-circle' | 'tech-dots' | 'solid-accent' | 'tech-ring' | 'ai-network' | 'none' = 'ai-network';
 
 export const SECTION_CONTENT = {
+  about: {
+    title: "About Me",
+    description: "A brief introduction about who I am and what I do."
+  },
   projects: {
     title: "Featured Projects",
     description: "A selection of AI, Computer Vision, and Data Analysis projects I've developed for enterprise and research."

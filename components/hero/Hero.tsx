@@ -204,7 +204,7 @@ const Hero: React.FC = () => {
   }, [displayRole, isDeleting, roleIndex]);
 
   return (
-    <section id="about" className="min-h-screen flex items-center pt-20 relative overflow-hidden bg-gray-50 dark:bg-dark transition-colors duration-500">
+    <section id="home" className="min-h-screen flex items-center pt-20 pb-20 relative overflow-hidden bg-gray-50 dark:bg-dark transition-colors duration-500">
       {/* Texture Pattern: Dot Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#00000033_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.1] z-0"></div>
 
@@ -241,6 +241,22 @@ const Hero: React.FC = () => {
             {PERSONAL_INFO.about}
           </motion.p>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="flex flex-wrap gap-2 justify-center md:justify-start mt-4 mb-8"
+          >
+            {PERSONAL_INFO.typingRoles.map((role, index) => (
+              <span 
+                key={index} 
+                className="px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-all hover:border-primary/50 hover:text-primary dark:hover:text-primary cursor-default"
+              >
+                {role}
+              </span>
+            ))}
+          </motion.div>
+
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -261,19 +277,6 @@ const Hero: React.FC = () => {
             <motion.a 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#projects" 
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('#projects');
-              }}
-              className="px-8 py-3 bg-primary hover:bg-blue-600 text-white font-medium rounded-full flex items-center justify-center transition-all shadow-lg shadow-blue-500/25"
-            >
-              View Projects <ChevronRight className="ml-2 w-4 h-4" />
-            </motion.a>
-
-            <motion.a 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               href={RESUME_URL}
               target="_blank"
               download
@@ -288,7 +291,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex items-center gap-6 pt-2 justify-center md:justify-start"
+            className="flex items-center gap-6 pt-2 justify-center md:justify-start mb-12"
           >
             {SOCIAL_LINKS.map((link) => (
               <motion.a

@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white dark:bg-black text-center relative transition-colors duration-500">
+    <section id="contact" className="py-24 bg-white dark:bg-dark text-center relative transition-colors duration-500">
       <div className="max-w-4xl mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
