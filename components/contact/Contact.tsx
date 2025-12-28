@@ -55,7 +55,10 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 bg-white dark:bg-dark text-center relative transition-colors duration-500">
-      <div className="max-w-4xl mx-auto px-4">
+      {/* Texture Pattern: Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+      <div className="max-w-4xl mx-auto px-4 relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

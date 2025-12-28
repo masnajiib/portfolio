@@ -38,12 +38,9 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="py-24 bg-white dark:bg-dark relative overflow-hidden transition-colors duration-500">
-      {/* Texture Pattern: Dot Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#00000033_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.1] z-0"></div>
+      {/* Texture Pattern: Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       
-      {/* Subtle radial fade for the background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-dark dark:via-transparent dark:to-dark z-0 pointer-events-none"></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
