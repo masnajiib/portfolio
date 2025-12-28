@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Download, ChevronRight, MessageCircle } from 'lucide-react';
 import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE } from '../../constants';
 import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
+import ImageWithLoader from '../common/ImageWithLoader';
 
 const Hero: React.FC = () => {
   const [displayRole, setDisplayRole] = useState('');
@@ -352,10 +353,11 @@ const Hero: React.FC = () => {
               {/* Inner Profile Image - Remains Static */}
               <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden z-10 pointer-events-none select-none">
                  {renderProfileBackground()}
-                 <img 
+                 <ImageWithLoader 
                    src={PERSONAL_INFO.profileImage}
                    alt={`${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName}`}
                    className="relative w-full h-full rounded-full object-cover z-10"
+                   containerClassName="w-full h-full"
                    draggable="false"
                  />
               </div>

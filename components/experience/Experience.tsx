@@ -2,6 +2,7 @@ import React from 'react';
 import { Briefcase } from 'lucide-react';
 import { EXPERIENCES, EDUCATION, SECTION_CONTENT } from '../../constants';
 import { motion } from 'framer-motion';
+import ImageWithLoader from '../common/ImageWithLoader';
 
 const Experience: React.FC = () => {
   return (
@@ -93,10 +94,11 @@ const Experience: React.FC = () => {
                 {/* Education Logo/Image */}
                 {edu.image && (
                   <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 overflow-hidden rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white">
-                    <img 
+                    <ImageWithLoader 
                       src={edu.image} 
                       alt={edu.institution} 
                       className="w-full h-full object-cover" 
+                      containerClassName="w-full h-full"
                     />
                   </div>
                 )}

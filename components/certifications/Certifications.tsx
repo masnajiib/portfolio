@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Award, ExternalLink, Calendar, X, ZoomIn } from 'lucide-react';
 import { CERTIFICATIONS, SECTION_CONTENT } from '../../constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import ImageWithLoader from '../common/ImageWithLoader';
 
 const Certifications: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -47,10 +48,11 @@ const Certifications: React.FC = () => {
                   className="relative aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-900 p-2 border-b border-gray-200 dark:border-gray-800 cursor-pointer"
                   onClick={() => setSelectedImage(cert.image)}
                 >
-                   <img 
+                   <ImageWithLoader 
                      src={cert.image} 
                      alt={cert.title} 
                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                     containerClassName="w-full h-full"
                    />
                    <div className="absolute inset-0 bg-white/90 dark:bg-dark/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6">
                       <p className="text-gray-900 dark:text-white text-sm text-center font-medium leading-relaxed mb-3">

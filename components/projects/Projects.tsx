@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Folder, ExternalLink } from 'lucide-react';
 import { PROJECTS, SECTION_CONTENT } from '../../constants';
 import { motion } from 'framer-motion';
+import ImageWithLoader from '../common/ImageWithLoader';
 
 const Projects: React.FC = () => {
   const [showFallback, setShowFallback] = useState(false);
@@ -84,12 +85,16 @@ const Projects: React.FC = () => {
               >
                 <div className="relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-2xl bg-gray-100 dark:bg-gray-900 hover:border-primary/50 transition-all duration-500">
                   <div className="relative w-full aspect-video">
-                    <motion.img 
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.4 }}
+                    <ImageWithLoader 
+                      useMotion={true}
+                      motionProps={{
+                        whileHover: { scale: 1.02 },
+                        transition: { duration: 0.4 }
+                      }}
                       src="/assets/project/elang_ai.jpg" 
                       alt="Featured Project - Elang AI"
                       className="w-full h-full object-cover"
+                      containerClassName="w-full h-full"
                     />
                     
                     {/* Overlay with Play Button */}
@@ -145,21 +150,29 @@ const Projects: React.FC = () => {
                   
                   {project.link ? (
                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full cursor-pointer">
-                      <motion.img 
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.6 }}
+                      <ImageWithLoader 
+                        useMotion={true}
+                        motionProps={{
+                          whileHover: { scale: 1.05 },
+                          transition: { duration: 0.6 }
+                        }}
                         src={project.image || "https://picsum.photos/400/250"} 
                         alt={project.title}
                         className="w-full h-full object-contain" 
+                        containerClassName="w-full h-full"
                       />
                     </a>
                   ) : (
-                    <motion.img 
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.6 }}
+                    <ImageWithLoader 
+                      useMotion={true}
+                      motionProps={{
+                        whileHover: { scale: 1.05 },
+                        transition: { duration: 0.6 }
+                      }}
                       src={project.image || "https://picsum.photos/400/250"} 
                       alt={project.title}
                       className="w-full h-full object-contain"
+                      containerClassName="w-full h-full"
                     />
                   )}
               </div>
