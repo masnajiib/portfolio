@@ -229,7 +229,6 @@ const Hero: React.FC = () => {
             </h1>
             <h2 className="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light flex items-center justify-center md:justify-start h-8">
               <span>{displayRole}</span>
-              <span className="animate-pulse ml-1 text-primary">|</span>
             </h2>
           </motion.div>
           
