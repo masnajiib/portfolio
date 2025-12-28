@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Award, ExternalLink, Calendar, X, ZoomIn } from 'lucide-react';
+import { Award, ExternalLink, Calendar, X, ZoomIn, ChevronDown, ChevronUp } from 'lucide-react';
 import { CERTIFICATIONS, SECTION_CONTENT } from '../../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 
 const Certifications: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedCertifications = showAll ? CERTIFICATIONS : CERTIFICATIONS.slice(0, 6);
 
   return (
     <section id="certifications" className="py-24 bg-gray-50 dark:bg-dark relative overflow-hidden transition-colors duration-500">
@@ -33,7 +36,7 @@ const Certifications: React.FC = () => {
 
         {/* Flex container with justify-center ensures items are centered if less than max columns */}
         <div className="flex flex-wrap justify-center gap-8">
-          {CERTIFICATIONS.map((cert, index) => (
+          {displayedCertifications.map((cert, index) => (
              <motion.div
                key={cert.id}
                initial={{ opacity: 0, y: 20 }}
@@ -105,6 +108,31 @@ const Certifications: React.FC = () => {
              </motion.div>
           ))}
         </div>
+
+        {/* Show More / Show Less Button */}
+        {CERTIFICATIONS.length > 6 && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-12 flex justify-center"
+          >
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="group flex items-center gap-2 px-6 py-3 bg-white dark:bg-card border border-gray-200 dark:border-gray-700 rounded-full text-gray-700 dark:text-gray-300 font-medium hover:border-secondary hover:text-secondary transition-all shadow-sm hover:shadow-md"
+            >
+              {showAll ? (
+                <>
+                  Show Less <ChevronUp size={18} className="group-hover:-translate-y-1 transition-transform" />
+                </>
+              ) : (
+                <>
+                  View All Certificates <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" />
+                </>
+              )}
+            </button>
+          </motion.div>
+        )}
       </div>
 
       {/* Full Screen Image Modal */}
