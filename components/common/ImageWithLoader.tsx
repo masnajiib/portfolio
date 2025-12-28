@@ -34,8 +34,13 @@ const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({
   return (
     <div className={`relative overflow-hidden ${containerClassName}`}>
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-800 animate-pulse z-10">
-          <Loader2 className="w-8 h-8 text-gray-400 animate-spin" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 z-10">
+          <div className="flex space-x-1 mb-2">
+            <div className="w-2 h-2 bg-primary/60 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+            <div className="w-2 h-2 bg-primary/60 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+            <div className="w-2 h-2 bg-primary/60 rounded-full animate-bounce"></div>
+          </div>
+          <span className="text-xs text-gray-500 dark:text-gray-400 font-medium animate-pulse">Loading preview...</span>
         </div>
       )}
       
