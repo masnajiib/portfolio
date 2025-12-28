@@ -63,7 +63,7 @@ export default async function handler(
     return response.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, message, honeypot } = request.body;
+  const { name, email, subject, message, honeypot } = request.body;
 
   // Honeypot Check (Anti-Spam)
   if (honeypot) {
@@ -72,7 +72,7 @@ export default async function handler(
     return response.status(200).json({ message: 'Email sent successfully' });
   }
 
-  if (!name || !email || !message) {
+  if (!name || !email || !subject || !message) {
     return response.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -101,10 +101,11 @@ export default async function handler(
       from: `"${name}" <${user}>`, // Sender address (must be authenticated user for Gmail)
       to: user, // Send to yourself
       replyTo: email, // Reply to the user's email
-      subject: `Pesan Baru dari Portofolio: ${name}`,
+      subject: `[Portfolio] ${subject} - ${name}`,
       text: `
 Nama: ${name}
 Email: ${email}
+Subject: ${subject}
 
 Pesan:
 ${message}
@@ -144,13 +145,18 @@ ${message}
       </div>
 
       <div class="field">
+        <div class="label">Subject</div>
+        <div class="value"><strong>${subject}</strong></div>
+      </div>
+
+      <div class="field">
         <div class="label">Pesan</div>
         <div class="value message-box">${message}</div>
       </div>
 
       <div style="text-align: center;">
         <!-- Button with nested span for better dark mode support -->
-        <a href="mailto:${email}?subject=${encodeURIComponent("Pesan dari Almas Najiib Imam Muttaqin")}&body=${encodeURIComponent(`Halo ${name},\n\nTerima kasih telah menghubungi saya.\n`)}" 
+        <a href="mailto:${email}?subject=${encodeURIComponent(`Re: ${subject}`)}&body=${encodeURIComponent(`Halo ${name},\n\nTerima kasih telah menghubungi saya.\n`)}" 
            class="button" 
            style="display: inline-block; background-color: #3b82f6; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #2563eb;">
            <span style="color: #ffffff !important; font-family: sans-serif;">Balas via Email</span>
