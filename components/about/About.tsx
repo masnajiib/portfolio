@@ -7,7 +7,7 @@ const About: React.FC = () => {
   // Helper to parse bold text using ** syntax
   const parseBoldText = (text: string | React.ReactNode) => {
     if (typeof text !== 'string') return text;
-    return text.split('*').map((part, index) => 
+    return text.split('**').map((part, index) => 
       index % 2 === 1 ? <span key={index} className="font-bold text-gray-900 dark:text-white">{part}</span> : part
     );
   };
