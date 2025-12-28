@@ -134,10 +134,11 @@ const Certifications: React.FC = () => {
               className="relative max-w-6xl w-full max-h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing modal
             >
-              <img 
+              <ImageWithLoader 
                 src={selectedImage} 
                 alt="Certificate Full View" 
                 className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-gray-800"
+                containerClassName="flex items-center justify-center"
               />
             </motion.div>
           </motion.div>
