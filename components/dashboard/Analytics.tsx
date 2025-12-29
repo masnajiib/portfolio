@@ -76,9 +76,6 @@ const Analytics: React.FC = () => {
         setPageData(pages);
 
       } catch (err) {
-// ... existing catch ...
-
-      } catch (err) {
         console.error(err);
         // Fallback to Mock if API fails (e.g. locally where /api doesn't exist)
         // Check if we are in dev

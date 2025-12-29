@@ -37,29 +37,23 @@ export default async function handler(request: VercelRequest, response: VercelRe
     const statsRes = await fetch(`${UMAMI_API_URL}/websites/${WEBSITE_ID}/stats?startAt=${startAt}&endAt=${endAt}`, { headers });
     const stats = await statsRes.json();
 
-    // 2. Fetch Traffic Chart Data (Pageviews & Visitors per day)
-    // Umami doesn't give a single "traffic" endpoint, we use pageviews grouped by day
+    // 2. Fetch Traffic Chart Data
     const chartRes = await fetch(
       `${UMAMI_API_URL}/websites/${WEBSITE_ID}/pageviews?startAt=${startAt}&endAt=${endAt}&unit=day&timezone=Asia/Jakarta`, 
       { headers }
     );
     const chartData = await chartRes.json();
     
-    // We assume chartData returns { pageviews: [...], sessions: [...] } structure usually
-    // Or sometimes it returns [{ x: 'date', y: 123 }] depending on version.
-    // For Cloud/v2, typically /pageviews returns `{ pageviews: [...], sessions: [...] }`.
-    // Let's normalize it. 
-
     // 3. Fetch Top Countries
     const countryRes = await fetch(
-        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50`,
+        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50&timezone=Asia/Jakarta`,
         { headers }
     );
     const countryData = await countryRes.json();
 
     // 4. Fetch Top Pages
     const pageRes = await fetch(
-        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10`,
+        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10&timezone=Asia/Jakarta`,
         { headers }
     );
     const pageData = await pageRes.json();
