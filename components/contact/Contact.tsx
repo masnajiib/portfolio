@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
                 value={formState.subject}
                 onChange={handleChange}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-black text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                placeholder="What is this regarding?"
+                placeholder="Subject of your message"
               />
             </div>
             <div>
@@ -149,7 +149,7 @@ const Contact: React.FC = () => {
                 value={formState.message}
                 onChange={handleChange}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-black text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
-                placeholder="How can I help you?"
+                placeholder="Your message here..."
               />
             </div>
             
