@@ -4,24 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import ThemeToggle from '../theme/ThemeToggle';
 import StatsCard from './StatsCard';
 import TrafficChart from './TrafficChart';
-import CountryStats from './CountryStats';
+import PageStats from './PageStats';
 
-// Map country codes to names/emojis manually or via library if needed.
-// For simplicity, we just use the code provided by Umami (ISO 2 code)
 const getCountryName = (code: string) => {
-  try {
-    const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-    return regionNames.of(code) || code;
-  } catch {
-    return code;
-  }
-};
+// ... existing code ...
 const getFlagEmoji = (countryCode: string) => {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split('')
-    .map(char =>  127397 + char.charCodeAt(0));
-  return String.fromCodePoint(...codePoints);
+// ... existing code ...
 }
 
 const Analytics: React.FC = () => {
@@ -32,6 +20,7 @@ const Analytics: React.FC = () => {
   const [stats, setStats] = useState({ visits: 0, visitors: 0, pageviews: 0, bounceRate: 0 });
   const [trafficData, setTrafficData] = useState<any[]>([]);
   const [countryData, setCountryData] = useState<any[]>([]);
+  const [pageData, setPageData] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,44 +31,32 @@ const Analytics: React.FC = () => {
         const data = await response.json();
         
         // Transform Stats
-        // Umami stats: { pageviews: { value, change }, visitors: { value, change }, visits: { value, change }, bounces: { value, change }, totaltime: { value, change } }
-        // Note: The API response structure might vary slightly, treating as flat object for safety or specific object
-        // Actually Umami /stats usually returns: { pageviews: { value: 123, change: 10 }, ... }
-        
-        // Safe access helper
-        const getVal = (obj: any) => obj?.value || 0;
-        const getChange = (obj: any) => obj?.change || 0;
-
-        // Note: If the api returns flat structure (depends on version), adjust here.
-        // Assuming /stats endpoint returns object with keys pageviews, visitors, visits, bounces
-        
         const s = data.stats || {};
         setStats({
-          visits: getVal(s.visits),
-          visitors: getVal(s.visitors),
-          pageviews: getVal(s.pageviews),
-          bounceRate: getVal(s.bounces) // Bounces is usually a count, bounce rate need calc? 
-          // Umami usually returns `bounces` as object. Bounce rate = (bounces/visits)*100. 
-          // Wait, Umami UI shows Bounce Rate. The API might return it or we calc it.
-          // Let's assume `s.bounces.value` is total bounces.
+          visits: mapVal(s.visits),
+          visitors: mapVal(s.visitors),
+          pageviews: mapVal(s.pageviews),
+          bounceRate: mapVal(s.bounces)
         });
         
-        // Transform Traffic Data
-        // data.chart.pageviews = [{x: "2023-01-01", y: 10}, ...]
-        // data.chart.sessions = [{x: "2023-01-01", y: 5}, ...]
-        const pvs = data.chart?.pageviews || [];
-        const visitors = data.chart?.sessions || []; // Umami uses 'sessions' for unique visits in charts usually
+        // Helper to safely get value from Umami object structure { value: 0, prev: 0 }
+        function mapVal(obj: any): number {
+           return typeof obj === 'number' ? obj : (obj?.value || 0);
+        }
         
-        // Merge arrays by date
+        // Transform Traffic Data
+        // ... existing traffic transform ...
+        const pvs = data.chart?.pageviews || [];
+        const visitors = data.chart?.sessions || [];
+        
         const mergedChart = pvs.map((item: any, index: number) => ({
-             date: new Date(item.x).toLocaleDateString('en-US', { weekday: 'short' }), // "Mon"
+             date: new Date(item.x).toLocaleDateString('en-US', { weekday: 'short' }),
              visitors: visitors[index]?.y || 0,
              pageviews: item.y || 0
         }));
         setTrafficData(mergedChart);
         
         // Transform Country Data
-        // data.countries = [{ x: "ID", y: 100 }, ...]
         const totalCountryVisits = data.countries.reduce((acc: number, cur: any) => acc + cur.y, 0);
         const countries = data.countries.map((c: any) => ({
             code: getFlagEmoji(c.x),
@@ -88,6 +65,18 @@ const Analytics: React.FC = () => {
             percent: totalCountryVisits > 0 ? Math.round((c.y / totalCountryVisits) * 100) : 0
         }));
         setCountryData(countries);
+
+        // Transform Page Data
+        const totalPageVisits = data.pages.reduce((acc: number, cur: any) => acc + cur.y, 0);
+        const pages = data.pages.map((p: any) => ({
+            path: p.x,
+            visitors: p.y,
+            percent: totalPageVisits > 0 ? Math.round((p.y / totalPageVisits) * 100) : 0
+        }));
+        setPageData(pages);
+
+      } catch (err) {
+// ... existing catch ...
 
       } catch (err) {
         console.error(err);
@@ -175,8 +164,9 @@ const Analytics: React.FC = () => {
               <div className="lg:col-span-2">
                 <TrafficChart data={trafficData} />
               </div>
-              <div>
+              <div className="space-y-6">
                 <CountryStats data={countryData.slice(0, 5)} />
+                <PageStats data={pageData} />
               </div>
             </div>
           </main>
