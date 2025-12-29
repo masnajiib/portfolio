@@ -125,7 +125,7 @@ const Analytics: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark flex flex-col transition-colors duration-500 relative overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-dark transition-colors duration-500 relative">
       {/* Texture Pattern: Grid - Matching About Section */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
 
@@ -142,7 +142,7 @@ const Analytics: React.FC = () => {
       `}</style>
       
       {/* Header */}
-      <div className="bg-white/80 dark:bg-card/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 sticky top-0 z-30 transition-colors duration-500">
+      <div className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-card/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-50 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button 
@@ -161,15 +161,15 @@ const Analytics: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 relative overflow-y-auto">
+      <div className="pt-16 pb-8">
         {isLoading ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-50 dark:bg-dark z-20">
+          <div className="flex items-center justify-center min-h-[calc(100vh-64px)]">
             <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : error ? (
-           <div className="flex flex-col items-center justify-center h-full text-gray-500 dark:text-gray-400">
-               <AlertCircle size={48} className="mb-4 text-red-500" />
-               <p>{error}</p>
+           <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] text-gray-500 dark:text-gray-400">
+              <AlertCircle size={48} className="mb-4 text-red-500" />
+              <p>{error}</p>
            </div>
         ) : (
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
