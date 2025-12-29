@@ -1,6 +1,10 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
-import { THEME_COLORS } from '../src/theme';
+// Hardcode colors to avoid import issues in Vercel Serverless environment
+const THEME_COLORS = {
+  primary: '#3b82f6',
+  secondary: '#06b6d4'
+};
 
 // Simple in-memory rate limiting (per container instance)
 const rateLimit = new Map<string, number[]>();
