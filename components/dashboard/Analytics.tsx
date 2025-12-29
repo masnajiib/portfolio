@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ANALYTICS_CONFIG } from '../../constants';
+import ThemeToggle from '../theme/ThemeToggle';
 
 const Analytics: React.FC = () => {
   const navigate = useNavigate();
@@ -25,13 +26,14 @@ const Analytics: React.FC = () => {
               Visitor Analytics
             </h1>
           </div>
+          <ThemeToggle />
         </div>
       </div>
 
       {/* Content */}
       <div className="flex-1 relative">
         {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-50 dark:bg-dark z-0">
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-50 dark:bg-dark z-20">
             <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
