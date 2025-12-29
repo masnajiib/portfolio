@@ -125,7 +125,21 @@ const Analytics: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-dark flex flex-col transition-colors duration-500">
+    <div className="min-h-screen bg-white dark:bg-dark flex flex-col transition-colors duration-500 relative overflow-hidden">
+      {/* Texture Pattern: Grid - Matching About Section */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+
+      {/* Global Focus Reset for Dashboard */}
+      <style>{`
+        *:focus {
+          outline: none !important;
+          box-shadow: none !important;
+        }
+        /* Restore standard focus for inputs if needed, but remove for general UI cards */
+        input:focus, textarea:focus, select:focus {
+           box-shadow: 0 0 0 2px var(--color-primary) !important;
+        }
+      `}</style>
       
       {/* Header */}
       <div className="bg-white/80 dark:bg-card/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 sticky top-0 z-30 transition-colors duration-500">
