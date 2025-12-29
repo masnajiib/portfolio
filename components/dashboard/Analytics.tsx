@@ -64,9 +64,9 @@ const Analytics: React.FC = () => {
         // Transform Stats
         const s = data.stats || {};
         setStats({
-          visits: totalVisitsFromChart, // Use Chart Sum
-          visitors: mapVal(s.visitors), // Keep original (Uniques)
-          pageviews: totalPageviewsFromChart, // Use Chart Sum
+          visits: mapVal(s.visits), // Use API Stats (Total Sessions) to match Umami
+          visitors: mapVal(s.visitors), // Use API Stats (Total Unique Visitors)
+          pageviews: totalPageviewsFromChart, // Keep Chart Sum for Views (usually matches well)
           bounceRate: mapVal(s.bounces)
         });
         
