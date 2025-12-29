@@ -161,7 +161,7 @@ const Analytics: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="pt-16 pb-8">
+      <div className="pt-16 pb-8 relative z-10">
         {isLoading ? (
           <div className="flex items-center justify-center min-h-[calc(100vh-64px)]">
             <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
