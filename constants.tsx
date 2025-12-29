@@ -12,10 +12,7 @@ export const METADATA = {
   twitterCard: "summary_large_image"
 };
 
-export const ANALYTICS_CONFIG = {
-  trackingCode: "d52de2f4-a7c6-4507-aefd-c34417c28a97",
-  shareUrl: "https://cloud.umami.is/share/d52de2f4-a7c6-4507-aefd-c34417c28a97" // Updated to share URL format
-};
+
 
 export const PERSONAL_INFO = {
   name: "Almas Najiib Imam Muttaqin",
