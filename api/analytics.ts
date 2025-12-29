@@ -2,8 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 // CONFIGURATION
 const UMAMI_API_URL = 'https://api.umami.is/v1';
-const WEBSITE_ID = process.env.VITE_UMAMI_WEBSITE_ID;
-const API_KEY = process.env.UMAMI_API_KEY;
+const WEBSITE_ID = process.env.VITE_UMAMI_WEBSITE_ID || 'd52de2f4-a7c6-4507-aefd-c34417c28a97';
+const API_KEY = process.env.UMAMI_API_KEY || 'api_nPggW0J4Fly5cWagdUbLQyAfeRUenAc7';
 
 // Allowed Origins for Security
 const ALLOWED_ORIGINS = [
@@ -20,7 +20,6 @@ export default async function handler(request: VercelRequest, response: VercelRe
   
   if (!isAllowed && process.env.NODE_ENV === 'production') {
     // Optional: Enable strict checking in production
-    // return response.status(403).json({ error: 'Forbidden' });
   }
 
   try {
@@ -33,30 +32,34 @@ export default async function handler(request: VercelRequest, response: VercelRe
     const endAt = Date.now();
     const startAt = 0;
 
-    // 1. Fetch General Stats (Total for the period)
-    const statsRes = await fetch(`${UMAMI_API_URL}/websites/${WEBSITE_ID}/stats?startAt=${startAt}&endAt=${endAt}`, { headers });
-    const stats = await statsRes.json();
+    // Helper for fetch with error check
+    const fetchUmami = async (endpoint: string) => {
+        const res = await fetch(`${UMAMI_API_URL}/websites/${WEBSITE_ID}${endpoint}`, { headers });
+        if (!res.ok) {
+            const txt = await res.text();
+            throw new Error(`Umami API Error (${res.status}): ${txt}`);
+        }
+        return res.json();
+    };
+
+    // 1. Fetch General Stats
+    const stats = await fetchUmami(`/stats?startAt=${startAt}&endAt=${endAt}`);
 
     // 2. Fetch Traffic Chart Data
-    const chartRes = await fetch(
-      `${UMAMI_API_URL}/websites/${WEBSITE_ID}/pageviews?startAt=${startAt}&endAt=${endAt}&unit=day`, 
-      { headers }
-    );
-    const chartData = await chartRes.json();
+    const chartData = await fetchUmami(`/pageviews?startAt=${startAt}&endAt=${endAt}&unit=day`);
     
     // 3. Fetch Top Countries
-    const countryRes = await fetch(
-        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50`,
-        { headers }
-    );
-    const countryData = await countryRes.json();
+    const countryData = await fetchUmami(`/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50`);
 
     // 4. Fetch Top Pages
-    const pageRes = await fetch(
-        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10`,
-        { headers }
-    );
-    const pageData = await pageRes.json();
+    const pageData = await fetchUmami(`/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10`);
+
+    return response.status(200).json({
+      stats,
+      chart: chartData,
+      countries: countryData,
+      pages: pageData
+    });
 
     return response.status(200).json({
       stats,
