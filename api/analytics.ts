@@ -57,12 +57,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
       countries: countryData
     });
 
-    return response.status(200).json({
-      stats,
-      chart: chartData,
-      countries: countryData,
-      pages: pageData
-    });
+
 
   } catch (error) {
     console.error('Umami API Error:', error);
