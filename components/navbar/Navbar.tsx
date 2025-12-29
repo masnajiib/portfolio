@@ -133,6 +133,12 @@ const Navbar: React.FC = () => {
                 {link.name}
               </motion.a>
             ))}
+            <a
+              href="/dashboard"
+              className="px-4 py-2 ml-4 rounded-full bg-primary text-white text-sm font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/30"
+            >
+              Dashboard
+            </a>
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -178,6 +184,12 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
+              <a
+                href="/dashboard"
+                className="block px-3 py-2 mt-2 text-base font-bold text-primary hover:text-blue-600 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors"
+              >
+                Dashboard
+              </a>
             </div>
           </motion.div>
         )}

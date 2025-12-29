@@ -14,6 +14,7 @@ const Publications = lazy(() => import('./components/publications/Publications')
 const Skills = lazy(() => import('./components/skills/Skills'));
 const Certifications = lazy(() => import('./components/certifications/Certifications'));
 const Contact = lazy(() => import('./components/contact/Contact'));
+const Analytics = lazy(() => import('./components/dashboard/Analytics'));
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-[calc(100vh-80px)]">
@@ -43,10 +44,18 @@ function App() {
                     <Contact />
                     <footer className="bg-gray-100 dark:bg-black py-8 text-center text-gray-500 dark:text-gray-400 text-sm transition-colors duration-500 border-t border-gray-200 dark:border-gray-800">
                       <p>© {new Date().getFullYear()} Almas Najiib Imam Muttaqin. All rights reserved.</p>
+                      <div className="mt-2 text-xs">
+                         <a href="/dashboard" className="hover:text-primary transition-colors">Visitor Analytics</a>
+                      </div>
                     </footer>
                   </Suspense>
                 </main>
               </>
+            } />
+            <Route path="/dashboard" element={
+              <Suspense fallback={<LoadingFallback />}>
+                <Analytics />
+              </Suspense>
             } />
             <Route path="*" element={<NotFound />} />
           </Routes>
