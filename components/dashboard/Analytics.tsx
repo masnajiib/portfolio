@@ -145,19 +145,19 @@ const Analytics: React.FC = () => {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <StatsCard 
-                title="Total Visits" 
+                title="Visits" 
                 value={stats.visits.toLocaleString()} 
                 trend="neutral"
                 icon={<MousePointerClick size={24} />} 
               />
               <StatsCard 
-                title="Unique Visitors" 
+                title="Visitors" 
                 value={stats.visitors.toLocaleString()} 
                 trend="neutral"
                 icon={<Users size={24} />} 
               />
               <StatsCard 
-                title="Pageviews" 
+                title="Views" 
                 value={stats.pageviews.toLocaleString()} 
                 trend="neutral"
                 icon={<Eye size={24} />} 

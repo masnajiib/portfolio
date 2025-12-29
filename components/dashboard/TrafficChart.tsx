@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import {
-  AreaChart,
-  Area,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
   ResponsiveContainer
 } from 'recharts';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -31,7 +32,7 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
       
       <div className="w-full h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart
+          <BarChart
             data={data}
             margin={{
               top: 10,
@@ -40,16 +41,6 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
               bottom: 0,
             }}
           >
-            <defs>
-              <linearGradient id="colorVisitors" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor={THEME_COLORS.primary} stopOpacity={0.3}/>
-                <stop offset="95%" stopColor={THEME_COLORS.primary} stopOpacity={0}/>
-              </linearGradient>
-              <linearGradient id="colorPageviews" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor={THEME_COLORS.secondary} stopOpacity={0.3}/>
-                <stop offset="95%" stopColor={THEME_COLORS.secondary} stopOpacity={0}/>
-              </linearGradient>
-            </defs>
             <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} vertical={false} />
             <XAxis 
               dataKey="date" 
@@ -65,6 +56,7 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
               dx={-10}
             />
             <Tooltip 
+              cursor={{ fill: isDark ? '#334155' : '#f1f5f9', opacity: 0.4 }}
               contentStyle={{ 
                 backgroundColor: isDark ? '#1e293b' : '#fff',
                 borderColor: isDark ? '#334155' : '#e2e8f0',
@@ -73,23 +65,26 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
               }}
               itemStyle={{ color: isDark ? '#e2e8f0' : '#1e293b' }}
             />
-            <Area 
-              type="monotone" 
-              dataKey="pageviews" 
-              stackId="1" 
-              stroke={THEME_COLORS.secondary} 
-              fill="url(#colorPageviews)" 
-              strokeWidth={2}
+            <Legend 
+               wrapperStyle={{ paddingTop: '20px' }}
             />
-            <Area 
-              type="monotone" 
+            <Bar 
               dataKey="visitors" 
-              stackId="1" 
-              stroke={THEME_COLORS.primary} 
-              fill="url(#colorVisitors)" 
-              strokeWidth={2}
+              name="Visitors"
+              stackId="a" 
+              fill={THEME_COLORS.primary} 
+              radius={[0, 0, 4, 4]}
+              barSize={20}
             />
-          </AreaChart>
+            <Bar 
+              dataKey="pageviews" 
+              name="Views"
+              stackId="a" 
+              fill={THEME_COLORS.secondary} 
+              radius={[4, 4, 0, 0]}
+              barSize={20}
+            />
+          </BarChart>
         </ResponsiveContainer>
       </div>
     </div>

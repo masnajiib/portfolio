@@ -29,9 +29,9 @@ export default async function handler(request: VercelRequest, response: VercelRe
       'Content-Type': 'application/json',
     };
 
-    // Date Range: All Time
+    // Date Range: From specific project start date
     const endAt = Date.now();
-    const startAt = 0; // 0 = Jan 1, 1970 (Beginning of time for computers)
+    const startAt = new Date('2025-12-29').getTime();
 
     // 1. Fetch General Stats (Total for the period)
     const statsRes = await fetch(`${UMAMI_API_URL}/websites/${WEBSITE_ID}/stats?startAt=${startAt}&endAt=${endAt}`, { headers });
