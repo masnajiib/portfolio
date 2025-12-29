@@ -5,11 +5,28 @@ import ThemeToggle from '../theme/ThemeToggle';
 import StatsCard from './StatsCard';
 import TrafficChart from './TrafficChart';
 import PageStats from './PageStats';
+import CountryStats from './CountryStats';
+
+// Helper to safely get value from Umami object structure
+function mapVal(obj: any): number {
+  return typeof obj === 'number' ? obj : (obj?.value || 0);
+}
 
 const getCountryName = (code: string) => {
-// ... existing code ...
+  try {
+    const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+    return regionNames.of(code) || code;
+  } catch {
+    return code;
+  }
+};
+
 const getFlagEmoji = (countryCode: string) => {
-// ... existing code ...
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map(char =>  127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
 }
 
 const Analytics: React.FC = () => {
@@ -45,11 +62,6 @@ const Analytics: React.FC = () => {
         // This ensures Cards match the Chart exactly.
         const totalVisitsFromChart = sessions.reduce((acc: number, cur: any) => acc + cur.y, 0);
         const totalPageviewsFromChart = pvs.reduce((acc: number, cur: any) => acc + cur.y, 0);
-        
-        // Helper to safely get value from Umami object structure
-        function mapVal(obj: any): number {
-           return typeof obj === 'number' ? obj : (obj?.value || 0);
-        }
 
         // Transform Stats
         const s = data.stats || {};
