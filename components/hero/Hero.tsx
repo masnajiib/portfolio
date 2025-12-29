@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Download, ChevronRight, MessageCircle } from 'lucide-react';
+import { Download, ChevronRight, MessageCircle, Mail } from 'lucide-react';
 import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE } from '../../src/constants';
 import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
@@ -262,7 +262,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="flex flex-wrap gap-4 justify-center md:justify-start"
+            className="flex flex-wrap gap-3 justify-center md:justify-start"
           >
             <motion.a 
               whileHover={{ scale: 1.05 }}
@@ -270,9 +270,22 @@ const Hero: React.FC = () => {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-gradient-to-r from-secondary to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-white font-bold rounded-full flex items-center justify-center transition-all shadow-lg shadow-cyan-500/25 border border-transparent"
+              className="px-6 py-3 bg-gradient-to-r from-secondary to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-white font-bold rounded-full flex items-center justify-center transition-all shadow-lg shadow-cyan-500/25 border border-transparent"
             >
               Hire Me Now <MessageCircle className="ml-2 w-4 h-4 fill-current" />
+            </motion.a>
+
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('#contact');
+              }}
+              className="px-6 py-3 bg-primary hover:bg-blue-600 text-white font-bold rounded-full flex items-center justify-center transition-all shadow-lg shadow-blue-500/25 border border-transparent"
+            >
+              Get in Touch <Mail className="ml-2 w-4 h-4" />
             </motion.a>
 
             <motion.a 
@@ -281,7 +294,7 @@ const Hero: React.FC = () => {
               href={RESUME_URL}
               target="_blank"
               download
-              className="px-8 py-3 border border-gray-300 dark:border-gray-600 hover:border-gray-900 dark:hover:border-white text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium rounded-full flex items-center justify-center transition-all group"
+              className="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:border-gray-900 dark:hover:border-white text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium rounded-full flex items-center justify-center transition-all group"
             >
               <Download className="mr-2 w-4 h-4 group-hover:animate-bounce" />
               Download CV
