@@ -163,8 +163,8 @@ const Analytics: React.FC = () => {
                 icon={<Eye size={24} />} 
               />
               <StatsCard 
-                title="Bounce Rate" 
-                value={`${stats.visits > 0 ? Math.round((stats.bounceRate / stats.visits) * 100) : 0}%`}
+                title="Countries" 
+                value={countryData.length.toString()}
                 trend="neutral"
                 icon={<Globe size={24} />} 
               />
@@ -176,12 +176,8 @@ const Analytics: React.FC = () => {
                 <TrafficChart data={trafficData} />
               </div>
               <div>
-                <CountryStats data={countryData} />
+                <CountryStats data={countryData.slice(0, 5)} />
               </div>
-            </div>
-            
-            <div className="text-center text-sm text-gray-400 dark:text-gray-600 mt-8">
-              Data updated automatically every 5 minutes.
             </div>
           </main>
         )}

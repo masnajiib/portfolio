@@ -52,7 +52,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
 
     // 3. Fetch Top Countries
     const countryRes = await fetch(
-        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=5`,
+        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50`,
         { headers }
     );
     const countryData = await countryRes.json();
