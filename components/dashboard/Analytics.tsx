@@ -50,7 +50,7 @@ const Analytics: React.FC = () => {
         const sessions = data.chart?.sessions || [];
         
         const mergedChart = pvs.map((item: any, index: number) => ({
-             date: new Date(item.x).toLocaleDateString('en-US', { weekday: 'short' }),
+             date: new Date(item.x).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
              visitors: sessions[index]?.y || 0,
              pageviews: item.y || 0
         }));
@@ -88,7 +88,7 @@ const Analytics: React.FC = () => {
              console.warn("Using Mock Data (Localhost)");
              // Mock Data mirrors the API structure
              const mockChart = Array.from({ length: 7 }, (_, i) => ({
-                date: new Date(Date.now() - (6-i)*86400000).toLocaleDateString('en-US', { weekday: 'short' }),
+                date: new Date(Date.now() - (6-i)*86400000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
                 visitors: Math.floor(Math.random() * 50) + 10,
                 pageviews: Math.floor(Math.random() * 100) + 20
              }));
