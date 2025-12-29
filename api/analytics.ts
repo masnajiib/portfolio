@@ -29,9 +29,9 @@ export default async function handler(request: VercelRequest, response: VercelRe
       'Content-Type': 'application/json',
     };
 
-    // Date Range: From specific project start date
+    // Date Range: All Time
     const endAt = Date.now();
-    const startAt = new Date('2025-12-29').getTime();
+    const startAt = 0;
 
     // 1. Fetch General Stats (Total for the period)
     const statsRes = await fetch(`${UMAMI_API_URL}/websites/${WEBSITE_ID}/stats?startAt=${startAt}&endAt=${endAt}`, { headers });
@@ -39,21 +39,21 @@ export default async function handler(request: VercelRequest, response: VercelRe
 
     // 2. Fetch Traffic Chart Data
     const chartRes = await fetch(
-      `${UMAMI_API_URL}/websites/${WEBSITE_ID}/pageviews?startAt=${startAt}&endAt=${endAt}&unit=day&timezone=Asia/Jakarta`, 
+      `${UMAMI_API_URL}/websites/${WEBSITE_ID}/pageviews?startAt=${startAt}&endAt=${endAt}&unit=day`, 
       { headers }
     );
     const chartData = await chartRes.json();
     
     // 3. Fetch Top Countries
     const countryRes = await fetch(
-        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50&timezone=Asia/Jakarta`,
+        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50`,
         { headers }
     );
     const countryData = await countryRes.json();
 
     // 4. Fetch Top Pages
     const pageRes = await fetch(
-        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10&timezone=Asia/Jakarta`,
+        `${UMAMI_API_URL}/websites/${WEBSITE_ID}/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10`,
         { headers }
     );
     const pageData = await pageRes.json();
