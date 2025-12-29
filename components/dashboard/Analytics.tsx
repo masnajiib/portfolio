@@ -81,11 +81,38 @@ const Analytics: React.FC = () => {
 
       } catch (err) {
         console.error(err);
-        // Fallback to Mock if API fails (e.g. locally where /api doesn't exist)
-        // Check if we are in dev
-         if (process.env.NODE_ENV === 'development') {
-             console.warn("Using Mock Data due to API failure (expected locally without 'vercel dev')");
-             // Set mock data...
+        
+        // Check if we are in dev (Localhost)
+         if (import.meta.env.DEV) {
+             console.warn("Using Mock Data (Localhost)");
+             // Mock Data mirrors the API structure
+             const mockChart = Array.from({ length: 7 }, (_, i) => ({
+                date: new Date(Date.now() - (6-i)*86400000).toLocaleDateString('en-US', { weekday: 'short' }),
+                visitors: Math.floor(Math.random() * 50) + 10,
+                pageviews: Math.floor(Math.random() * 100) + 20
+             }));
+             
+             setStats({
+                visits: mockChart.reduce((a, b) => a + b.visitors, 0),
+                visitors: 150,
+                pageviews: mockChart.reduce((a, b) => a + b.pageviews, 0),
+                bounceRate: 45
+             });
+             
+             setTrafficData(mockChart);
+             
+             setCountryData([
+                { code: '🇮🇩', name: 'Indonesia', visitors: 120, percent: 70 },
+                { code: '🇺🇸', name: 'United States', visitors: 30, percent: 20 },
+                { code: 'sg', name: 'Singapore', visitors: 10, percent: 10 }
+             ]);
+             
+             setPageData([
+                 { path: '/', visitors: 100, percent: 60 },
+                 { path: '/dashboard', visitors: 40, percent: 25 },
+                 { path: '/projects', visitors: 20, percent: 15 }
+             ]);
+             
          } else {
              setError('Unable to load analytics data. Please try again later.');
          }
