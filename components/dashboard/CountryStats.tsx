@@ -14,7 +14,7 @@ interface CountryStatsProps {
 const CountryStats: React.FC<CountryStatsProps> = ({ data }) => {
   return (
     <div className="bg-white dark:bg-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm h-full transition-colors duration-500">
-      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Top Countries</h3>
+      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Top Countries (Visitors)</h3>
       
       <div className="space-y-4">
         {data.map((country) => (

@@ -28,9 +28,9 @@ export default async function handler(request: VercelRequest, response: VercelRe
       'Content-Type': 'application/json',
     };
 
-    // Date Range: All Time
+    // Date Range: All Time (Safe Start)
     const endAt = Date.now();
-    const startAt = 0;
+    const startAt = new Date('2024-01-01').getTime();
 
     // Helper for fetch with error check
     const fetchUmami = async (endpoint: string) => {
@@ -43,16 +43,16 @@ export default async function handler(request: VercelRequest, response: VercelRe
     };
 
     // 1. Fetch General Stats
-    const stats = await fetchUmami(`/stats?startAt=${startAt}&endAt=${endAt}`);
+    const stats = await fetchUmami(`/stats?startAt=${startAt}&endAt=${endAt}&timezone=Asia/Jakarta`);
 
     // 2. Fetch Traffic Chart Data
-    const chartData = await fetchUmami(`/pageviews?startAt=${startAt}&endAt=${endAt}&unit=day`);
+    const chartData = await fetchUmami(`/pageviews?startAt=${startAt}&endAt=${endAt}&unit=day&timezone=Asia/Jakarta`);
     
     // 3. Fetch Top Countries
-    const countryData = await fetchUmami(`/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50`);
+    const countryData = await fetchUmami(`/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50&timezone=Asia/Jakarta`);
 
     // 4. Fetch Top Pages
-    const pageData = await fetchUmami(`/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10`);
+    const pageData = await fetchUmami(`/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10&timezone=Asia/Jakarta`);
 
     return response.status(200).json({
       stats,
