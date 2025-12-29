@@ -85,8 +85,8 @@ export default async function handler(
   const pass = process.env.GMAIL_APP_PASSWORD;
 
   if (!user || !pass) {
-    console.error('Missing Gmail credentials');
-    return response.status(500).json({ error: 'Server configuration error' });
+    console.error('Missing Gmail credentials in environment variables.');
+    return response.status(500).json({ error: 'Server configuration error: Missing Credentials' });
   }
 
   try {
@@ -180,8 +180,9 @@ ${message}
 
     await transporter.sendMail(mailOptions);
     return response.status(200).json({ message: 'Email sent successfully' });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error sending email:', error);
-    return response.status(500).json({ error: 'Failed to send email' });
+    const errorMessage = error.message || 'Failed to send email';
+    return response.status(500).json({ error: `Failed to send email: ${errorMessage}` });
   }
 }
