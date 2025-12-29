@@ -50,3 +50,5 @@ export interface Certification {
   hoverText: string;
   link?: string;
 }
+
+export type Theme = 'dark' | 'light';

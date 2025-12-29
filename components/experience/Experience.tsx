@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase } from 'lucide-react';
-import { EXPERIENCES, EDUCATION, SECTION_CONTENT } from '../../constants';
+import { EXPERIENCES, EDUCATION, SECTION_CONTENT } from '../../src/constants';
 import { motion } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 

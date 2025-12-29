@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Folder, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
-import { PROJECTS, SECTION_CONTENT } from '../../constants';
+import { PROJECTS, SECTION_CONTENT } from '../../src/constants';
 import { motion } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 

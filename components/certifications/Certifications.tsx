@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Award, ExternalLink, Calendar, X, ZoomIn, ChevronDown, ChevronUp, Download } from 'lucide-react';
-import { CERTIFICATIONS, SECTION_CONTENT } from '../../constants';
+import { SECTION_CONTENT, CERTIFICATIONS } from '../../src/constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 

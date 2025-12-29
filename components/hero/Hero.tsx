@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Download, ChevronRight, MessageCircle } from 'lucide-react';
-import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE } from '../../constants';
+import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE } from '../../src/constants';
 import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 

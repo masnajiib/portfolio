@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BookOpen, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
-import { PUBLICATIONS, SECTION_CONTENT } from '../../constants';
+import { PUBLICATIONS, SECTION_CONTENT } from '../../src/constants';
 import { motion } from 'framer-motion';
 
 const Publications: React.FC = () => {

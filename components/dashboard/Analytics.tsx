@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Users, Eye, MousePointerClick, Globe, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import ThemeToggle from '../theme/ThemeToggle';
 import StatsCard from './StatsCard';
 import TrafficChart from './TrafficChart';
+import PageStats from './PageStats';
 import CountryStats from './CountryStats';
+import { SECTION_CONTENT } from '../../src/constants';
+import { useTheme } from '../../contexts/ThemeContext';
+import ThemeToggle from '../theme/ThemeToggle';
 
 // Helper to safely get value from Umami object structure
 function mapVal(obj: any): number {
@@ -30,6 +33,8 @@ const getFlagEmoji = (countryCode: string) => {
 
 const Analytics: React.FC = () => {
   const navigate = useNavigate();
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
@@ -133,8 +138,8 @@ const Analytics: React.FC = () => {
             >
               <ArrowLeft size={20} />
             </button>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-              Visitor Analytics
+            <h1 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              {SECTION_CONTENT.dashboard.title}
             </h1>
           </div>
           <ThemeToggle />
@@ -154,6 +159,11 @@ const Analytics: React.FC = () => {
            </div>
         ) : (
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+            <div className="mb-8">
+              <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                {SECTION_CONTENT.dashboard.description}
+              </p>
+            </div>
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <StatsCard 

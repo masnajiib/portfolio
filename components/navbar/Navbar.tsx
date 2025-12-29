@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PERSONAL_INFO } from '../../constants';
+import { Link, useLocation } from 'react-router-dom';
+import { PERSONAL_INFO } from '../../src/constants';
 import ThemeToggle from '../theme/ThemeToggle';
 
 const Navbar: React.FC = () => {

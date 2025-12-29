@@ -1,5 +1,5 @@
 import React from 'react';
-import { SECTION_CONTENT, ABOUT_DETAILS } from '../../constants';
+import { SECTION_CONTENT, ABOUT_DETAILS, SKILLS, EDUCATION } from '../../src/constants';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 

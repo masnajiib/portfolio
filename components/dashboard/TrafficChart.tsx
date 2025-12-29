@@ -10,7 +10,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import { useTheme } from '../../contexts/ThemeContext';
-import { THEME_COLORS } from '../../theme';
+import { THEME_COLORS } from '../../src/theme';
 
 interface TrafficData {
   date: string;

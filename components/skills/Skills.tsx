@@ -1,5 +1,5 @@
 import React from 'react';
-import { SKILLS, SECTION_CONTENT } from '../../constants';
+import { SKILLS, SECTION_CONTENT } from '../../src/constants';
 import { Box, Brain, Database, Cloud, Terminal, Code2, Tag, Cpu, Globe, Rocket, Monitor } from 'lucide-react';
 import { motion } from 'framer-motion';
 

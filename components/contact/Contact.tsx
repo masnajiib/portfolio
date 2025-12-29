@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SOCIAL_LINKS, SECTION_CONTENT } from '../../constants';
+import { PERSONAL_INFO, SOCIAL_LINKS, SECTION_CONTENT } from '../../src/constants';
 import { motion } from 'framer-motion';
 import { ArrowUp, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 

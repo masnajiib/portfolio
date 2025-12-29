@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { METADATA } from '../constants';
+import { METADATA, PERSONAL_INFO } from '../src/constants';
 
 const SEO = () => {
   useEffect(() => {

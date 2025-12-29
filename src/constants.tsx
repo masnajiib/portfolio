@@ -1,8 +1,9 @@
-import { Experience, Project, Publication, SkillCategory, Education, Certification } from './types';
+import { Experience, Project, Publication, SkillCategory, Education, Certification } from '../types';
 import { Linkedin, Mail, FileText, Phone, Instagram, Github } from 'lucide-react';
 
 export const RESUME_URL = `https://drive.google.com/uc?export=download&id=${import.meta.env.VITE_RESUME_FILE_ID}`;
 
+// METADATA: Settings for SEO (Search Engine Optimization) and link previews
 export const METADATA = {
   title: "Almas Najiib Imam Muttaqin",
   description: "Portfolio of Almas Najiib, an AI Developer specializing in Computer Vision and Data Science.",
@@ -14,6 +15,7 @@ export const METADATA = {
 
 
 
+// PERSONAL_INFO: Edit this to change personal details, contact info, and role
 export const PERSONAL_INFO = {
   name: "Almas Najiib Imam Muttaqin",
   firstName: "Almas Najiib", // First line of name in Hero
@@ -27,6 +29,7 @@ export const PERSONAL_INFO = {
   about: "I'm an AI Developer and Data Scientist with a passion for building intelligent systems that solve real-world problems. With a strong background in Computer Vision and Machine Learning, I have successfully delivered projects for major telecommunications companies and contributed to scientific research."
 };
 
+// ABOUT_DETAILS: Content for the "About Me" section (Highlights, Stats, etc.)
 export const ABOUT_DETAILS = {
   subtitle: "AI Developer & Data Scientist",
   introduction: "I am an AI Developer and Data Scientist, an Informatics Engineering graduate (3.83 GPA) dedicated to merging academic precision with high-impact technical solutions. My professional experience at *Indosat Ooredoo Hutchison* focused on engineering a robust AI analytics ecosystem that fuses Computer Vision and Large Language Models for seamless competitor monitoring and database interaction. *This solution was successfully deployed across six provinces in Indonesia with more than 3.000 internal users.* With a strong command of Python, SQL, and model deployment, my work is further validated by a research portfolio of *5 scientific journals* in face recognition and health AI.",
@@ -44,9 +47,11 @@ export const ABOUT_DETAILS = {
   ],
 };
 
+// PROFILE_BACKGROUND_STYLE: Choose the background animation style for the Hero section
 // Options: 'gradient-blob', 'geometric-circle', 'tech-dots', 'solid-accent', 'tech-ring', 'ai-network', 'none'
 export const PROFILE_BACKGROUND_STYLE: 'gradient-blob' | 'geometric-circle' | 'tech-dots' | 'solid-accent' | 'tech-ring' | 'ai-network' | 'none' = 'ai-network';
 
+// SECTION_CONTENT: Titles and descriptions for each section of the portfolio & dashboard
 export const SECTION_CONTENT = {
   about: {
     title: "About Me",
@@ -75,9 +80,14 @@ export const SECTION_CONTENT = {
   skills: {
     title: "Technical Skills",
     description: null
+  },
+  dashboard: {
+    title: "Visitor Analytics",
+    description: "Real-time insights into website traffic and user engagement."
   }
 };
 
+// SOCIAL_LINKS: Links to your social media profiles
 export const SOCIAL_LINKS = [
   { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, href: PERSONAL_INFO.linkedin },
   { name: 'GitHub', icon: <Github className="w-5 h-5" />, href: "https://github.com/masnajiib" },
@@ -94,6 +104,7 @@ export const SOCIAL_LINKS = [
   },
 ];
 
+// EXPERIENCES: List of professional work experiences
 export const EXPERIENCES: Experience[] = [
   {
     id: '1',
