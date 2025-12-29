@@ -51,14 +51,10 @@ export default async function handler(request: VercelRequest, response: VercelRe
     // 3. Fetch Top Countries
     const countryData = await fetchUmami(`/metrics?startAt=${startAt}&endAt=${endAt}&type=country&limit=50&timezone=Asia/Jakarta`);
 
-    // 4. Fetch Top Pages
-    const pageData = await fetchUmami(`/metrics?startAt=${startAt}&endAt=${endAt}&type=url&limit=10&timezone=Asia/Jakarta`);
-
     return response.status(200).json({
       stats,
       chart: chartData,
-      countries: countryData,
-      pages: pageData
+      countries: countryData
     });
 
     return response.status(200).json({

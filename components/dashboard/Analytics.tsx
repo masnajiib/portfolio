@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import ThemeToggle from '../theme/ThemeToggle';
 import StatsCard from './StatsCard';
 import TrafficChart from './TrafficChart';
-import PageStats from './PageStats';
 import CountryStats from './CountryStats';
 
 // Helper to safely get value from Umami object structure
@@ -37,7 +36,6 @@ const Analytics: React.FC = () => {
   const [stats, setStats] = useState({ visits: 0, visitors: 0, pageviews: 0, bounceRate: 0 });
   const [trafficData, setTrafficData] = useState<any[]>([]);
   const [countryData, setCountryData] = useState<any[]>([]);
-  const [pageData, setPageData] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,15 +80,6 @@ const Analytics: React.FC = () => {
         }));
         setCountryData(countries);
 
-        // Transform Page Data
-        const totalPageVisits = data.pages.reduce((acc: number, cur: any) => acc + cur.y, 0);
-        const pages = data.pages.map((p: any) => ({
-            path: p.x,
-            visitors: p.y,
-            percent: totalPageVisits > 0 ? Math.round((p.y / totalPageVisits) * 100) : 0
-        }));
-        setPageData(pages);
-
       } catch (err) {
         console.error(err);
         
@@ -117,12 +106,6 @@ const Analytics: React.FC = () => {
                 { code: '🇮🇩', name: 'Indonesia', visitors: 120, percent: 70 },
                 { code: '🇺🇸', name: 'United States', visitors: 30, percent: 20 },
                 { code: 'sg', name: 'Singapore', visitors: 10, percent: 10 }
-             ]);
-             
-             setPageData([
-                 { path: '/', visitors: 100, percent: 60 },
-                 { path: '/dashboard', visitors: 40, percent: 25 },
-                 { path: '/projects', visitors: 20, percent: 15 }
              ]);
              
          } else {
@@ -206,7 +189,6 @@ const Analytics: React.FC = () => {
               </div>
               <div className="space-y-6">
                 <CountryStats data={countryData.slice(0, 5)} />
-                <PageStats data={pageData} />
               </div>
             </div>
           </main>
