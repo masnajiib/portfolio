@@ -30,31 +30,35 @@ const Analytics: React.FC = () => {
         
         const data = await response.json();
         
-        // Transform Stats
-        const s = data.stats || {};
-        setStats({
-          visits: mapVal(s.visits),
-          visitors: mapVal(s.visitors),
-          pageviews: mapVal(s.pageviews),
-          bounceRate: mapVal(s.bounces)
-        });
-        
-        // Helper to safely get value from Umami object structure { value: 0, prev: 0 }
-        function mapVal(obj: any): number {
-           return typeof obj === 'number' ? obj : (obj?.value || 0);
-        }
-        
         // Transform Traffic Data
-        // ... existing traffic transform ...
         const pvs = data.chart?.pageviews || [];
-        const visitors = data.chart?.sessions || [];
+        const sessions = data.chart?.sessions || [];
         
         const mergedChart = pvs.map((item: any, index: number) => ({
              date: new Date(item.x).toLocaleDateString('en-US', { weekday: 'short' }),
-             visitors: visitors[index]?.y || 0,
+             visitors: sessions[index]?.y || 0,
              pageviews: item.y || 0
         }));
         setTrafficData(mergedChart);
+
+        // SYNC FIX: Calculate Totals from the Chart Data (which respects timezone)
+        // This ensures Cards match the Chart exactly.
+        const totalVisitsFromChart = sessions.reduce((acc: number, cur: any) => acc + cur.y, 0);
+        const totalPageviewsFromChart = pvs.reduce((acc: number, cur: any) => acc + cur.y, 0);
+        
+        // Helper to safely get value from Umami object structure
+        function mapVal(obj: any): number {
+           return typeof obj === 'number' ? obj : (obj?.value || 0);
+        }
+
+        // Transform Stats
+        const s = data.stats || {};
+        setStats({
+          visits: totalVisitsFromChart, // Use Chart Sum
+          visitors: mapVal(s.visitors), // Keep original (Uniques)
+          pageviews: totalPageviewsFromChart, // Use Chart Sum
+          bounceRate: mapVal(s.bounces)
+        });
         
         // Transform Country Data
         const totalCountryVisits = data.countries.reduce((acc: number, cur: any) => acc + cur.y, 0);
