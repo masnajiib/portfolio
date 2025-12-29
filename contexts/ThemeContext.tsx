@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { THEME_COLORS, hexToRgb } from '../theme';
 
 type Theme = 'dark' | 'light';
 
@@ -23,6 +24,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
     return 'dark'; // Default to dark
   });
+
+  useEffect(() => {
+    // Apply custom colors from theme.tsx
+    const root = document.documentElement;
+    Object.entries(THEME_COLORS).forEach(([key, value]) => {
+      const rgb = hexToRgb(value);
+      root.style.setProperty(`--color-${key}`, rgb);
+    });
+  }, []); // Run once on mount
 
   useEffect(() => {
     const root = window.document.documentElement;

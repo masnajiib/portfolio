@@ -3,80 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Metadata is handled dynamically by SEO.tsx based on constants.tsx -->
     <!-- Initial title for fallback -->
     <title>Portfolio</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Devicon for tech stack icons -->
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
     <script>
       tailwind.config = {
-        darkMode: 'class',
+        darkMode: "class",
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
+              sans: ["Inter", "sans-serif"],
             },
             colors: {
-              primary: '#3b82f6', // Blue-500
-              secondary: '#06b6d4', // Cyan-500
-              dark: '#0f172a', // Slate-900
-              card: '#1e293b', // Slate-800
-            }
-          }
-        }
-      }
+              primary: "rgb(var(--color-primary) / <alpha-value>)",
+              secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+              dark: "rgb(var(--color-dark) / <alpha-value>)",
+              card: "rgb(var(--color-card) / <alpha-value>)",
+            },
+          },
+        },
+      };
     </script>
     <style>
+      :root {
+        /* Default Colors (migrated from hardcoded values) */
+        /* Primary: #3b82f6 -> 59 130 246 */
+        --color-primary: 59 130 246;
+        /* Secondary: #06b6d4 -> 6 182 212 */
+        --color-secondary: 6 182 212;
+        /* Dark: #0f172a -> 15 23 42 */
+        --color-dark: 15 23 42;
+        /* Card: #1e293b -> 30 41 59 */
+        --color-card: 30 41 59;
+      }
+
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: transparent; 
+        background: transparent;
       }
       ::-webkit-scrollbar-thumb {
-        background: #94a3b8; 
+        background: #94a3b8;
         border-radius: 4px;
       }
       .dark ::-webkit-scrollbar-thumb {
-        background: #334155; 
+        background: #334155;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #64748b; 
+        background: #64748b;
       }
       .dark ::-webkit-scrollbar-thumb:hover {
-        background: #475569; 
+        background: #475569;
       }
 
       /* Global Smooth Theme Transition */
-      body, div, section, nav, footer, header, main, article, aside,
-      h1, h2, h3, h4, h5, h6, p, span, a, button, 
-      input, textarea, select, label,
-      svg, path, circle, rect, line, polyline, polygon {
-        transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+      body,
+      div,
+      section,
+      nav,
+      footer,
+      header,
+      main,
+      article,
+      aside,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      span,
+      a,
+      button,
+      input,
+      textarea,
+      select,
+      label,
+      svg,
+      path,
+      circle,
+      rect,
+      line,
+      polyline,
+      polygon {
+        transition-property: background-color, border-color, color, fill, stroke,
+          box-shadow;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-duration: 500ms;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "react": "https://esm.sh/react@^19.2.3",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+          "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
