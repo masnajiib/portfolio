@@ -81,8 +81,15 @@ export default async function handler(
     return response.status(400).json({ error: 'Missing required fields' });
   }
 
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
+  // Clean up credentials (remove extra spaces/newlines that might occur during copy-paste)
+  const user = process.env.GMAIL_USER?.trim();
+  // Remove all spaces from app password just in case user copied them
+  const pass = process.env.GMAIL_APP_PASSWORD?.replace(/\s+/g, '');
+
+  console.log(`Debug Info:`);
+  console.log(`- GMAIL_USER configured: ${!!user} (Length: ${user?.length})`);
+  console.log(`- GMAIL_USER value (masked): ${user?.substring(0, 3)}***@***`);
+  console.log(`- GMAIL_APP_PASSWORD configured: ${!!pass} (Length: ${pass?.length})`);
 
   if (!user || !pass) {
     console.error('Missing Gmail credentials in environment variables.');
