@@ -30,7 +30,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
 
     // Date Range: All Time (Safe Start)
     const endAt = Date.now();
-    const startAt = new Date('2024-01-01').getTime();
+    const startAt = new Date('2025-12-29').getTime();
 
     // Helper for fetch with error check
     const fetchUmami = async (endpoint: string) => {
