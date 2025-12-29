@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
-import { THEME_COLORS } from '../theme';
+import { THEME_COLORS } from '../src/theme';
 
 // Simple in-memory rate limiting (per container instance)
 const rateLimit = new Map<string, number[]>();
