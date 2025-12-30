@@ -93,10 +93,15 @@ const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
             {ABOUT_DETAILS.quickStats && ABOUT_DETAILS.quickStats.map((stat, index) => (
-              <div key={index} className="bg-gray-50 dark:bg-gray-900 p-6 rounded-xl text-center hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-800">
+              <div 
+                key={index} 
+                className={`bg-gray-50 dark:bg-gray-900 p-6 rounded-xl text-center hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-800 ${
+                  index === ABOUT_DETAILS.quickStats.length - 1 && ABOUT_DETAILS.quickStats.length % 2 !== 0 ? 'sm:col-span-2' : ''
+                }`}
+              >
                 <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
               </div>

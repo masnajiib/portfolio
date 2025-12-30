@@ -43,7 +43,8 @@ export const ABOUT_DETAILS = {
     { label: "Years Experience", value: "2+" },
     { label: "Projects Completed", value: "10+" },
     { label: "Publications", value: "5" },
-    { label: "GPA", value: "3.83" }
+    { label: "GPA", value: "3.83" },
+    { label: "Certifications", value: "20+" }
   ],
 };
 
