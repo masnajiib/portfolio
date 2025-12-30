@@ -14,7 +14,18 @@ export const THEME_COLORS = {
   dark: '#0f172a', 
 
   // Card: Component background color in dark mode (Default: Slate 800)
-  card: '#1e293b', 
+  card: '#1e293b',
+
+  // Light: Main background color in light mode (Default: Gray 50)
+  light: '#f9fafb',
+
+  // Hero Name Gradient (Start and End colors)
+  nameGradientStart: '#60a5fa', // Default: Blue 400
+  nameGradientEnd: '#22d3ee',   // Default: Cyan 400
+
+  // Profile Border Gradient (Start and End colors)
+  profileBorderStart: '#3b82f6', // Default: Primary
+  profileBorderEnd: '#06b6d4',   // Default: Secondary
 };
 
 /**

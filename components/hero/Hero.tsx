@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Download, ChevronRight, MessageCircle, Mail } from 'lucide-react';
 import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE } from '../../src/constants';
+import { THEME_COLORS } from '../../src/theme';
 import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 
@@ -205,7 +206,7 @@ const Hero: React.FC = () => {
   }, [displayRole, isDeleting, roleIndex]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 pb-20 relative overflow-hidden bg-gray-50 dark:bg-dark transition-colors duration-500">
+    <section id="home" className="min-h-screen flex items-center pt-20 pb-20 relative overflow-hidden dark:bg-dark transition-colors duration-500" style={{ backgroundColor: document.documentElement.classList.contains('dark') ? '' : THEME_COLORS.light }}>
       {/* Texture Pattern: Dot Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#00000033_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.1] z-0"></div>
 
@@ -223,7 +224,12 @@ const Hero: React.FC = () => {
             <span className="text-secondary font-medium tracking-wider text-sm uppercase">Welcome to my portfolio</span>
             <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
               Hi, I'm <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 dark:drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+              <span 
+                className="text-transparent bg-clip-text dark:drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]"
+                style={{
+                  backgroundImage: `linear-gradient(to right, ${THEME_COLORS.nameGradientStart}, ${THEME_COLORS.nameGradientEnd})`
+                }}
+              >
                 {PERSONAL_INFO.firstName} <br className="hidden md:block" /> {PERSONAL_INFO.lastName}
               </span>
             </h1>
@@ -346,8 +352,8 @@ const Hero: React.FC = () => {
                  <svg className="w-full h-full overflow-visible dark:drop-shadow-[0_0_20px_rgba(6,182,212,0.8)] pointer-events-none" viewBox="0 0 100 100">
                     <defs>
                       <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#3b82f6" />
-                        <stop offset="100%" stopColor="#06b6d4" />
+                        <stop offset="0%" stopColor={THEME_COLORS.profileBorderStart} />
+                        <stop offset="100%" stopColor={THEME_COLORS.profileBorderEnd} />
                       </linearGradient>
                     </defs>
                     <circle 
