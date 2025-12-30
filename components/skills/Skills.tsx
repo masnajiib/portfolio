@@ -1,5 +1,6 @@
 import React from 'react';
 import { SKILLS, SECTION_CONTENT } from '../../src/constants';
+import { parseBoldText } from '../../src/utils';
 import { Box, Brain, Database, Cloud, Terminal, Code2, Tag, Cpu, Globe, Rocket, Monitor } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -92,7 +93,7 @@ const Skills: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 text-center"
           >
-            {SECTION_CONTENT.skills.description}
+            {parseBoldText(SECTION_CONTENT.skills.description)}
           </motion.p>
         )}
         {!SECTION_CONTENT.skills.description && <div className="mb-12"></div>}

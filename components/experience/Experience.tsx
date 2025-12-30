@@ -62,7 +62,7 @@ const Experience: React.FC = () => {
                 {exp.description.map((item, idx) => (
                   <li key={idx} className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed flex items-start">
                     <span className="mr-2 text-primary">•</span>
-                    {parseBoldText(item)}
+                    <span>{parseBoldText(item)}</span>
                   </li>
                 ))}
               </ul>

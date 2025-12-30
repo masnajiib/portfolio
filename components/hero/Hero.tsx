@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Download, ChevronRight, MessageCircle, Mail } from 'lucide-react';
 import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE } from '../../src/constants';
+import { parseBoldText } from '../../src/utils';
 import { THEME_COLORS } from '../../src/theme';
 import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
@@ -245,7 +246,7 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-gray-600 dark:text-gray-400 text-lg max-w-lg leading-relaxed mx-auto md:mx-0"
           >
-            {PERSONAL_INFO.about}
+            {parseBoldText(PERSONAL_INFO.about)}
           </motion.p>
 
           <motion.div

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO, SOCIAL_LINKS, SECTION_CONTENT } from '../../src/constants';
+import { parseBoldText } from '../../src/utils';
 import { motion } from 'framer-motion';
 import { ArrowUp, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -75,7 +76,7 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-gray-600 dark:text-gray-400 mb-12 max-w-lg mx-auto"
           >
-            {SECTION_CONTENT.contact.description}
+            {parseBoldText(SECTION_CONTENT.contact.description)}
           </motion.p>
         )}
 
