@@ -98,7 +98,7 @@ const About: React.FC = () => {
             {ABOUT_DETAILS.quickStats && ABOUT_DETAILS.quickStats.map((stat, index) => (
               <div 
                 key={index} 
-                className={`bg-gray-50 dark:bg-gray-900 p-6 rounded-xl text-center hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-800 ${
+                className={`bg-gray-50 dark:bg-gray-900 p-6 rounded-xl text-center hover:shadow-lg hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 border border-gray-100 dark:border-gray-800 ${
                   index === ABOUT_DETAILS.quickStats.length - 1 && ABOUT_DETAILS.quickStats.length % 2 !== 0 ? 'sm:col-span-2' : ''
                 }`}
               >
