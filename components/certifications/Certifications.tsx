@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Award, ExternalLink, Calendar, X, ZoomIn, ChevronDown, ChevronUp, Download } from 'lucide-react';
 import { SECTION_CONTENT, CERTIFICATIONS } from '../../src/constants';
+import { parseBoldText } from '../../src/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 
@@ -29,7 +30,7 @@ const Certifications: React.FC = () => {
           <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
           {SECTION_CONTENT.certifications.description && (
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
-              {SECTION_CONTENT.certifications.description}
+              {parseBoldText(SECTION_CONTENT.certifications.description)}
             </p>
           )}
         </motion.div>
@@ -59,7 +60,7 @@ const Certifications: React.FC = () => {
                    />
                    <div className="absolute inset-0 bg-white/90 dark:bg-dark/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-6">
                       <p className="text-gray-900 dark:text-white text-sm text-center font-medium leading-relaxed mb-3">
-                        {cert.hoverText}
+                        {parseBoldText(cert.hoverText)}
                       </p>
                       <div className="flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider bg-secondary/10 px-3 py-1.5 rounded-full">
                         <ZoomIn size={14} /> View Full Size
@@ -88,7 +89,7 @@ const Certifications: React.FC = () => {
                    </div>
                    
                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 group-hover:text-secondary transition-colors leading-snug">
-                     {cert.title}
+                     {parseBoldText(cert.title)}
                    </h3>
                    
                    <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between gap-2">

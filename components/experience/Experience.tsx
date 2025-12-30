@@ -1,6 +1,7 @@
 import React from 'react';
 import { Briefcase } from 'lucide-react';
 import { EXPERIENCES, EDUCATION, SECTION_CONTENT } from '../../src/constants';
+import { parseBoldText } from '../../src/utils';
 import { motion } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 
@@ -26,7 +27,7 @@ const Experience: React.FC = () => {
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
           {SECTION_CONTENT.experience.description && (
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
-              {SECTION_CONTENT.experience.description}
+              {parseBoldText(SECTION_CONTENT.experience.description)}
             </p>
           )}
         </motion.div>
@@ -61,7 +62,7 @@ const Experience: React.FC = () => {
                 {exp.description.map((item, idx) => (
                   <li key={idx} className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed flex items-start">
                     <span className="mr-2 text-primary">•</span>
-                    {item}
+                    {parseBoldText(item)}
                   </li>
                 ))}
               </ul>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Folder, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROJECTS, SECTION_CONTENT } from '../../src/constants';
+import { parseBoldText } from '../../src/utils';
 import { motion } from 'framer-motion';
 import ImageWithLoader from '../common/ImageWithLoader';
 
@@ -25,7 +26,7 @@ const Projects: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">{SECTION_CONTENT.projects.title}</h2>
           {SECTION_CONTENT.projects.description && (
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mb-8">
-              {SECTION_CONTENT.projects.description}
+              {parseBoldText(SECTION_CONTENT.projects.description)}
             </p>
           )}
 
@@ -175,15 +176,15 @@ const Projects: React.FC = () => {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
                   {project.link ? (
                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                      {project.title}
+                      {parseBoldText(project.title)}
                     </a>
                   ) : (
-                    project.title
+                    parseBoldText(project.title)
                   )}
                 </h3>
                 
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-                  {project.description[0]}
+                  {parseBoldText(project.description[0])}
                 </p>
 
                 {/* Footer: Tags and External Link Symbol */}

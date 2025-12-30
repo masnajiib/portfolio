@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { PUBLICATIONS, SECTION_CONTENT } from '../../src/constants';
+import { parseBoldText } from '../../src/utils';
 import { motion } from 'framer-motion';
 
 const Publications: React.FC = () => {
@@ -28,7 +29,7 @@ const Publications: React.FC = () => {
           </div>
           {SECTION_CONTENT.publications.description && (
             <p className="text-gray-600 dark:text-gray-400 mt-4">
-              {SECTION_CONTENT.publications.description}
+              {parseBoldText(SECTION_CONTENT.publications.description)}
             </p>
           )}
         </motion.div>
@@ -58,7 +59,7 @@ const Publications: React.FC = () => {
                     </span>
                   </div>
                   <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white leading-snug">
-                    {pub.title}
+                    {parseBoldText(pub.title)}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-500 mt-1 italic">{pub.journal}</p>
                 </div>
