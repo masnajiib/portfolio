@@ -125,7 +125,7 @@ const Analytics: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark transition-colors duration-500 relative">
+    <div className="min-h-screen bg-white dark:bg-dark transition-colors duration-500 relative flex flex-col">
       {/* Texture Pattern: Grid - Matching About Section */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
 
@@ -161,18 +161,18 @@ const Analytics: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="pt-16 pb-8 relative z-10">
+      <div className="pt-16 flex-grow relative z-10 flex flex-col">
         {isLoading ? (
-          <div className="flex items-center justify-center min-h-[calc(100vh-64px)]">
+          <div className="flex items-center justify-center flex-grow">
             <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : error ? (
-           <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] text-gray-500 dark:text-gray-400">
+           <div className="flex flex-col items-center justify-center flex-grow text-gray-500 dark:text-gray-400">
               <AlertCircle size={48} className="mb-4 text-red-500" />
               <p>{error}</p>
            </div>
         ) : (
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 w-full flex-grow">
             <div className="mb-8">
               <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                 {SECTION_CONTENT.dashboard.description}
