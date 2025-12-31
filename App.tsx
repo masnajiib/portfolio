@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import { ThemeProvider } from './contexts/ThemeContext';
 import NotFound from './components/NotFound';
 import SEO from './components/SEO';
+import { PERSONAL_INFO } from './src/constants';
 
 // Lazy load components
 const Hero = lazy(() => import('./components/hero/Hero'));
@@ -43,10 +44,7 @@ function App() {
                     <Skills />
                     <Contact />
                     <footer className="bg-gray-100 dark:bg-black py-8 text-center text-gray-500 dark:text-gray-400 text-sm transition-colors duration-500 border-t border-gray-200 dark:border-gray-800">
-                      <p>© {new Date().getFullYear()} Almas Najiib Imam Muttaqin. All rights reserved.</p>
-                      <div className="mt-2 text-xs">
-                         <a href="/dashboard" className="hover:text-primary transition-colors">Visitor Analytics</a>
-                      </div>
+                      <p>© {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.</p>
                     </footer>
                   </Suspense>
                 </main>

@@ -5,7 +5,7 @@ import StatsCard from './StatsCard';
 import TrafficChart from './TrafficChart';
 import PageStats from './PageStats';
 import CountryStats from './CountryStats';
-import { SECTION_CONTENT } from '../../src/constants';
+import { SECTION_CONTENT, PERSONAL_INFO } from '../../src/constants';
 import { useTheme } from '../../contexts/ThemeContext';
 import ThemeToggle from '../theme/ThemeToggle';
 
@@ -217,6 +217,10 @@ const Analytics: React.FC = () => {
             </div>
           </main>
         )}
+        
+        <footer className="bg-white dark:bg-black py-8 text-center text-gray-500 dark:text-gray-400 text-sm transition-colors duration-500 border-t border-gray-200 dark:border-gray-800 mt-auto">
+          <p>© {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.</p>
+        </footer>
       </div>
     </div>
   );
