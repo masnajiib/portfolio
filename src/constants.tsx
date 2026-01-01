@@ -450,6 +450,14 @@ export const CERTIFICATIONS: Certification[] = [
     hoverText: "Participation certificate for completing the MSIB Batch 6 Data Science independent study program organized by BISA AI Academy in collaboration with Kampus Merdeka.",
   },
   {
+    id: 'indosat-intern-1',
+    title: "Artificial Intelligence Developer Internship Certificate",
+    issuer: "Indosat Ooredoo Hutchison",
+    date: "Feb 2025",
+    image: "/assets/images/certificates/indosat/indosat.png",
+    hoverText: "Certificate of completion for the Artificial Intelligence Developer Internship at Indosat Ooredoo Hutchison.",
+  },
+  {
     id: 'kimia-farma-1',
     title: "Certificate of Competency - Kimia Farma Big Data Analytics Project Based Internship Program",
     issuer: "Kimia Farma x Rakamin Academy",
