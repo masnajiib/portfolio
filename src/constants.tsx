@@ -453,7 +453,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'indosat-intern-1',
     title: "Artificial Intelligence Developer Internship Certificate",
     issuer: "Indosat Ooredoo Hutchison",
-    date: "Feb 2025",
+    date: "Oct 2025",
     image: "/assets/images/certificates/indosat/indosat.png",
     hoverText: "Certificate of completion for the Artificial Intelligence Developer Internship at Indosat Ooredoo Hutchison.",
   },
