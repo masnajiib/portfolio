@@ -388,6 +388,33 @@ export const EDUCATION: Education[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  // top 3 featured certifications
+  {
+    id: 'certnexus-1',
+    title: "CertNexus AIBIZ™ Credential",
+    issuer: "CertNexus",
+    date: "Oct 2024",
+    image: "/assets/images/certificates/certnexus/certnexus_aibiz.png",
+    hoverText: "CertNexus AIBIZ™ Credential awarded for demonstrating expertise in AI business applications.",
+    link: "https://www.credential.net/9d4fa8cb-3ce0-4279-a196-32db2faf8bfc#acc.QrN072iL"
+  },
+  {
+    id: 'certnexus-2',
+    title: "CertNexus DSBIZ™ Credential",
+    issuer: "CertNexus",
+    date: "Jul 2024",
+    image: "/assets/images/certificates/certnexus/certnexus_dsbiz.png",
+    hoverText: "CertNexus DSBIZ™ Credential awarded for demonstrating expertise in Data Science business applications.",
+    link: "https://www.credential.net/705f3b12-17b8-4453-8cf5-7351727d0aab#acc.XAdp4E1i"
+  },
+  {
+    id: 'indosat-intern-1',
+    title: "Artificial Intelligence Developer Internship Certificate",
+    issuer: "Indosat Ooredoo Hutchison",
+    date: "Oct 2025",
+    image: "/assets/images/certificates/indosat/indosat.png",
+    hoverText: "Certificate of completion for the Artificial Intelligence Developer Internship at Indosat Ooredoo Hutchison.",
+  },
   // --- Professional & National Certifications ---
   {
     id: 'webinar-bisaai-1',
@@ -413,24 +440,6 @@ export const CERTIFICATIONS: Certification[] = [
     image: "/assets/images/certificates/bnsp/bnsp_data_science.jpg",
     hoverText: "BNSP Certification Scheme of Associate Data Scientist awarded for demonstrating competence in Data Science.",
   },
-  {
-    id: 'certnexus-1',
-    title: "CertNexus AIBIZ™ Credential",
-    issuer: "CertNexus",
-    date: "Oct 2024",
-    image: "/assets/images/certificates/certnexus/certnexus_aibiz.png",
-    hoverText: "CertNexus AIBIZ™ Credential awarded for demonstrating expertise in AI business applications.",
-    link: "https://www.credential.net/9d4fa8cb-3ce0-4279-a196-32db2faf8bfc#acc.QrN072iL"
-  },
-  {
-    id: 'certnexus-2',
-    title: "CertNexus DSBIZ™ Credential",
-    issuer: "CertNexus",
-    date: "Jul 2024",
-    image: "/assets/images/certificates/certnexus/certnexus_dsbiz.png",
-    hoverText: "CertNexus DSBIZ™ Credential awarded for demonstrating expertise in Data Science business applications.",
-    link: "https://www.credential.net/705f3b12-17b8-4453-8cf5-7351727d0aab#acc.XAdp4E1i"
-  },
 
   // --- Internship & Mentorship Programs ---
   {
@@ -448,14 +457,6 @@ export const CERTIFICATIONS: Certification[] = [
     date: "Jun 2024",
     image: "/assets/images/certificates/msib_6/msib_6_data_science_certificates.jpg",
     hoverText: "Participation certificate for completing the MSIB Batch 6 Data Science independent study program organized by BISA AI Academy in collaboration with Kampus Merdeka.",
-  },
-  {
-    id: 'indosat-intern-1',
-    title: "Artificial Intelligence Developer Internship Certificate",
-    issuer: "Indosat Ooredoo Hutchison",
-    date: "Oct 2025",
-    image: "/assets/images/certificates/indosat/indosat.png",
-    hoverText: "Certificate of completion for the Artificial Intelligence Developer Internship at Indosat Ooredoo Hutchison.",
   },
   {
     id: 'kimia-farma-1',
