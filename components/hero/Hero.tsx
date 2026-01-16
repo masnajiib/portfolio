@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Download, ChevronRight, MessageCircle, Mail } from 'lucide-react';
-import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE } from '../../src/constants';
+import { PERSONAL_INFO, RESUME_URL, SOCIAL_LINKS, PROFILE_BACKGROUND_STYLE, PROFILE_BORDER_STYLE } from '../../src/constants';
 import { parseBoldText } from '../../src/utils';
 import { THEME_COLORS } from '../../src/theme';
 import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
@@ -176,6 +176,80 @@ const Hero: React.FC = () => {
     }
   };
 
+  // Helper to render border style
+  const renderProfileBorder = () => {
+    switch (PROFILE_BORDER_STYLE) {
+      case 'simple-rotate':
+        return (
+          <motion.div 
+            className="absolute inset-0 z-0"
+            style={{ rotate: rotation }}
+          >
+             <svg className="w-full h-full overflow-visible dark:drop-shadow-[0_0_20px_rgba(6,182,212,0.8)] pointer-events-none" viewBox="0 0 100 100">
+                <defs>
+                  <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor={THEME_COLORS.profileBorderStart} />
+                    <stop offset="100%" stopColor={THEME_COLORS.profileBorderEnd} />
+                  </linearGradient>
+                </defs>
+                <circle 
+                  cx="50" 
+                  cy="50" 
+                  r="48" 
+                  fill="none" 
+                  stroke="url(#borderGradient)" 
+                  strokeWidth="2" 
+                  strokeDasharray="24 16"
+                  strokeLinecap="round"
+                />
+             </svg>
+          </motion.div>
+        );
+      case 'pulse-glow':
+        return (
+          <div className="absolute inset-0 z-0 rounded-full animate-pulse">
+             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/50 to-secondary/50 blur-xl opacity-50" />
+             <div className="absolute inset-0 rounded-full border-4 border-primary/30" />
+          </div>
+        );
+      case 'tech-dashed':
+        return (
+          <div className="absolute inset-0 z-0 animate-[spin_10s_linear_infinite]">
+             <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100">
+                <circle 
+                  cx="50" 
+                  cy="50" 
+                  r="48" 
+                  fill="none" 
+                  stroke={THEME_COLORS.primary} 
+                  strokeWidth="1" 
+                  strokeDasharray="4 4"
+                />
+                <circle 
+                  cx="50" 
+                  cy="50" 
+                  r="44" 
+                  fill="none" 
+                  stroke={THEME_COLORS.secondary} 
+                  strokeWidth="1" 
+                  strokeDasharray="10 10"
+                  strokeOpacity="0.5"
+                />
+             </svg>
+          </div>
+        );
+      case 'gradient-flow':
+        return (
+          <div className="absolute inset-0 z-0 rounded-full p-1 bg-gradient-to-r from-primary via-purple-500 to-secondary animate-spin-slow">
+             <div className="absolute inset-0 rounded-full bg-white dark:bg-dark m-[2px]" />
+          </div>
+        );
+      case 'none':
+      default:
+        return null;
+    }
+  };
+
   useEffect(() => {
     const roles = PERSONAL_INFO.typingRoles;
     const currentRole = roles[roleIndex];
@@ -346,29 +420,8 @@ const Hero: React.FC = () => {
              style={{ touchAction: 'none' }} // CRITICAL: Prevents scrolling interference on mobile/tablet
            >
               {/* Rotating Segmented Border */}
-              <motion.div 
-                className="absolute inset-0 z-0"
-                style={{ rotate: rotation }}
-              >
-                 <svg className="w-full h-full overflow-visible dark:drop-shadow-[0_0_20px_rgba(6,182,212,0.8)] pointer-events-none" viewBox="0 0 100 100">
-                    <defs>
-                      <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor={THEME_COLORS.profileBorderStart} />
-                        <stop offset="100%" stopColor={THEME_COLORS.profileBorderEnd} />
-                      </linearGradient>
-                    </defs>
-                    <circle 
-                      cx="50" 
-                      cy="50" 
-                      r="48" 
-                      fill="none" 
-                      stroke="url(#borderGradient)" 
-                      strokeWidth="2" 
-                      strokeDasharray="24 16"
-                      strokeLinecap="round"
-                    />
-                 </svg>
-              </motion.div>
+              {/* Render Selected Border Style */}
+              {renderProfileBorder()}
               
               {/* Inner Profile Image - Remains Static */}
               <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden z-10 pointer-events-none select-none">

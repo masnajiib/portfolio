@@ -30,3 +30,6 @@ dist-ssr
 
 .vercel
 .env*.local
+
+config.js.example
+constants.tsx.example
