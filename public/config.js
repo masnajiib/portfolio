@@ -76,7 +76,7 @@ window.CONFIG = {
   CERTIFICATIONS_DESCRIPTION: "Professional certifications validating expertise in AI, Machine Learning, and Data Science.",
   GALLERY_DESCRIPTION: "Moments from my professional journey, conferences, and team collaborations.",
   CONTACT_TITLE: "Contact Me",
-  CONTACT_DESCRIPTION: "I'm currently available for freelance projects and full-time opportunities in AI Development and Data Science.",
+  CONTACT_DESCRIPTION: "I'm currently available for freelance projects in AI Development and Data Science. If you're interested in collaborating on innovative AI solutions or have a project that could benefit from my expertise, please don't hesitate to reach out.",
 
   ABOUT_DETAILS: {
     subtitle: "AI Developer & Data Scientist",
