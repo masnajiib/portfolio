@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, MapPin } from 'lucide-react';
 import { EXPERIENCES, EDUCATION, SECTION_CONTENT } from '../../src/constants';
 import { parseBoldText } from '../../src/utils';
 import { motion } from 'framer-motion';
@@ -32,42 +32,107 @@ const Experience: React.FC = () => {
           )}
         </motion.div>
 
-        {/* Updated vertical line: border-l-2 and border-gray-700 for better visibility */}
-        <div className="relative border-l-2 border-gray-300 dark:border-gray-700 ml-4 md:ml-12 space-y-12">
-          {EXPERIENCES.map((exp, index) => (
-            <motion.div 
-              key={exp.id} 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="relative pl-8 md:pl-12"
-            >
-              {/* Timeline Dot - Adjusted position to -left-[13px] to center on the 2px border (relative to padding box) */}
-              <div className="absolute -left-[13px] top-0 bg-primary w-6 h-6 rounded-full border-4 border-gray-50 dark:border-dark flex items-center justify-center">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-              </div>
+        {/* Grouped Experience List */}
+        <div className="space-y-8">
+          {(() => {
+            const grouped = EXPERIENCES.reduce((acc, exp) => {
+              const last = acc[acc.length - 1];
+              if (last && last.company === exp.company) {
+                last.roles.push(exp);
+              } else {
+                acc.push({ company: exp.company, logo: exp.logo, roles: [exp] });
+              }
+              return acc;
+            }, [] as { company: string; logo?: string; roles: typeof EXPERIENCES }[]);
 
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h3>
-                  <p className="text-primary font-medium">{exp.company}</p>
+            return grouped.map((group, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className="relative"
+              >
+                <div className="flex gap-4">
+                  {/* Logo Column */}
+                  <div className="flex flex-col items-center flex-shrink-0 w-12 md:w-14">
+                    <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 rounded bg-white border border-gray-200 dark:border-gray-700 overflow-hidden flex items-center justify-center p-1 relative z-10 shadow-sm">
+                      {group.logo ? (
+                        <ImageWithLoader 
+                          src={group.logo} 
+                          alt={group.company} 
+                          className="w-full h-full object-contain" 
+                          containerClassName="w-full h-full flex items-center justify-center"
+                        />
+                      ) : (
+                        <Briefcase className="w-6 h-6 text-gray-400" />
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Content Column */}
+                  <div className="flex-grow pb-8 pt-1 pr-6">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{group.company}</h3>
+                    
+                    <div className="space-y-10 relative pl-2">
+                        {group.roles.map((role, roleIdx) => (
+                           <div key={role.id} className="relative">
+                              {/* Line connecting to the next item */}
+                              {group.roles.length > 1 && roleIdx < group.roles.length - 1 && (
+                                <div className="absolute -left-[3.375rem] md:-left-[3.625rem] top-[0.4rem] h-[calc(100%+2.5rem)] w-3 flex justify-center" aria-hidden="true">
+                                  <div className="w-0.5 bg-gray-200 dark:bg-gray-700 h-full" />
+                                </div>
+                              )}
+
+                              {/* Dot on the line - positioned relative to content start */}
+                              {/* 
+                                 Correct centering calculation:
+                                 Dist to Logo Center = (pl-2 [0.5rem]) + (gap-4 [1rem]) + (LogoWidth / 2)
+                                 Mobile (w-12): 0.5 + 1.0 + 1.5 = 3.0rem
+                                 Desktop (w-14): 0.5 + 1.0 + 1.75 = 3.25rem
+                                 
+                                 Element is w-3 (0.75rem). To center element at distance D:
+                                 Left = -(D + Width/2) = -(D + 0.375)
+                                 Mobile: -(3.0 + 0.375) = -3.375rem
+                                 Desktop: -(3.25 + 0.375) = -3.625rem
+                              */}
+                              {group.roles.length > 1 && (
+                                <div className="absolute -left-[3.375rem] md:-left-[3.625rem] top-[0.4rem] w-3 h-3 rounded-full border-2 border-primary bg-white ring-2 ring-white dark:ring-dark z-10" />
+                              )}
+                              
+                              <div className="flex flex-col sm:flex-row sm:justify-between items-start gap-2 mb-2">
+                                <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 leading-tight">
+                                  {role.role}
+                                </h4>
+                                <span className="text-sm font-mono text-gray-500 bg-gray-100 dark:bg-gray-900 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-800 whitespace-nowrap flex-shrink-0">
+                                  {role.period}
+                                </span>
+                              </div>
+                              
+                              {role.location && (
+                                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                                  <MapPin className="w-3.5 h-3.5 mr-1.5 flex-shrink-0 text-primary" />
+                                  <span>{role.location}</span>
+                                </div>
+                              )}
+
+                              <ul className="space-y-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                {role.description.map((item, idx) => (
+                                  <li key={idx} className="flex items-start">
+                                    <span className="mr-3 mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+                                    <span>{parseBoldText(item)}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                           </div>
+                        ))}
+                    </div>
+                  </div>
                 </div>
-                <span className="text-sm text-gray-500 mt-1 sm:mt-0 font-mono bg-gray-100 dark:bg-gray-900 px-3 py-1 rounded-full w-fit border border-gray-200 dark:border-gray-800">
-                  {exp.period}
-                </span>
-              </div>
-
-              <ul className="mt-4 space-y-2">
-                {exp.description.map((item, idx) => (
-                  <li key={idx} className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed flex items-start">
-                    <span className="mr-2 text-primary">•</span>
-                    <span>{parseBoldText(item)}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+              </motion.div>
+            ));
+          })()}
         </div>
 
         {/* Education Section */}

@@ -119,9 +119,24 @@ window.CONFIG = {
   EXPERIENCES: [
     {
       id: '1',
+      role: "Artificial Intelligence Engineer (via IGLO)",
+      company: "PT. Bank Raya Indonesia Tbk",
+      period: "Feb 2026 – Present",
+      location: "Jakarta, Indonesia",
+      logo: "assets/images/company/logo_bankraya.png",
+      description: [
+        "Currently developing an AI Agent system for data analysis and database interaction, leveraging expertise in LLMs and AI Agents.",
+        "Collaborating with cross-functional teams to design and implement AI solutions that enhance data-driven decision making.",
+        "Conducting research and experimentation to optimize AI model performance and reliability for enterprise applications."
+      ]
+    },
+    {
+      id: '2',
       role: "Artificial Intelligence Developer (Freelance)",
       company: "Indosat Ooredoo Hutchison",
       period: "Feb 2025 – Oct 2025",
+      location: "Semarang, Indonesia",
+      logo: "assets/images/company/logo_ioh.png",
       description: [
         "Developed an AgentFlow-based AI system integrated with Sahabat AI (Indosat Ooredoo Hutchison & GoTo) for database interaction and advanced data analytics.",
         "Built AI Model Development workflows for post-material and product detection across all telecommunications operators using Computer Vision, achieving over 80% accuracy.",
@@ -130,31 +145,25 @@ window.CONFIG = {
       ]
     },
     {
-      id: '2',
+      id: '3',
       role: "Artificial Intelligence Developer Internship",
       company: "Indosat Ooredoo Hutchison",
       period: "Dec 2024 – Feb 2025",
+      location: "Semarang, Indonesia",
+      logo: "assets/images/company/logo_ioh.png",
       description: [
         "Built an annotated dataset of 2,000+ images to train object detection models (IM3 and 3 brands), achieving over 90% accuracy.",
         "Supported deployment of AI systems currently used by 3,000+ users across six provinces across Indonesia.",
         "Participated in the official AI model launch at the Circle Java Kick-Off Meeting in Surabaya, attended by executives and 400+ participants."
       ]
     },
-    {
-      id: '3',
-      role: "Supervisor Data Science",
-      company: "Bengkel Koding – Dian Nuswantoro University",
-      period: "Jul 2024 – Feb 2025",
-      description: [
-        "Monitored and evaluated teaching performance to ensure quality learning outcomes.",
-        "Ensured teaching quality and evaluation materials by reviewing assistant performance and validating Capstone Project exam questions."
-      ]
-    },
-    {
+     {
       id: '4',
       role: "AI Researcher & Scientific Contributor",
       company: "Dian Nuswantoro University",
       period: "Jul 2024 – Feb 2025",
+      location: "Semarang, Indonesia",
+      logo: "assets/images/company/logo_udinus.png",
       description: [
         "Led an AI research team, resulting in 4 published journals (Sinta 2 & 3) in Computer Vision (face recognition).",
         "Served as the first author for the Sinta 2 journal, developing a face recognition model using FaceNet512 and YOLOv8 based on Deep Learning.",
@@ -163,9 +172,23 @@ window.CONFIG = {
     },
     {
       id: '5',
+      role: "Supervisor Data Science",
+      company: "Bengkel Koding – Dian Nuswantoro University",
+      period: "Jul 2024 – Feb 2025",
+      location: "Semarang, Indonesia",
+      logo: "assets/images/company/logo_bengkod.png",
+      description: [
+        "Monitored and evaluated teaching performance to ensure quality learning outcomes.",
+        "Ensured teaching quality and evaluation materials by reviewing assistant performance and validating Capstone Project exam questions."
+      ]
+    },
+    {
+      id: '6',
       role: "Mentor Data Science",
       company: "Bengkel Koding – Dian Nuswantoro University",
       period: "Sep 2023 – Jul 2024",
+      location: "Semarang, Indonesia",
+      logo: "assets/images/company/logo_bengkod.png",
       description: [
         "Provided technical guidance and mentorship to Data Science students, achieving a pass rate above 80%.",
         "Developed the curriculum by updating learning modules and creating exam materials to align with current industry standards.",
@@ -173,10 +196,12 @@ window.CONFIG = {
       ]
     },
     {
-      id: '6',
+      id: '7',
       role: "Assistant Lecturer",
       company: "Dian Nuswantoro University",
       period: "Nov 2022 – Jan 2023",
+      location: "Semarang, Indonesia",
+      logo: "assets/images/company/logo_udinus.png",
       description: [
         "Provided technical guidance and coding support for the Basic Programming course to 30+ students.",
         "Managed exam score recording, resulting in a pass rate above 90%."

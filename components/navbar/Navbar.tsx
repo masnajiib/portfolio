@@ -120,7 +120,7 @@ const Navbar: React.FC = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4 z-50">
+          <div className="lg:hidden flex items-center gap-4 z-50">
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -171,7 +171,7 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-card absolute w-full border-b border-gray-200 dark:border-gray-800 overflow-hidden z-40"
+            className="lg:hidden bg-white dark:bg-card absolute w-full border-b border-gray-200 dark:border-gray-800 overflow-hidden z-40"
             style={{ touchAction: 'auto' }}
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
