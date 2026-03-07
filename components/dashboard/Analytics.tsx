@@ -3,7 +3,6 @@ import { ArrowLeft, Users, Eye, MousePointerClick, Globe, AlertCircle } from 'lu
 import { useNavigate } from 'react-router-dom';
 import StatsCard from './StatsCard';
 import TrafficChart from './TrafficChart';
-import PageStats from './PageStats';
 import CountryStats from './CountryStats';
 import { SECTION_CONTENT, PERSONAL_INFO } from '../../src/constants';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -153,7 +152,7 @@ const Analytics: React.FC = () => {
               <ArrowLeft size={20} />
             </button>
             <h1 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-              {SECTION_CONTENT.dashboard.title}
+              {SECTION_CONTENT.dashboard?.title || 'Dashboard'}
             </h1>
           </div>
           <ThemeToggle />
@@ -175,7 +174,7 @@ const Analytics: React.FC = () => {
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 w-full flex-grow">
             <div className="mb-8">
               <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                {SECTION_CONTENT.dashboard.description}
+                {SECTION_CONTENT.dashboard?.description || 'View your portfolio analytics and visitor statistics.'}
               </p>
             </div>
             {/* Stats Grid */}
