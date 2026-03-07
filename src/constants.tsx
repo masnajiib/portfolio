@@ -7,6 +7,7 @@ interface Config {
   EMAIL: string;
   LINKEDIN_URL: string;
   WHATSAPP_NUMBER: string;
+  WHATSAPP_MESSAGE: string;
   RESUME_URL: string;
   ENABLE_FIDGET_SPINNER: boolean;
   METADATA: any;
@@ -43,6 +44,7 @@ const ENV_WHATSAPP = import.meta.env.VITE_WHATSAPP_NUMBER || '';
 export const EMAIL = ENV_EMAIL || CONFIG?.EMAIL || '';
 export const LINKEDIN_URL = ENV_LINKEDIN || CONFIG?.LINKEDIN_URL || '';
 export const WHATSAPP_NUMBER = ENV_WHATSAPP || CONFIG?.WHATSAPP_NUMBER || '';
+export const WHATSAPP_MESSAGE = CONFIG?.WHATSAPP_MESSAGE || "Halo Almas, saya melihat portofolio Anda dan ingin berdiskusi lebih lanjut.";
 
 const ENV_RESUME_ID = import.meta.env.VITE_RESUME_FILE_ID;
 export const RESUME_URL = ENV_RESUME_ID 
@@ -96,9 +98,11 @@ const overrideHref = (name: string, originalHref: string) => {
   }
   
   if ((norm.includes('phone') || norm.includes('whatsapp')) && ENV_WHATSAPP) {
-    return originalHref.startsWith('http') || originalHref.startsWith('wa.me') 
-      ? originalHref 
-      : `https://wa.me/${ENV_WHATSAPP}`;
+    if (originalHref.startsWith('http') || originalHref.startsWith('wa.me')) {
+      return originalHref;
+    }
+    const defaultText = WHATSAPP_MESSAGE;
+    return `https://wa.me/${ENV_WHATSAPP}?text=${encodeURIComponent(defaultText)}`;
   }
   
   return originalHref;

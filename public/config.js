@@ -8,6 +8,7 @@ window.CONFIG = {
   GITHUB_URL: "https://github.com/masnajiib", // You can move this to .env later: VITE_GITHUB_URL
   LINKEDIN_URL: "", // Managed in .env
   WHATSAPP_NUMBER: "", // Managed in .env
+  WHATSAPP_MESSAGE: "Halo Almas, saya melihat portofolio Anda dan ingin berdiskusi lebih lanjut.",
 
   // Resume
   RESUME_URL: "", // ID is managed in .env
