@@ -120,7 +120,7 @@ const Experience: React.FC = () => {
                               <ul className="space-y-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                                 {role.description.map((item, idx) => (
                                   <li key={idx} className="flex items-start">
-                                    <span className="mr-3 mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+                                    <span className="ml-1 mr-3 mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
                                     <span>{parseBoldText(item)}</span>
                                   </li>
                                 ))}
