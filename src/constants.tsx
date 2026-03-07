@@ -35,11 +35,19 @@ if (!CONFIG) {
   console.error('Config file not loaded! Please ensure public/config.js is included in index.html');
 }
 
-export const EMAIL = CONFIG?.EMAIL || '';
-export const LINKEDIN_URL = CONFIG?.LINKEDIN_URL || '';
-export const WHATSAPP_NUMBER = CONFIG?.WHATSAPP_NUMBER || '';
+// Use environment variables first, then fallback to CONFIG
+const ENV_EMAIL = import.meta.env.VITE_EMAIL || '';
+const ENV_LINKEDIN = import.meta.env.VITE_LINKEDIN_URL || '';
+const ENV_WHATSAPP = import.meta.env.VITE_WHATSAPP_NUMBER || '';
 
-export const RESUME_URL = CONFIG?.RESUME_URL || '';
+export const EMAIL = ENV_EMAIL || CONFIG?.EMAIL || '';
+export const LINKEDIN_URL = ENV_LINKEDIN || CONFIG?.LINKEDIN_URL || '';
+export const WHATSAPP_NUMBER = ENV_WHATSAPP || CONFIG?.WHATSAPP_NUMBER || '';
+
+const ENV_RESUME_ID = import.meta.env.VITE_RESUME_FILE_ID;
+export const RESUME_URL = ENV_RESUME_ID 
+  ? `https://drive.google.com/file/d/${ENV_RESUME_ID}/view?usp=sharing` 
+  : (CONFIG?.RESUME_URL || '');
 export const ENABLE_FIDGET_SPINNER = CONFIG?.ENABLE_FIDGET_SPINNER || false;
 export const ENABLE_CONTACT_FORM = CONFIG?.ENABLE_CONTACT_FORM || false;
 export const HIDDEN_SECTIONS = CONFIG?.HIDDEN_SECTIONS || '';
@@ -75,8 +83,30 @@ const getIconComponent = (iconName: string) => {
   return <Mail className='w-5 h-5' />;
 };
 
+const overrideHref = (name: string, originalHref: string) => {
+  const norm = name.toLowerCase();
+  
+  if (norm.includes('linkedin') && ENV_LINKEDIN) return ENV_LINKEDIN;
+  // If you later add these to .env, uncomment them:
+  // if (norm.includes('github') && import.meta.env.VITE_GITHUB_URL) return import.meta.env.VITE_GITHUB_URL;
+  // if (norm.includes('instagram') && import.meta.env.VITE_INSTAGRAM_URL) return import.meta.env.VITE_INSTAGRAM_URL;
+  
+  if ((norm.includes('mail') || norm.includes('email')) && ENV_EMAIL) {
+    return originalHref.startsWith('mailto:') ? originalHref : `mailto:${ENV_EMAIL}`;
+  }
+  
+  if ((norm.includes('phone') || norm.includes('whatsapp')) && ENV_WHATSAPP) {
+    return originalHref.startsWith('http') || originalHref.startsWith('wa.me') 
+      ? originalHref 
+      : `https://wa.me/${ENV_WHATSAPP}`;
+  }
+  
+  return originalHref;
+};
+
 export const SOCIAL_LINKS = (CONFIG?.SOCIAL_LINKS || []).map(link => ({
   ...link,
+  href: overrideHref(link.name, link.href || ''),
   icon: getIconComponent(link.iconName || link.name)
 }));
 

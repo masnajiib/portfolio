@@ -2,24 +2,15 @@
 //  USER CONFIGURATION
 // =================================================================================
 
-// Define your contact info here once, and it will be used everywhere
-const CONTACT_INFO = {
-  EMAIL: "almasnajiib27@gmail.com",
-  LINKEDIN: "https://linkedin.com/in/masnajiib27",
-  WHATSAPP: "https://wa.me/6285951409211",
-  GITHUB: "https://github.com/masnajiib",
-  INSTAGRAM: "https://www.instagram.com/almas_a45amg"
-};
-
 window.CONFIG = {
-  // Contact & Social (References the variables above)
-  EMAIL: CONTACT_INFO.EMAIL,
-  GITHUB_URL: CONTACT_INFO.GITHUB,
-  LINKEDIN_URL: CONTACT_INFO.LINKEDIN,
-  WHATSAPP_NUMBER: CONTACT_INFO.WHATSAPP,
+  // Contact & Social (Can be overridden by .env variables)
+  EMAIL: "",
+  GITHUB_URL: "https://github.com/masnajiib", // You can move this to .env later: VITE_GITHUB_URL
+  LINKEDIN_URL: "", // Managed in .env
+  WHATSAPP_NUMBER: "", // Managed in .env
 
   // Resume
-  RESUME_URL: "/assets/resume/resume.pdf",
+  RESUME_URL: "", // ID is managed in .env
   ENABLE_FIDGET_SPINNER: false,
   ENABLE_CONTACT_FORM: true,
   HIDDEN_SECTIONS: "gallery", 
@@ -104,11 +95,11 @@ window.CONFIG = {
   },
 
   SOCIAL_LINKS: [
-    { name: 'LinkedIn', iconName: 'Linkedin', href: CONTACT_INFO.LINKEDIN },
-    { name: 'GitHub', iconName: 'Github', href: CONTACT_INFO.GITHUB },
-    { name: 'Instagram', iconName: 'Instagram', href: CONTACT_INFO.INSTAGRAM },
-    { name: 'Email', iconName: 'Mail', href: `mailto:${CONTACT_INFO.EMAIL}` },
-    { name: 'WhatsApp', iconName: 'Phone', href: CONTACT_INFO.WHATSAPP },
+    { name: 'LinkedIn', iconName: 'Linkedin', href: "" }, // Managed via env
+    { name: 'GitHub', iconName: 'Github', href: "https://github.com/masnajiib" },
+    { name: 'Instagram', iconName: 'Instagram', href: "https://www.instagram.com/almas_a45amg" },
+    { name: 'Email', iconName: 'Mail', href: "" }, // Managed via env
+    { name: 'WhatsApp', iconName: 'Phone', href: "" }, // Managed via env
   ],
 
   EXPERIENCES: [
