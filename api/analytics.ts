@@ -2,8 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 // CONFIGURATION
 const UMAMI_API_URL = 'https://api.umami.is/v1';
-const WEBSITE_ID = process.env.VITE_UMAMI_WEBSITE_ID || 'd52de2f4-a7c6-4507-aefd-c34417c28a97';
-const API_KEY = process.env.UMAMI_API_KEY || 'api_nPggW0J4Fly5cWagdUbLQyAfeRUenAc7';
+const WEBSITE_ID = process.env.VITE_UMAMI_WEBSITE_ID;
+const API_KEY = process.env.UMAMI_API_KEY;
 
 // Allowed Origins for Security
 const ALLOWED_ORIGINS = [
