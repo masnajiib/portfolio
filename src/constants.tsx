@@ -4,12 +4,7 @@ import React from 'react';
 
 // Define the shape of the config object
 interface Config {
-  EMAIL: string;
-  LINKEDIN_URL: string;
-  WHATSAPP_NUMBER: string;
-  WHATSAPP_MESSAGE: string;
   RESUME_URL: string;
-  ENABLE_FIDGET_SPINNER: boolean;
   METADATA: any;
   PROFILE_BACKGROUND_STYLE: any;
   PROFILE_BORDER_STYLE?: any;
@@ -23,8 +18,6 @@ interface Config {
   SKILLS: SkillCategory[];
   EDUCATION: Education[];
   CERTIFICATIONS: Certification[];
-  ENABLE_CONTACT_FORM: boolean;
-  HIDDEN_SECTIONS: string;
   [key: string]: any;
 }
 
@@ -36,23 +29,20 @@ if (!CONFIG) {
   console.error('Config file not loaded! Please ensure public/config.js is included in index.html');
 }
 
-// Use environment variables first, then fallback to CONFIG
+// Use environment variables first
 const ENV_EMAIL = import.meta.env.VITE_EMAIL || '';
 const ENV_LINKEDIN = import.meta.env.VITE_LINKEDIN_URL || '';
 const ENV_WHATSAPP = import.meta.env.VITE_WHATSAPP_NUMBER || '';
 
-export const EMAIL = ENV_EMAIL || CONFIG?.EMAIL || '';
-export const LINKEDIN_URL = ENV_LINKEDIN || CONFIG?.LINKEDIN_URL || '';
-export const WHATSAPP_NUMBER = ENV_WHATSAPP || CONFIG?.WHATSAPP_NUMBER || '';
-export const WHATSAPP_MESSAGE = CONFIG?.WHATSAPP_MESSAGE || "Halo Almas, saya melihat portofolio Anda dan ingin berdiskusi lebih lanjut.";
+export const EMAIL = ENV_EMAIL;
+export const LINKEDIN_URL = ENV_LINKEDIN;
+export const WHATSAPP_NUMBER = ENV_WHATSAPP;
+export const WHATSAPP_MESSAGE = "Halo Almas, saya melihat portofolio Anda dan ingin berdiskusi lebih lanjut.";
 
 const ENV_RESUME_ID = import.meta.env.VITE_RESUME_FILE_ID;
 export const RESUME_URL = ENV_RESUME_ID 
   ? `https://drive.google.com/file/d/${ENV_RESUME_ID}/view?usp=sharing` 
   : (CONFIG?.RESUME_URL || '');
-export const ENABLE_FIDGET_SPINNER = CONFIG?.ENABLE_FIDGET_SPINNER || false;
-export const ENABLE_CONTACT_FORM = CONFIG?.ENABLE_CONTACT_FORM || false;
-export const HIDDEN_SECTIONS = CONFIG?.HIDDEN_SECTIONS || '';
 
 export const METADATA = CONFIG?.METADATA || {
   title: "Portfolio",
