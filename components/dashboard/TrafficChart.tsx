@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from 'react';
+import React, { useContext, useState, useMemo, useEffect } from 'react';
 import {
   BarChart,
   Bar,
@@ -24,6 +24,28 @@ interface TrafficChartProps {
   data: TrafficData[];
 }
 
+const CustomBrushTraveller = (props: any) => {
+  const { x, y, width, height, stroke } = props;
+  const padding = 2; // Padding from top and bottom
+  
+  return (
+    <g transform={`translate(${x}, ${y})`} style={{ cursor: 'ew-resize' }}>
+      {/* Container background for the drag handle */}
+      <rect 
+        x={0} 
+        y={padding} 
+        width={width} 
+        height={height - padding * 2} 
+        fill={stroke} 
+        rx={width / 2} 
+      />
+      {/* Inner grip lines */}
+      <line x1={width / 2 - 1.5} y1={height / 2 - 4} x2={width / 2 - 1.5} y2={height / 2 + 4} stroke="#ffffff" strokeWidth={1} strokeLinecap="round" />
+      <line x1={width / 2 + 1.5} y1={height / 2 - 4} x2={width / 2 + 1.5} y2={height / 2 + 4} stroke="#ffffff" strokeWidth={1} strokeLinecap="round" />
+    </g>
+  );
+};
+
 const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
@@ -31,6 +53,15 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
   const [sortBy, setSortBy] = useState<'date' | 'highest' | 'lowest'>('date');
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const processedData = useMemo(() => {
     if (!data) return [];
@@ -111,9 +142,9 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
             data={processedData}
             margin={{
               top: 10,
-              right: 50, // Diperbesar lagi
-              left: 30,  // Ditambahkan margin kiri
-              bottom: 20, // Diperbesar juga
+              right: isMobile ? 10 : 50,
+              left: isMobile ? 10 : 30,
+              bottom: 20,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} vertical={false} />
@@ -161,10 +192,12 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
             />
             <Brush 
               dataKey="date" 
-              height={45} 
+              height={25} 
               stroke={isDark ? THEME_COLORS.primary : THEME_COLORS.primary} 
               fill={isDark ? '#1e293b' : '#ffffff'}
               tickFormatter={() => ''}
+              travellerWidth={10}
+              traveller={CustomBrushTraveller}
             />
           </BarChart>
         </ResponsiveContainer>
