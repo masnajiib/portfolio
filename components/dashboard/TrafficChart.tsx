@@ -72,7 +72,7 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
         <div className="flex flex-wrap gap-3 items-center">
           {/* Start Date */}
           <div className="flex items-center gap-2">
-            <label className="text-xs text-gray-500 dark:text-gray-400">Dari:</label>
+            <label className="text-xs text-gray-500 dark:text-gray-400">Start:</label>
             <input 
               type="date" 
               value={startDate}
@@ -83,7 +83,7 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
 
           {/* End Date */}
           <div className="flex items-center gap-2">
-            <label className="text-xs text-gray-500 dark:text-gray-400">Sampai:</label>
+            <label className="text-xs text-gray-500 dark:text-gray-400">End:</label>
             <input 
               type="date" 
               value={endDate}
@@ -98,9 +98,9 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
             onChange={(e) => setSortBy(e.target.value as any)}
             className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-200 text-sm rounded-lg focus:ring-primary focus:border-primary px-2 py-1 outline-none"
           >
-            <option value="date">Tanggal (Kronologis)</option>
-            <option value="highest">Pengunjung Tertinggi</option>
-            <option value="lowest">Pengunjung Terendah</option>
+            <option value="date">Date (Chronological)</option>
+            <option value="highest">Highest Visitors</option>
+            <option value="lowest">Lowest Visitors</option>
           </select>
         </div>
       </div>
@@ -161,7 +161,7 @@ const TrafficChart: React.FC<TrafficChartProps> = ({ data }) => {
             />
             <Brush 
               dataKey="date" 
-              height={30} 
+              height={45} 
               stroke={isDark ? THEME_COLORS.primary : THEME_COLORS.primary} 
               fill={isDark ? '#1e293b' : '#ffffff'}
               tickFormatter={() => ''}
