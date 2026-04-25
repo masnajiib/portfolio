@@ -99,12 +99,13 @@ window.CONFIG = {
   EXPERIENCES: [
     {
       id: '1',
-      role: "Artificial Intelligence Engineer (via IGLO)",
+      role: "Artificial Intelligence Engineer",
       company: "PT. Bank Raya Indonesia Tbk",
       period: "Feb 2026 – Present",
       location: "Jakarta, Indonesia",
       logo: "assets/images/company/logo_bankraya.png",
       description: [
+        "Outsourcing from PT. Indocyber Global Teknologi with placement at PT. Bank Raya Indonesia Tbk",
         "Currently developing an AI Agent system for data analysis and database interaction, leveraging expertise in LLMs and AI Agents.",
         "Collaborating with cross-functional teams to design and implement AI solutions that enhance data-driven decision making.",
         "Conducting research and experimentation to optimize AI model performance and reliability for enterprise applications."
