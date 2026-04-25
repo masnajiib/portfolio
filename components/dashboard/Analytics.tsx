@@ -55,6 +55,7 @@ const Analytics: React.FC = () => {
         
         const mergedChart = pvs.map((item: any, index: number) => ({
              date: new Date(item.x).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+             rawDate: new Date(item.x).toISOString(),
              visitors: sessions[index]?.y || 0,
              pageviews: item.y || 0
         }));
@@ -91,11 +92,15 @@ const Analytics: React.FC = () => {
          if (import.meta.env.DEV) {
              console.warn("Using Mock Data (Localhost)");
              // Mock Data mirrors the API structure
-             const mockChart = Array.from({ length: 7 }, (_, i) => ({
-                date: new Date(Date.now() - (6-i)*86400000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-                visitors: Math.floor(Math.random() * 50) + 10,
-                pageviews: Math.floor(Math.random() * 100) + 20
-             }));
+             const mockChart = Array.from({ length: 7 }, (_, i) => {
+                const d = new Date(Date.now() - (6-i)*86400000);
+                return {
+                  date: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+                  rawDate: d.toISOString(),
+                  visitors: Math.floor(Math.random() * 50) + 10,
+                  pageviews: Math.floor(Math.random() * 100) + 20
+                };
+             });
              
              setStats({
                 visits: mockChart.reduce((a, b) => a + b.visitors, 0),
@@ -174,7 +179,7 @@ const Analytics: React.FC = () => {
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 w-full flex-grow">
             <div className="mb-8">
               <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                {SECTION_CONTENT.dashboard?.description || 'View your portfolio analytics and visitor statistics.'}
+                {SECTION_CONTENT.dashboard?.description || 'View visitor statistics and activity trends for this portfolio.'}
               </p>
             </div>
             {/* Stats Grid */}
