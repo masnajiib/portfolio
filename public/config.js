@@ -371,7 +371,9 @@ window.CONFIG = {
         "LM Studio", 
         "Streamlit", 
         "OpenRouter", 
-        "Groq"
+        "Groq",
+        "RagFlow",
+        "n8n"
       ]
     }
   ],
