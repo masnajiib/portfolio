@@ -15,7 +15,6 @@ const Publications = lazy(() => import('./components/publications/Publications')
 const Skills = lazy(() => import('./components/skills/Skills'));
 const Certifications = lazy(() => import('./components/certifications/Certifications'));
 const Contact = lazy(() => import('./components/contact/Contact'));
-const Analytics = lazy(() => import('./components/dashboard/Analytics'));
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-[calc(100vh-80px)]">
@@ -49,11 +48,6 @@ function App() {
                   </Suspense>
                 </main>
               </>
-            } />
-            <Route path="/dashboard" element={
-              <Suspense fallback={<LoadingFallback />}>
-                <Analytics />
-              </Suspense>
             } />
             <Route path="*" element={<NotFound />} />
           </Routes>

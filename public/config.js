@@ -12,8 +12,11 @@ window.CONFIG = {
   METADATA: {
     title: "Almas Najiib Imam Muttaqin",
     description: "Portfolio of Almas Najiib, an AI Developer specializing in Computer Vision and Data Science.",
+    title: "Almas Najiib Imam Muttaqin | AI Engineer & Data Scientist",
+    description: "Portfolio of Almas Najiib Imam Muttaqin, an AI Engineer at PT Bank Raya Indonesia Tbk specializing in AI Agents, Computer Vision, and Data Science. Proven track record in building high-impact AI solutions.",
     image: "/assets/images/profile/profile.png",
     url: "https://www.almasnajiib27.my.id",
+    url: "https://www.almasnajiib.com",
     type: "website",
     twitterCard: "summary_large_image"
   },
@@ -61,6 +64,7 @@ window.CONFIG = {
   ABOUT_DETAILS: {
     subtitle: "AI Developer & Data Scientist",
     introduction: "I am an AI Developer and Data Scientist, an Informatics Engineering graduate (3.83 GPA) dedicated to merging academic precision with high-impact technical solutions. My professional experience at *Indosat Ooredoo Hutchison* focused on engineering a robust AI analytics ecosystem that fuses Computer Vision and Large Language Models for seamless competitor monitoring and database interaction. *This solution was successfully deployed across six provinces in Indonesia with more than 3.000 internal users.* With a strong command of Python, SQL, and model deployment, my work is further validated by a research portfolio of *5 scientific journals* in face recognition and health AI.",
+    introduction: "I am an AI Developer and Data Scientist, an Informatics Engineering graduate (3.83 GPA) dedicated to merging academic precision with high-impact technical solutions. My professional experience at *Indosat Ooredoo Hutchison* focused on engineering a robust AI analytics ecosystem that fuses Computer Vision and Large Language Models for seamless competitor monitoring and database interaction. *This solution was successfully deployed across six provinces in Indonesia with more than 3.000 internal users.* With a strong command of Python, SQL, and model deployment, my work is further validated by a research portfolio of *5 scientific journals* in face recognition and health AI. Currently, I work at *PT. Bank Raya Indonesia Tbk*, developing an AI agent named Rayasim AI, an AI-based recommendation dashboard, and an AI-driven business requirement system analysis.",
     highlights: [
       "Specializing in Computer Vision & AI Agents",
       "Experience with Large Language Models (LLMs)",
@@ -191,6 +195,39 @@ window.CONFIG = {
   ],
 
   PROJECTS: [
+    {
+      id: 'p_raya_1',
+      title: "Rayasim AI (AI Agent)",
+      role: "Developer",
+      date: "2026 - Present",
+      description: [
+        "Developing an advanced AI Agent named Rayasim AI for PT. Bank Raya Indonesia Tbk.",
+      ],
+      tags: ["AI Agent", "LLM", "Banking"],
+      image: "https://placehold.co/600x400?text=Confidential"
+    },
+    {
+      id: 'p_raya_2',
+      title: "AI-Based Recommendation Dashboard",
+      role: "Developer",
+      date: "2026 - Present",
+      description: [
+        "Developing an AI-driven dashboard for intelligent recommendations at PT. Bank Raya Indonesia Tbk.",
+      ],
+      tags: ["Dashboard", "AI Agent", "Recommendation System", "Data Analytics"],
+      image: "https://placehold.co/600x400?text=Confidential"
+    },
+    {
+      id: 'p_raya_3',
+      title: "AI-Driven Business Requirement System Analysis",
+      role: "Developer",
+      date: "2026 - Present",
+      description: [
+        "Implementing an AI system to analyze and manage business requirements for PT. Bank Raya Indonesia Tbk.",
+      ],
+      tags: ["System Analysis", "AI", "Business Intelligence"],
+      image: "https://placehold.co/600x400?text=Confidential"
+    },
     {
       id: 'p1',
       title: "CV ATS Analysis System (Applicant Tracking System)",
@@ -346,7 +383,8 @@ window.CONFIG = {
         "Python", 
         "SQL (MySQL, PostgreSQL)", 
         "Redis", 
-        "C/C++"
+        "C/C++",
+        "Google Big Query"
       ]
     },
     {
@@ -356,7 +394,7 @@ window.CONFIG = {
         "PyTorch", 
         "Docker", 
         "Git", 
-        "Google Cloud Console", 
+        "Google Cloud Platform", 
         "Flask", 
         "Tableau", 
         "Google Colab", 
@@ -373,7 +411,13 @@ window.CONFIG = {
         "OpenRouter", 
         "Groq",
         "RagFlow",
-        "n8n"
+        "n8n",
+        "Langflow",
+        "Jira",
+        "Rovo",
+        "Hermes Agent",
+        "Google Gemini API",
+        "Elastic Search"
       ]
     }
   ],
