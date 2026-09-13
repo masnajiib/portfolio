@@ -10,12 +10,9 @@ window.CONFIG = {
   RESUME_URL: "", // ID is managed in .env 
 
   METADATA: {
-    title: "Almas Najiib Imam Muttaqin",
-    description: "Portfolio of Almas Najiib, an AI Developer specializing in Computer Vision and Data Science.",
-    title: "Almas Najiib Imam Muttaqin | AI Engineer & Data Scientist",
-    description: "Portfolio of Almas Najiib Imam Muttaqin, an AI Engineer at PT Bank Raya Indonesia Tbk specializing in AI Agents, Computer Vision, and Data Science. Proven track record in building high-impact AI solutions.",
+    title: "Almas Najiib | AI Engineer, Data Scientist & AI Developer",
+    description: "Portfolio of Almas Najiib (Almas Najiib Imam Muttaqin), an Informatics Engineering Graduate and professional AI Engineer & Data Scientist at PT Bank Raya Indonesia. Specializing in AI Agents, LLM, Computer Vision, and Data Analytics.",
     image: "/assets/images/profile/profile.png",
-    url: "https://www.almasnajiib27.my.id",
     url: "https://www.almasnajiib.com",
     type: "website",
     twitterCard: "summary_large_image"
@@ -63,8 +60,7 @@ window.CONFIG = {
 
   ABOUT_DETAILS: {
     subtitle: "AI Developer & Data Scientist",
-    introduction: "I am an AI Developer and Data Scientist, an Informatics Engineering graduate (3.83 GPA) dedicated to merging academic precision with high-impact technical solutions. My professional experience at *Indosat Ooredoo Hutchison* focused on engineering a robust AI analytics ecosystem that fuses Computer Vision and Large Language Models for seamless competitor monitoring and database interaction. *This solution was successfully deployed across six provinces in Indonesia with more than 3.000 internal users.* With a strong command of Python, SQL, and model deployment, my work is further validated by a research portfolio of *5 scientific journals* in face recognition and health AI.",
-    introduction: "I am an AI Developer and Data Scientist, an Informatics Engineering graduate (3.83 GPA) dedicated to merging academic precision with high-impact technical solutions. My professional experience at *Indosat Ooredoo Hutchison* focused on engineering a robust AI analytics ecosystem that fuses Computer Vision and Large Language Models for seamless competitor monitoring and database interaction. *This solution was successfully deployed across six provinces in Indonesia with more than 3.000 internal users.* With a strong command of Python, SQL, and model deployment, my work is further validated by a research portfolio of *5 scientific journals* in face recognition and health AI. Currently, I work at *PT. Bank Raya Indonesia Tbk*, developing an AI agent named Rayasim AI, an AI-based recommendation dashboard, and an AI-driven business requirement system analysis.",
+    introduction: "I am an AI Engineer, Data Scientist, and AI Developer (Informatics Engineering Graduate with a 3.83 GPA). I am dedicated to merging academic precision with high-impact technical solutions. My professional experience at *Indosat Ooredoo Hutchison* focused on engineering a robust AI analytics ecosystem that fuses Computer Vision and Large Language Models for seamless competitor monitoring and database interaction. *This solution was successfully deployed across six provinces in Indonesia with more than 3.000 internal users.* With a strong command of Python, SQL, and Machine Learning model deployment, my work is further validated by a research portfolio of *5 scientific journals* in face recognition and health AI. Currently, I work as an AI Engineer at *PT. Bank Raya Indonesia Tbk*, developing an AI agent named Rayasim AI, an AI-based recommendation dashboard, and an AI-driven business requirement system analysis.",
     highlights: [
       "Specializing in Computer Vision & AI Agents",
       "Experience with Large Language Models (LLMs)",
