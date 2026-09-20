@@ -56,7 +56,6 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 bg-white dark:bg-dark text-center relative transition-colors duration-500">
-      {/* Texture Pattern: Grid */}
       
 
       <div className="max-w-4xl mx-auto px-4 relative z-10">

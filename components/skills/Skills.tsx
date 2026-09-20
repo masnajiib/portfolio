@@ -12,25 +12,15 @@ const Skills: React.FC = () => {
 
   const getSkillIcon = (skillName: string) => {
     const name = skillName.toLowerCase();
-    
-    // ==========================================
-    // 1. ORIGINAL LOGOS FOR TECHNICAL SKILLS
-    // ==========================================
-    
-    // Programming Languages & DBs
     if (name.includes('python')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" className="w-5 h-5 object-contain" />;
     if (name.includes('mysql')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" className="w-5 h-5 object-contain" />;
     if (name.includes('postgresql')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-5 h-5 object-contain" />;
     if (name.includes('redis')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" alt="Redis" className="w-5 h-5 object-contain" />;
     if (name.includes('c/c++')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C/C++" className="w-5 h-5 object-contain" />;
     if (name.includes('dbeaver')) return <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/DBeaver_logo.svg" alt="DBeaver" className="w-5 h-5 object-contain" />;
-    
-    // AI / ML Frameworks
     if (name.includes('tensorflow')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" className="w-5 h-5 object-contain" />;
     if (name.includes('pytorch')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" className="w-5 h-5 object-contain" />;
     if (name.includes('streamlit')) return <img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="Streamlit" className="w-5 h-5 object-contain" />;
-    
-    // Cloud & Dev Tools
     if (name.includes('docker')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" className="w-5 h-5 object-contain" />;
     if (name.includes('git')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" className="w-5 h-5 object-contain" />;
     if (name.includes('google cloud') || name.includes('big query')) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="GCP" className="w-5 h-5 object-contain" />;
@@ -42,15 +32,11 @@ const Skills: React.FC = () => {
     if (name.includes('google colab')) return <img src="https://cdn.simpleicons.org/googlecolab/F9AB00" alt="Google Colab" className="w-5 h-5 object-contain" />;
     if (name.includes('datagrip')) return <img src="https://cdn.simpleicons.org/datagrip/000000" alt="Datagrip" className="w-5 h-5 object-contain dark:invert" />;
     if (name.includes('meta')) return <img src="https://cdn.simpleicons.org/meta/0468FF" alt="Meta" className="w-5 h-5 object-contain" />;
-    
-    // Tools that need GitHub avatars or specifics
     if (name.includes('microsoft')) return <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Office" className="w-5 h-5 object-contain" />;
     if (name.includes('tableau')) return <img src="https://github.com/tableau.png" alt="Tableau" className="w-5 h-5 rounded-md object-contain" />;
     if (name.includes('navicat')) return <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Navicat_Premium_v12.png" alt="Navicat" className="w-5 h-5 object-contain" />;
     if (name.includes('trae')) return <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://trae.ai&size=64" alt="Trae" className="w-5 h-5 rounded-md object-contain" />;
     if (name.includes('antigravity')) return <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Antigravity" className="w-5 h-5 object-contain" />;
-
-    // AI Agents
     if (name.includes('n8n')) return <img src="https://cdn.simpleicons.org/n8n/E83462" alt="n8n" className="w-5 h-5 object-contain" />;
     if (name.includes('ollama')) return <img src="https://cdn.simpleicons.org/ollama/000000" alt="Ollama" className="w-5 h-5 object-contain dark:invert" />;
     if (name.includes('openrouter')) return <img src="https://cdn.simpleicons.org/openrouter/3668CE" alt="OpenRouter" className="w-5 h-5 object-contain" />;
@@ -60,10 +46,6 @@ const Skills: React.FC = () => {
     if (name.includes('hermes')) return <img src="https://github.com/NousResearch.png" alt="Hermes Agent" className="w-5 h-5 rounded-md object-contain" />;
     if (name.includes('groq')) return <img src="https://github.com/groq.png" alt="Groq" className="w-5 h-5 rounded-md object-contain" />;
     if (name.includes('rovo')) return <img src="https://github.com/atlassian.png" alt="Rovo" className="w-5 h-5 rounded-md object-contain" />;
-
-    // ==========================================
-    // 2. HARD SKILLS
-    // ==========================================
     if (name.includes('machine learning')) return <Brain className="w-5 h-5 text-secondary" />;
     if (name.includes('deep learning')) return <Layers className="w-5 h-5 text-secondary" />;
     if (name.includes('data science') || name.includes('data analysis')) return <BarChart className="w-5 h-5 text-secondary" />;
@@ -74,10 +56,6 @@ const Skills: React.FC = () => {
     if (name.includes('agentic systems')) return <Network className="w-5 h-5 text-secondary" />;
     if (name.includes('prompt engineering')) return <Terminal className="w-5 h-5 text-secondary" />;
     if (name.includes('ai model')) return <Cpu className="w-5 h-5 text-secondary" />;
-
-    // ==========================================
-    // 3. SOFT SKILLS
-    // ==========================================
     if (name.includes('problem solving')) return <Lightbulb className="w-5 h-5 text-primary" />;
     if (name.includes('critical thinking') || name.includes('analytical')) return <Search className="w-5 h-5 text-primary" />;
     if (name.includes('team collaboration')) return <Users className="w-5 h-5 text-primary" />;
@@ -85,8 +63,6 @@ const Skills: React.FC = () => {
     if (name.includes('communication')) return <MessageCircle className="w-5 h-5 text-primary" />;
     if (name.includes('adaptability')) return <RefreshCcw className="w-5 h-5 text-primary" />;
     if (name.includes('time management')) return <Clock className="w-5 h-5 text-primary" />;
-
-    // Fallback Icon
     return <Code2 size={18} className="text-gray-500" />;
   };
 

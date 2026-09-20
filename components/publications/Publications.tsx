@@ -10,7 +10,6 @@ const Publications: React.FC = () => {
 
   return (
     <section id="publications" className="py-16 relative bg-gray-50 dark:bg-dark overflow-hidden transition-colors duration-500">
-       {/* Texture Pattern: Diagonal Lines */}
       
       
       {/* Background Gradient Blend */}

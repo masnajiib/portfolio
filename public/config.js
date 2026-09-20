@@ -1,6 +1,4 @@
-// =================================================================================
 //  USER CONFIGURATION
-// =================================================================================
 
 window.CONFIG = {
   // Contact & Social (Can be overridden by .env variables)
@@ -84,7 +82,7 @@ window.CONFIG = {
     role: "AI Engineer & Data Scientist",
     typingRoles: ["AI Engineer", "AI Developer", "Data Scientist", "Data Analyst"],
     profileImage: "/assets/images/profile/profile.png",
-    about: "I build AI agents, train computer vision models, and design analytics systems. I currently engineer banking AI at PT Bank Raya Indonesia, following my work deploying computer vision across six provinces for Indosat Ooredoo."
+    about: "I build AI agents, train computer vision models, and design analytics systems. I currently engineer banking AI at PT Bank Raya Indonesia, following my work deploying computer vision across six provinces for Indosat Ooredoo Hutchison."
   },
 
   SOCIAL_LINKS: [

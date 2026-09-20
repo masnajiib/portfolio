@@ -8,7 +8,6 @@ import ImageWithLoader from '../common/ImageWithLoader';
 const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-24 bg-gray-50 dark:bg-dark relative overflow-hidden transition-colors duration-500">
-      {/* Texture Pattern: Diagonal Mesh (Diamond Grid) */}
       {/* Uses repeating linear gradients to create a cross-hatch/diamond pattern that doesn't conflict with vertical lines */}
       
       

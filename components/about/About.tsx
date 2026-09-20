@@ -39,7 +39,6 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="py-24 bg-white dark:bg-dark relative overflow-hidden transition-colors duration-500">
-      {/* Texture Pattern: Grid */}
       
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

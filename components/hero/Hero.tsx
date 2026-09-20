@@ -10,8 +10,6 @@ const Hero: React.FC = () => {
   const [displayRole, setDisplayRole] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
-  // Generate random dots for ai-network style once
   const networkDots = useMemo(() => {
     return [...Array(15)].map((_, i) => ({
       id: i,
@@ -21,33 +19,25 @@ const Hero: React.FC = () => {
       duration: `${2 + Math.random() * 3}s`
     }));
   }, []);
-
-  // Physics based rotation state
   const rotation = useMotionValue(0);
   const velocity = useRef(0.5); // Initial idle speed (clockwise)
   const isDragging = useRef(false);
   const lastTime = useRef(performance.now());
-
-  // Physics Loop for Fidget Spinner Effect
   useAnimationFrame((time) => {
     const now = performance.now();
     const deltaTime = Math.min(now - lastTime.current, 32); // Cap delta to avoid jumps
     lastTime.current = now;
 
     if (!isDragging.current) {
-      // Time-normalized friction (roughly 0.98 per 16ms frame)
       const friction = Math.pow(0.98, deltaTime / 16);
       const idleSpeed = 0.5; 
       
       if (Math.abs(velocity.current) > idleSpeed) {
         velocity.current *= friction;
       } else {
-        // Recovery towards idle clockwise rotation
         const recoveryFactor = 0.002 * deltaTime; 
         velocity.current = velocity.current * (1 - recoveryFactor) + idleSpeed * recoveryFactor;
       }
-      
-      // Update rotation based on velocity and time
       rotation.set(rotation.get() + velocity.current * (deltaTime / 16));
     }
   });
@@ -57,13 +47,9 @@ const Hero: React.FC = () => {
   };
 
   const handlePan = (event: any, info: any) => {
-    // Calculate velocity based on drag movement delta
-    // We use info.delta.x and y to make it feel responsive in all drag directions
     const sensitivity = 0.4; 
     const dragForce = (info.delta.x - info.delta.y) * sensitivity;
     velocity.current = dragForce;
-    
-    // Immediate feedback
     rotation.set(rotation.get() + dragForce);
   };
 
@@ -102,11 +88,7 @@ const Hero: React.FC = () => {
       requestAnimationFrame(animation);
     }
   };
-
-  // Find WhatsApp link
   const whatsappLink = SOCIAL_LINKS.find(link => link.name === 'WhatsApp')?.href || "#";
-
-  // Helper to render background behind profile image
   const renderProfileBackground = () => {
     switch (PROFILE_BACKGROUND_STYLE) {
       case 'gradient-blob':
@@ -136,25 +118,19 @@ const Hero: React.FC = () => {
       case 'tech-ring':
         return (
           <div className="absolute inset-0 bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-             {/* Outer Ring */}
              <div className="absolute w-[95%] h-[95%] border-2 border-dashed border-primary/40 rounded-full animate-[spin_20s_linear_infinite]" />
-             {/* Middle Ring */}
              <div className="absolute w-[85%] h-[85%] border border-secondary/30 rounded-full" />
-             {/* Inner Rotating Ring */}
              <div className="absolute w-[75%] h-[75%] border-t-2 border-r-2 border-primary/60 rounded-full animate-[spin_3s_linear_infinite]" />
-             {/* Center Glow */}
              <div className="absolute w-[60%] h-[60%] bg-primary/10 blur-xl rounded-full" />
           </div>
         );
               case 'ai-network':
           return (
             <div className="absolute inset-0 bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden">
-               {/* Static Geometric Network Pattern */}
                <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
                  <path d="M 10,20 L 30,40 L 70,30 L 90,60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-400 dark:text-gray-500" />
                  <path d="M 30,40 L 40,80 L 90,60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-400 dark:text-gray-500" />
                  <path d="M 10,70 L 40,80 L 60,95" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-400 dark:text-gray-500" />
-                 {/* Nodes */}
                  <circle cx="10" cy="20" r="1.5" className="fill-gray-400 dark:fill-gray-500" />
                  <circle cx="30" cy="40" r="2" className="fill-secondary opacity-70" />
                  <circle cx="70" cy="30" r="1.5" className="fill-gray-400 dark:fill-gray-500" />
@@ -163,7 +139,6 @@ const Hero: React.FC = () => {
                  <circle cx="10" cy="70" r="1.5" className="fill-gray-400 dark:fill-gray-500" />
                  <circle cx="60" cy="95" r="1.5" className="fill-gray-400 dark:fill-gray-500" />
                </svg>
-               {/* Gradient overlay to fade edges */}
                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,white_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_40%,#0f172a_100%)] pointer-events-none" />
             </div>
           );case 'none':
@@ -171,8 +146,6 @@ const Hero: React.FC = () => {
         return <div className="absolute inset-0 bg-white dark:bg-gray-900" />;
     }
   };
-
-  // Helper to render border style
   const renderProfileBorder = () => {
     switch (PROFILE_BORDER_STYLE) {
               case 'simple-rotate':
@@ -182,18 +155,12 @@ const Hero: React.FC = () => {
               style={{ rotate: rotation }}
             >
                <svg className="w-full h-full overflow-visible pointer-events-none" viewBox="0 0 100 100">
-                  <defs>
-                    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor={THEME_COLORS.profileBorderStart} />
-                      <stop offset="100%" stopColor={THEME_COLORS.profileBorderEnd} />
-                    </linearGradient>
-                  </defs>
                   <circle 
                     cx="50" 
                     cy="50" 
                     r="48" 
                     fill="none" 
-                    stroke="url(#borderGradient)" 
+                    stroke={THEME_COLORS.primary} 
                     strokeWidth="2" 
                     strokeDasharray="24 16"
                     strokeLinecap="round"
@@ -291,12 +258,7 @@ const Hero: React.FC = () => {
             
             <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
               Hi, I'm <br />
-              <span 
-                className="text-transparent bg-clip-text"
-                style={{
-                  backgroundImage: `linear-gradient(to right, ${THEME_COLORS.nameGradientStart}, ${THEME_COLORS.nameGradientEnd})`
-                }}
-              >
+              <span className="text-primary">
                 {PERSONAL_INFO.firstName} <br className="hidden md:block" /> {PERSONAL_INFO.lastName}
               </span>
             </h1>
@@ -343,7 +305,7 @@ const Hero: React.FC = () => {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-gradient-to-r from-secondary to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-white font-bold rounded-full flex items-center justify-center transition-all shadow-lg shadow-cyan-500/25 border border-transparent"
+              className="px-6 py-3 bg-primary hover:bg-blue-600 text-white font-bold rounded-full flex items-center justify-center transition-all shadow-lg shadow-blue-500/25 border border-transparent"
             >
               Chat on WhatsApp <MessageCircle className="ml-2 w-4 h-4 fill-current" />
             </motion.a>
@@ -403,7 +365,6 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.2, duration: 1 }}
           className="order-1 lg:order-2 flex justify-center lg:justify-end relative"
         >
-           {/* Interactive Fidget Spinner Area */}
            <motion.div 
              className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[480px] lg:h-[480px] flex items-center justify-center cursor-grab active:cursor-grabbing"
              onPanStart={handlePanStart}
@@ -411,11 +372,7 @@ const Hero: React.FC = () => {
              onPanEnd={handlePanEnd}
              style={{ touchAction: 'none' }} // CRITICAL: Prevents scrolling interference on mobile/tablet
            >
-              {/* Rotating Segmented Border */}
-              {/* Render Selected Border Style */}
               {renderProfileBorder()}
-              
-              {/* Inner Profile Image - Remains Static */}
               <div className="relative w-[85%] h-[85%] rounded-full border border-gray-200 dark:border-gray-800 overflow-hidden z-10 pointer-events-none select-none">
                  {renderProfileBackground()}
                  <ImageWithLoader 
