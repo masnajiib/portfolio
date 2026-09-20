@@ -3,6 +3,8 @@ import { motion, MotionProps } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 
 interface ImageWithLoaderProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  loading?: 'lazy' | 'eager';
+  fetchPriority?: 'high' | 'low' | 'auto';
   containerClassName?: string;
   motionProps?: MotionProps;
   useMotion?: boolean;
@@ -50,7 +52,7 @@ const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({
         </div>
       ) : (
         // @ts-ignore - motion props are compatible but TS might complain about specific HTML attributes
-        <Component
+        <Component loading={props.loading || "lazy"} fetchPriority={props.fetchPriority} decoding="async"
           src={src}
           alt={alt}
           className={`${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
