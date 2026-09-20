@@ -4,6 +4,7 @@ import { Loader2 } from 'lucide-react';
 
 interface ImageWithLoaderProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   loading?: 'lazy' | 'eager';
+  priorityLcp?: boolean;
   fetchPriority?: 'high' | 'low' | 'auto';
   containerClassName?: string;
   motionProps?: MotionProps;
@@ -17,6 +18,7 @@ const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({
   containerClassName = "",
   motionProps,
   useMotion = false,
+  priorityLcp = false,
   ...props 
 }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +34,23 @@ const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({
   };
 
   const Component = useMotion ? motion.img : 'img';
+
+  if (priorityLcp) {
+    return (
+      <div className={`relative overflow-hidden ${containerClassName}`}>
+        {/* @ts-ignore */}
+        <Component
+          src={src}
+          alt={alt}
+          className={className}
+          loading="eager"
+          fetchPriority="high"
+          {...(useMotion ? motionProps : {})}
+          {...props}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={`relative overflow-hidden ${containerClassName}`}>
@@ -51,8 +70,11 @@ const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({
           <span className="text-xs">Failed to load</span>
         </div>
       ) : (
-        // @ts-ignore - motion props are compatible but TS might complain about specific HTML attributes
-        <Component loading={props.loading || "lazy"} fetchPriority={props.fetchPriority} decoding="async"
+        // @ts-ignore
+        <Component 
+          loading={props.loading || "lazy"} 
+          fetchPriority={props.fetchPriority} 
+          decoding="async"
           src={src}
           alt={alt}
           className={`${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}

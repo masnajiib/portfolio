@@ -378,7 +378,7 @@ const Hero: React.FC = () => {
                  <ImageWithLoader 
                    src={PERSONAL_INFO.profileImage}
                    alt={`${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName}`}
-                   className="relative w-full h-full rounded-full object-cover z-10" loading="eager" fetchPriority="high"
+                   className="relative w-full h-full rounded-full object-cover z-10" priorityLcp={true}
                    containerClassName="w-full h-full"
                    draggable="false"
                  />

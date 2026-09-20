@@ -106,7 +106,7 @@ const Projects: React.FC = () => {
                   
                   {/* Description */}
                   <div className="p-6 bg-white dark:bg-gray-900">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-900 dark:hover:text-white transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
                       Featured: Elang AI Launch Event
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
@@ -173,7 +173,7 @@ const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-900 dark:hover:text-white transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
                   {project.link ? (
                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
                       {parseBoldText(project.title)}
