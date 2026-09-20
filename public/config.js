@@ -29,19 +29,19 @@ window.CONFIG = {
   SECTION_CONTENT: {
     about: {
       title: "About Me",
-      description: "A brief introduction about who I am and what I do."
+      description: "Building AI systems for production, with a background in engineering and published research."
     },
     projects: {
       title: "Featured Projects",
-      description: "A selection of AI, Computer Vision, and Data Analysis projects I've developed for enterprise and research."
+      description: "AI agents and computer vision systems built for enterprise and retail."
     },
     certifications: {
       title: "Certifications",
-      description: "Professional certifications validating expertise in AI, Machine Learning, and Data Science."
+      description: "Verified credentials in artificial intelligence, data science, and cloud architecture."
     },
     contact: {
       title: "Contact Me",
-      description: "I'm currently available for freelance projects in AI Development and Data Science. If you have a project that could benefit from my expertise, please don't hesitate to reach out."
+      description: "I am available for AI engineering roles, technical consulting, and project collaboration. Send me a message below."
     },
     experience: {
       title: "Professional Experience",
@@ -57,10 +57,9 @@ window.CONFIG = {
     }
   },
 
-
   ABOUT_DETAILS: {
-    subtitle: "AI Developer & Data Scientist",
-    introduction: "I am an AI Engineer, Data Scientist, and AI Developer (Informatics Engineering Graduate with a 3.83 GPA). I am dedicated to merging academic precision with high-impact technical solutions. My professional experience at *Indosat Ooredoo Hutchison* focused on engineering a robust AI analytics ecosystem that fuses Computer Vision and Large Language Models for seamless competitor monitoring and database interaction. *This solution was successfully deployed across six provinces in Indonesia with more than 3.000 internal users.* With a strong command of Python, SQL, and Machine Learning model deployment, my work is further validated by a research portfolio of *5 scientific journals* in face recognition and health AI. Currently, I work as an AI Engineer at *PT. Bank Raya Indonesia Tbk*, developing an AI agent named Rayasim AI, an AI-based recommendation dashboard, and an AI-driven business requirement system analysis.",
+    subtitle: "AI Engineer & Data Scientist",
+    introduction: "I build artificial intelligence systems that solve real business problems. Currently, I work as an AI Engineer at *PT. Bank Raya Indonesia Tbk*, where I develop Rayasim AI, a conversational agent that queries banking data, and build tools for requirement analysis. Before that, I worked at *Indosat Ooredoo Hutchison* and deployed a computer vision and LLM analytics system used by over 3,000 people across six provinces. I also hold an Informatics Engineering degree (3.83 GPA) and have authored *5 published scientific papers* on deep learning for computer vision and healthcare.",
     highlights: [
       "Specializing in Computer Vision & AI Agents",
       "Experience with Large Language Models (LLMs)",
@@ -82,10 +81,10 @@ window.CONFIG = {
     firstName: "Almas Najiib",
     lastName: "Imam Muttaqin",
     logo: "Almas",
-    role: "AI Developer & Computer Vision Engineer",
-    typingRoles: ["AI Developer", "Computer Vision Engineer", "Data Scientist", "Data Analyst"],
+    role: "AI Engineer & Data Scientist",
+    typingRoles: ["AI Engineer", "AI Developer", "Data Scientist", "Data Analyst"],
     profileImage: "/assets/images/profile/profile.png",
-    about: "I'm an AI Developer and Data Scientist with a passion for building intelligent systems that solve real-world problems. With a strong background in Computer Vision and Machine Learning, I have successfully delivered projects for major telecommunications companies and contributed to scientific research."
+    about: "I build AI agents, train computer vision models, and design analytics systems. I currently engineer banking AI at PT Bank Raya Indonesia, following my work deploying computer vision across six provinces for Indosat Ooredoo."
   },
 
   SOCIAL_LINKS: [
@@ -106,9 +105,9 @@ window.CONFIG = {
       logo: "assets/images/company/logo_bankraya.png",
       description: [
         "Outsourcing from PT. Indocyber Global Teknologi with placement at PT. Bank Raya Indonesia Tbk",
-        "Currently developing an AI Agent system for data analysis and database interaction, leveraging expertise in LLMs and AI Agents.",
-        "Collaborating with cross-functional teams to design and implement AI solutions that enhance data-driven decision making.",
-        "Conducting research and experimentation to optimize AI model performance and reliability for enterprise applications."
+        "Developing an internal AI agent (Rayasim AI) to query databases and generate analytical reports using LLMs.",
+        "Building AI-assisted recommendation dashboards and business requirement analysis tools alongside product and data teams.",
+        "Running benchmarks and latency tests to optimize LLM response time and reliability in production banking workflows."
       ]
     },
     {
@@ -197,7 +196,7 @@ window.CONFIG = {
       role: "Developer",
       date: "2026 - Present",
       description: [
-        "Developing an advanced AI Agent named Rayasim AI for PT. Bank Raya Indonesia Tbk.",
+        "Developing Rayasim AI, an internal conversational agent for automated SQL database querying and banking workflow assistance at PT. Bank Raya Indonesia Tbk.",
       ],
       tags: ["AI Agent", "LLM", "Banking"],
       image: "https://placehold.co/600x400?text=Confidential"
@@ -208,7 +207,7 @@ window.CONFIG = {
       role: "Developer",
       date: "2026 - Present",
       description: [
-        "Developing an AI-driven dashboard for intelligent recommendations at PT. Bank Raya Indonesia Tbk.",
+        "Developing an analytics recommendation dashboard to assess financial activity and suggest tailored banking products at PT. Bank Raya Indonesia Tbk.",
       ],
       tags: ["Dashboard", "AI Agent", "Recommendation System", "Data Analytics"],
       image: "https://placehold.co/600x400?text=Confidential"
@@ -219,7 +218,7 @@ window.CONFIG = {
       role: "Developer",
       date: "2026 - Present",
       description: [
-        "Implementing an AI system to analyze and manage business requirements for PT. Bank Raya Indonesia Tbk.",
+        "Building an AI-assisted analysis tool to parse, validate, and convert business requirement documents (BRD) into technical specifications at PT. Bank Raya Indonesia Tbk.",
       ],
       tags: ["System Analysis", "AI", "Business Intelligence"],
       image: "https://placehold.co/600x400?text=Confidential"
@@ -230,7 +229,7 @@ window.CONFIG = {
       role: "Developer",
       date: "Nov 2025",
       description: [
-        "Developed an AI-powered CV analysis system using local Ollama models and OpenRouter to automatically evaluate candidate suitability for applied positions.",
+        "Built an automated CV screening system using local Ollama models and OpenRouter to match candidate profiles against job requirements.",
       ],
       tags: ["Ollama", "OpenRouter", "Python", "MySQL", "AI Agents", "Local LLM"],
       image: "/assets/images/project/cv_ats_analyzer.jpg"
@@ -241,7 +240,7 @@ window.CONFIG = {
       role: "Developer",
       date: "Aug 2025",
       description: [
-        "Developed an object detection model to detect promotional materials for the specific 'IM3 SATSPAM' and 'Tri AI - Anti Spam/Scam' Campaign.",
+        "Trained an object detection model to verify promotional banners and campaign materials for the IM3 SATSPAM and Tri Anti-Spam programs.",
       ],
       tags: ["Computer Vision", "Object Detection", "Python", "Elang AI"],
       image: "/assets/images/project/elang_satspam.jpg",
@@ -252,7 +251,7 @@ window.CONFIG = {
       role: "Developer",
       date: "May 2025",
       description: [
-        "Developed an computer vision model to detect and count products and promotional materials for all telecommunications operators (IM3, 3, Telkomsel, XL, Smartfren, Axis, by.U).",
+        "Trained and deployed a YOLO model to identify and tally branded promotional assets across seven Indonesian telecommunications operators (IM3, 3, Telkomsel, XL, Smartfren, Axis, by.U).",
       ],
       tags: ["Computer Vision", "YOLO", "Data Analytics"],
       image: "/assets/images/project/elang_all_operator.jpg"
@@ -263,7 +262,7 @@ window.CONFIG = {
       role: "Developer",
       date: "Apr 2025",
       description: [
-        "Built an AI Agent Chatbot using LLMs and an Agent Framework for data analysis and database interaction.",
+        "Engineered an agentic chatbot using LLMs and Flowise to query SQL databases and generate natural-language data summaries.",
       ],
       tags: ["LLM", "Agent Framework", "NLP", "Chatbot"],
       image: "/assets/images/project/elang_llm.jpg"
@@ -274,7 +273,7 @@ window.CONFIG = {
       role: "Developer",
       date: "Dec 2024",
       description: [
-        "Built an object detection model to identify and count products and promotional materials specific to the IM3 and 3 brands.",
+        "Trained an object detection model to count retail promotional materials for IM3 and Tri brands, deployed for field sales audits.",
       ],
       tags: ["Computer Vision", "Object Detection", "Brand Detection"],
       image: "/assets/images/project/elang_ai.jpg",
@@ -360,60 +359,29 @@ window.CONFIG = {
 
   SKILLS: [
     {
-      category: "AI & Data Science",
+      category: "Technical Skills",
       items: [
-        "AI Model Development", 
-        "Machine Learning", 
-        "Deep Learning", 
-        "Data Science", 
-        "Data Analysis", 
-        "Data Visualization", 
-        "NLP (Natural Language Processing)", 
-        "AI Agents (Flowise)", 
-        "Computer Vision (Roboflow, Ultralytics, Label Studio)"
+        "Python", "MySQL", "PostgreSQL", "DBeaver", "Redis", "C/C++", "Google Big Query",
+        "TensorFlow", "PyTorch", "Docker", "Git", "Google Cloud Platform", "Flask",
+        "Tableau", "Google Colab", "Datagrip", "Navicat", "Meta for Developers",
+        "Microsoft Office", "Trae", "Visual Studio Code", "Google Antigravity",
+        "Streamlit", "Elastic Search", "Flowise", "Ollama", "Hermes Agent",
+        "Langflow", "n8n", "RagFlow", "Rovo", "OpenRouter", "Groq", "Jira"
       ]
     },
     {
-      category: "Programming & Databases",
+      category: "Hard Skills",
       items: [
-        "Python", 
-        "SQL (MySQL, PostgreSQL)", 
-        "Redis", 
-        "C/C++",
-        "Google Big Query"
+        "AI Model Development", "Machine Learning", "Deep Learning", "Data Science",
+        "Data Analysis", "Data Visualization", "NLP (Natural Language Processing)",
+        "Computer Vision", "Object Detection", "Agentic Systems", "Prompt Engineering"
       ]
     },
     {
-      category: "Tools & Platforms",
+      category: "Soft Skills",
       items: [
-        "TensorFlow", 
-        "PyTorch", 
-        "Docker", 
-        "Git", 
-        "Google Cloud Platform", 
-        "Flask", 
-        "Tableau", 
-        "Google Colab", 
-        "Datagrip", 
-        "Navicat", 
-        "Meta for Developers", 
-        "Microsoft Office", 
-        "Trae", 
-        "Visual Studio Code", 
-        "Google Antigravity", 
-        "Ollama", 
-        "LM Studio", 
-        "Streamlit", 
-        "OpenRouter", 
-        "Groq",
-        "RagFlow",
-        "n8n",
-        "Langflow",
-        "Jira",
-        "Rovo",
-        "Hermes Agent",
-        "Google Gemini API",
-        "Elastic Search"
+        "Problem Solving", "Critical Thinking", "Team Collaboration", "Mentorship",
+        "Effective Communication", "Adaptability", "Time Management", "Analytical Thinking"
       ]
     }
   ],

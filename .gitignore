@@ -33,3 +33,8 @@ dist-ssr
 
 config.js.example
 constants.tsx.example
+
+# AI Agents Config
+.agents/
+AGENTS.md
+GEMINI.md

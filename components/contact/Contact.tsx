@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-24 bg-white dark:bg-dark text-center relative transition-colors duration-500">
       {/* Texture Pattern: Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
 
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         <motion.h2 
@@ -208,7 +208,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
               whileHover={{ scale: 1.1, rotate: 5 }}
-              className="p-4 bg-gray-100 dark:bg-gray-900 rounded-full text-gray-600 dark:text-gray-400 hover:text-white hover:bg-primary transition-colors shadow-sm dark:shadow-none"
+              className="p-4 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors shadow-sm dark:shadow-none"
               aria-label={link.name}
             >
               {link.icon}
@@ -227,7 +227,7 @@ const Contact: React.FC = () => {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -5 }}
             whileTap={{ scale: 0.9 }}
-            className="p-3 bg-gray-200 dark:bg-gray-800 hover:bg-secondary text-gray-900 dark:text-white rounded-full transition-all shadow-lg border border-gray-300 dark:border-gray-700 hover:border-secondary group"
+            className="p-3 bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-full transition-all shadow-lg border border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600 group"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-6 h-6 group-hover:animate-bounce" />

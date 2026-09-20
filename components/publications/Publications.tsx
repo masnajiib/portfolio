@@ -11,7 +11,7 @@ const Publications: React.FC = () => {
   return (
     <section id="publications" className="py-16 relative bg-gray-50 dark:bg-dark overflow-hidden transition-colors duration-500">
        {/* Texture Pattern: Diagonal Lines */}
-      <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.03)_0px,rgba(0,0,0,0.03)_1px,transparent_1px,transparent_12px)] dark:bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_12px)] opacity-60 z-0"></div>
+      
       
       {/* Background Gradient Blend */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-transparent to-gray-50 dark:from-dark dark:via-transparent dark:to-dark z-0"></div>

@@ -13,11 +13,7 @@ const Certifications: React.FC = () => {
 
   return (
     <section id="certifications" className="py-24 bg-gray-50 dark:bg-dark relative overflow-hidden transition-colors duration-500">
-       {/* Texture Pattern: Radial Dots (Distinct from Projects square grid) */}
-      <div className="absolute inset-0 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] dark:bg-[radial-gradient(#4b5563_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.2] z-0"></div>
-      
-      {/* Central Spotlight effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#f9fafb_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,#0f172a_100%)] z-0 pointer-events-none"></div>
+       
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
@@ -98,7 +94,7 @@ const Certifications: React.FC = () => {
                           href={cert.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors"
+                          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                         >
                           <ExternalLink size={14} />
                           <span>Credential</span>
@@ -108,7 +104,7 @@ const Certifications: React.FC = () => {
                       <a 
                         href={cert.image}
                         download={`${cert.title.replace(/\s+/g, '_')}_Certificate`}
-                        className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors ml-auto"
+                        className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors ml-auto"
                         title="Download Certificate"
                       >
                         <Download size={14} />

@@ -146,31 +146,27 @@ const Hero: React.FC = () => {
              <div className="absolute w-[60%] h-[60%] bg-primary/10 blur-xl rounded-full" />
           </div>
         );
-      case 'ai-network':
-        return (
-          <div className="absolute inset-0 bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden">
-             {/* Grid Background - Adaptive Colors */}
-             <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(6,182,212,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
-             
-             {/* Random Glowing Nodes */}
-             {networkDots.map((dot) => (
-               <div 
-                 key={dot.id}
-                 className="absolute w-1.5 h-1.5 bg-secondary/60 dark:bg-secondary rounded-full animate-ping"
-                 style={{
-                   top: dot.top,
-                   left: dot.left,
-                   animationDelay: dot.delay,
-                   animationDuration: dot.duration,
-                 }}
-               />
-             ))}
-             
-             {/* Connecting Lines (Simulated with gradient) */}
-             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#ffffff_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_30%,#0f172a_100%)]" />
-          </div>
-        );
-      case 'none':
+              case 'ai-network':
+          return (
+            <div className="absolute inset-0 bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden">
+               {/* Static Geometric Network Pattern */}
+               <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                 <path d="M 10,20 L 30,40 L 70,30 L 90,60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-400 dark:text-gray-500" />
+                 <path d="M 30,40 L 40,80 L 90,60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-400 dark:text-gray-500" />
+                 <path d="M 10,70 L 40,80 L 60,95" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-400 dark:text-gray-500" />
+                 {/* Nodes */}
+                 <circle cx="10" cy="20" r="1.5" className="fill-gray-400 dark:fill-gray-500" />
+                 <circle cx="30" cy="40" r="2" className="fill-secondary opacity-70" />
+                 <circle cx="70" cy="30" r="1.5" className="fill-gray-400 dark:fill-gray-500" />
+                 <circle cx="90" cy="60" r="2" className="fill-primary opacity-70" />
+                 <circle cx="40" cy="80" r="2" className="fill-secondary opacity-70" />
+                 <circle cx="10" cy="70" r="1.5" className="fill-gray-400 dark:fill-gray-500" />
+                 <circle cx="60" cy="95" r="1.5" className="fill-gray-400 dark:fill-gray-500" />
+               </svg>
+               {/* Gradient overlay to fade edges */}
+               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,white_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_40%,#0f172a_100%)] pointer-events-none" />
+            </div>
+          );case 'none':
       default:
         return <div className="absolute inset-0 bg-white dark:bg-gray-900" />;
     }
@@ -179,33 +175,33 @@ const Hero: React.FC = () => {
   // Helper to render border style
   const renderProfileBorder = () => {
     switch (PROFILE_BORDER_STYLE) {
-      case 'simple-rotate':
-        return (
-          <motion.div 
-            className="absolute inset-0 z-0"
-            style={{ rotate: rotation }}
-          >
-             <svg className="w-full h-full overflow-visible dark:drop-shadow-[0_0_20px_rgba(6,182,212,0.8)] pointer-events-none" viewBox="0 0 100 100">
-                <defs>
-                  <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor={THEME_COLORS.profileBorderStart} />
-                    <stop offset="100%" stopColor={THEME_COLORS.profileBorderEnd} />
-                  </linearGradient>
-                </defs>
-                <circle 
-                  cx="50" 
-                  cy="50" 
-                  r="48" 
-                  fill="none" 
-                  stroke="url(#borderGradient)" 
-                  strokeWidth="2" 
-                  strokeDasharray="24 16"
-                  strokeLinecap="round"
-                />
-             </svg>
-          </motion.div>
-        );
-      case 'pulse-glow':
+              case 'simple-rotate':
+          return (
+            <motion.div 
+              className="absolute inset-0 z-0"
+              style={{ rotate: rotation }}
+            >
+               <svg className="w-full h-full overflow-visible pointer-events-none" viewBox="0 0 100 100">
+                  <defs>
+                    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor={THEME_COLORS.profileBorderStart} />
+                      <stop offset="100%" stopColor={THEME_COLORS.profileBorderEnd} />
+                    </linearGradient>
+                  </defs>
+                  <circle 
+                    cx="50" 
+                    cy="50" 
+                    r="48" 
+                    fill="none" 
+                    stroke="url(#borderGradient)" 
+                    strokeWidth="2" 
+                    strokeDasharray="24 16"
+                    strokeLinecap="round"
+                    className="opacity-70 dark:opacity-100"
+                  />
+               </svg>
+            </motion.div>
+          );case 'pulse-glow':
         return (
           <div className="absolute inset-0 z-0 rounded-full animate-pulse">
              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/50 to-secondary/50 blur-xl opacity-50" />
@@ -282,12 +278,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 pb-20 relative overflow-hidden dark:bg-dark transition-colors duration-500" style={{ backgroundColor: document.documentElement.classList.contains('dark') ? '' : THEME_COLORS.light }}>
-      {/* Texture Pattern: Dot Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#00000033_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.1] z-0"></div>
-
-      {/* Background Glows */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-      <div className="absolute bottom-20 left-0 w-72 h-72 bg-secondary/20 rounded-full blur-3xl -z-10"></div>
+      
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         <div className="order-2 lg:order-1 space-y-8 text-center md:text-left">
@@ -297,10 +288,11 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-secondary font-medium tracking-wider text-sm uppercase">Welcome to my portfolio</span>
+            
             <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
               Hi, I'm <br />
               <span 
-                className="text-transparent bg-clip-text dark:drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]"
+                className="text-transparent bg-clip-text"
                 style={{
                   backgroundImage: `linear-gradient(to right, ${THEME_COLORS.nameGradientStart}, ${THEME_COLORS.nameGradientEnd})`
                 }}
@@ -332,7 +324,7 @@ const Hero: React.FC = () => {
             {PERSONAL_INFO.typingRoles.map((role, index) => (
               <span 
                 key={index} 
-                className="px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-all hover:border-primary/50 hover:text-primary dark:hover:text-primary cursor-default"
+                className="px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-all hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-900 dark:hover:text-white cursor-default"
               >
                 {role}
               </span>
@@ -353,7 +345,7 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="px-6 py-3 bg-gradient-to-r from-secondary to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-white font-bold rounded-full flex items-center justify-center transition-all shadow-lg shadow-cyan-500/25 border border-transparent"
             >
-              Hire Me Now <MessageCircle className="ml-2 w-4 h-4 fill-current" />
+              Chat on WhatsApp <MessageCircle className="ml-2 w-4 h-4 fill-current" />
             </motion.a>
 
             <motion.a 
@@ -394,9 +386,9 @@ const Hero: React.FC = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, color: '#3b82f6' }}
+                whileHover={{ scale: 1.15 }}
                 whileTap={{ scale: 0.9 }}
-                className="text-gray-500 dark:text-gray-400 transition-colors"
+                className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 title={link.name}
               >
                 {link.icon}

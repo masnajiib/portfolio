@@ -10,10 +10,10 @@ const Experience: React.FC = () => {
     <section id="experience" className="py-24 bg-gray-50 dark:bg-dark relative overflow-hidden transition-colors duration-500">
       {/* Texture Pattern: Diagonal Mesh (Diamond Grid) */}
       {/* Uses repeating linear gradients to create a cross-hatch/diamond pattern that doesn't conflict with vertical lines */}
-      <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.03)_0px,rgba(0,0,0,0.03)_1px,transparent_1px,transparent_30px),repeating-linear-gradient(-45deg,rgba(0,0,0,0.03)_0px,rgba(0,0,0,0.03)_1px,transparent_1px,transparent_30px)] dark:bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_30px),repeating-linear-gradient(-45deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_30px)] z-0"></div>
+      
       
       {/* Subtle radial fade for the background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-transparent to-gray-50 dark:from-dark dark:via-transparent dark:to-dark z-0 pointer-events-none"></div>
+      
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
@@ -155,7 +155,7 @@ const Experience: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + (index * 0.1), duration: 0.5 }}
-                className="bg-white/80 dark:bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-700 transition-colors flex flex-col md:flex-row gap-6 md:items-start shadow-sm dark:shadow-none"
+                className="bg-white dark:bg-gray-900 p-8 border border-gray-200 dark:border-gray-800 transition-colors flex flex-col md:flex-row gap-6 md:items-start"
               >
                 {/* Education Logo/Image */}
                 {edu.image && (

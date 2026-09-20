@@ -129,7 +129,7 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-200 text-sm font-medium cursor-pointer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 text-sm font-medium cursor-pointer"
               >
                 {link.name}
               </motion.a>
@@ -148,7 +148,7 @@ const Navbar: React.FC = () => {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-900 dark:text-gray-300 hover:text-primary dark:hover:text-white focus:outline-none p-2 relative z-50"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white focus:outline-none p-2 relative z-50 transition-colors"
               aria-label="Toggle menu"
               type="button"
             >
@@ -174,7 +174,7 @@ const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleMobileNavClick(e, link.href)}
-                  className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors"
+                  className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-md transition-colors"
                 >
                   {link.name}
                 </a>

@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-24 bg-gray-50 dark:bg-dark relative transition-colors duration-500">
         {/* Subtle grid pattern bg */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
@@ -57,7 +57,7 @@ const Projects: React.FC = () => {
                       e.preventDefault();
                       setShowFallback(true);
                     }}
-                    className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-primary transition-colors"
+                    className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
                   >
                     <ExternalLink size={12} />
                     <span>Can't see the video? Click here</span>
@@ -96,7 +96,7 @@ const Projects: React.FC = () => {
                     </div>
                     
                     {/* Badge */}
-                    <div className="absolute top-4 left-4 bg-white/80 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700">
+                    <div className="absolute top-4 left-4 bg-white dark:bg-gray-900 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700">
                       <span className="text-sm font-semibold text-gray-900 dark:text-white flex items-center gap-2">
                         <ExternalLink size={16} className="text-primary" />
                         Watch on LinkedIn
@@ -105,8 +105,8 @@ const Projects: React.FC = () => {
                   </div>
                   
                   {/* Description */}
-                  <div className="p-6 bg-white/50 dark:bg-card/50 backdrop-blur-sm">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                  <div className="p-6 bg-white dark:bg-gray-900">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-900 dark:hover:text-white transition-colors">
                       Featured: Elang AI Launch Event
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
@@ -173,7 +173,7 @@ const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-900 dark:hover:text-white transition-colors">
                   {project.link ? (
                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
                       {parseBoldText(project.title)}
